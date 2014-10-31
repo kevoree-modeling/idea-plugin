@@ -2,111 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2a5f2948-01a5-414e-b17f-f093ab023fa7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/src/main/java/doc.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/apidocs/class-use/doc.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/jb/$$size$$" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/native/linux32/libjansi.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/native/linux64/libjansi.so" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/native/osx/libjansi.jnilib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/native/windows32/jansi.dll" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/native/windows64/jansi.dll" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/java.nio.charset.spi.CharsetProvider" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jet.lang.diagnostics.rendering.DefaultErrorMessages$Extension" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jet.lang.resolve.ExternalOverridabilityCondition" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jet.lang.resolve.java.jvmSignature.KotlinToJvmSignatureMapper" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.JpsElementFactory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.JpsEncodingConfigurationService" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.artifact.JpsArtifactService" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.artifact.elements.JpsPackagingElementFactory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.ex.JpsExElementFactory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.fileTypes.FileNameMatcherFactory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.java.JdkVersionDetector" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.java.JpsJavaExtensionService" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.serialization.JpsModelSerializerExtension" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.model.serialization.JpsSerializationManager" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.service.JpsServiceManager" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.jetbrains.jps.service.SharedThreadPool" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/META-INF/services/org.xmlpull.v1.XmlPullParserFactory" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/codeInsight/completion/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/codeInsight/highlighting/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/codeInsight/intention/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/execution/configurations/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/execution/filters/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/execution/process/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/execution/ui/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ide/util/projectWizard/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ide/util/treeView/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ide/util/treeView/smartTree/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ide/wizard/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/annotation/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/cacheBuilder/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/findUsages/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/folding/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/refactoring/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/lang/surroundWith/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/actionSystem/ex/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/command/undo/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/compiler/make/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/editor/actionSystem/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/editor/actions/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/editor/colors/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/editor/event/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/editor/markup/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/options/colors/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/roots/libraries/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/roots/ui/configuration/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/checkin/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/diff/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/history/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/merge/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/ui/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/update/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/versionBrowser/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vcs/vfs/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vfs/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/vfs/pointers/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/openapi/wm/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/pom/java/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/javadoc/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/jsp/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/meta/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/scope/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/search/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/search/scope/packageSet/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/statistics/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/tree/java/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/tree/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/tree/xml/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/util/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/psi/xml/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/refactoring/util/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/components/labels/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/components/panels/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/content/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/dualView/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/errorView/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/messager/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/table/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/ui/treeStructure/treetable/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/usages/actions/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/usages/impl/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/usages/impl/rules/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/usages/rules/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/util/net/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/util/ui/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/com/intellij/util/ui/tree/package.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/fileTemplates/internal/MetaModel.mm.ft" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/jline/console/completer/CandidateListCompletionHandler.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/org/apache/log4j/lf5/config/defaultconfig.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/org/kevoree/modeling/mm.bnf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/classes/org/kevoree/modeling/test.mm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/javadoc-bundle-options/package-list" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/maven-archiver/pom.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml" afterPath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/src/main/java/ToDoc.java" />
     </list>
     <ignored path="org.kevoree.modeling.idea.root.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,11 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7217538" vertical-offset="427" max-vertical-offset="1125">
-              <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="427" max-vertical-offset="1125">
+              <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ToDoc.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/src/main/java/ToDoc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.075885326" vertical-offset="0" max-vertical-offset="593">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -263,6 +169,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.dsl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -294,6 +226,22 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <option name="name" value="Go application" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <option name="scriptName" value="" />
+      <option name="scriptArguments" value="" />
+      <option name="builderArguments" value="" />
+      <option name="goBuildBeforeRun" value="false" />
+      <option name="goOutputDir" value="" />
+      <option name="workingDir" value="" />
+      <option name="envVars" value="" />
+      <option name="goVetEnabled" value="false" />
+      <module name="" />
+      <method />
+    </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -322,6 +270,22 @@
       </MavenSettings>
       <method />
     </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
@@ -330,17 +294,7 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -371,19 +325,17 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
       <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -407,12 +359,167 @@
       <patterns />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
+    <configuration default="true" type="KevscriptRunner" factoryName="Run (Dev Mode)">
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list />
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GoTestConfiguration" factoryName="Go Test">
+      <option name="name" value="Go Test" />
+      <option name="saveOutputToFile" value="false" />
+      <option name="showConsoleOnStdErr" value="false" />
+      <option name="showConsoleOnStdOut" value="false" />
+      <option name="envVars" value="" />
+      <option name="testRunnerArgs" value="" />
+      <option name="testTargetType" value="Package" />
+      <option name="packageName" value="" />
+      <option name="packageDir" value="" />
+      <option name="testFile" value="" />
+      <option name="testArgs" value="" />
+      <option name="workingDir" value="" />
+      <option name="executeWhat" value="Test" />
+      <option name="filter" value="" />
+      <option name="useShortRun" value="false" />
+      <option name="testBeforeBenchmark" value="false" />
+      <option name="goVetEnabled" value="false" />
+      <module name="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="scalaCoverage" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="$PROJECT_DIR$" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
+      <module name="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="ToolWindowManager">
     <frame x="-1440" y="22" width="1440" height="878" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -472,8 +579,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7217538" vertical-offset="427" max-vertical-offset="1125">
-          <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="427" max-vertical-offset="1125">
+          <caret line="39" column="50" selection-start-line="39" selection-start-column="50" selection-end-line="39" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/src/main/java/ToDoc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.075885326" vertical-offset="0" max-vertical-offset="593">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
           <folding />
         </state>
       </provider>
