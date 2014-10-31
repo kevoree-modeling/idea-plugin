@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2a5f2948-01a5-414e-b17f-f093ab023fa7" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/org.kevoree.modeling.idea.dsl.iml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/org.kevoree.modeling.dsl.iml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/pom.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/src/main/java/doc.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/antrun/build-main.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/allclasses-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/allclasses-noframe.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/class-use/doc.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/constant-values.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/deprecated-list.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/doc.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/help-doc.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/index-all.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/overview-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/package-frame.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/package-list" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/package-summary.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/package-tree.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/package-use.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/script.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/apidocs/stylesheet.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/META-INF/MANIFEST.MF" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/META-INF/jb/$$size$$" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/META-INF/plugin.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/codeInsight/completion/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/codeInsight/highlighting/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/codeInsight/intention/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/codeInsight/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/codeInspection/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/debugger/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/execution/configurations/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/execution/filters/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/execution/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/execution/process/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/execution/ui/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/featureStatistics/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/find/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/formatting/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/fileTemplates/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/projectView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/structureView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/util/gotoByName/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/util/projectWizard/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/util/treeView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/util/treeView/smartTree/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ide/wizard/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/annotation/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/cacheBuilder/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/findUsages/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/folding/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/refactoring/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lang/surroundWith/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/lexer/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/navigation/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/actionSystem/ex/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/actionSystem/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/application/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/command/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/command/undo/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/compiler/make/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/compiler/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/components/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/diagnostic/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/diff/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/actionSystem/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/actions/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/colors/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/event/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/markup/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/editor/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/fileChooser/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/fileEditor/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/fileTypes/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/help/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/ide/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/keymap/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/module/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/options/colors/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/options/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/progress/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/project/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/projectRoots/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/roots/libraries/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/roots/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/roots/ui/configuration/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/startup/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/ui/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/actions/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/annotate/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/checkin/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/diff/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/history/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/merge/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/ui/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/update/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/versionBrowser/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vcs/vfs/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vfs/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/vfs/pointers/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/openapi/wm/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/packageDependencies/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/pom/java/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/pom/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/codeStyle/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/html/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/infos/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/javadoc/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/jsp/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/meta/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/scope/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/search/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/search/scope/packageSet/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/statistics/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/tree/java/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/tree/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/tree/xml/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/psi/xml/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/refactoring/listeners/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/refactoring/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/refactoring/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/testFramework/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/components/labels/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/components/panels/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/content/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/dualView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/errorView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/messager/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/table/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/ui/treeStructure/treetable/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/unscramble/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usageView/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usages/actions/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usages/impl/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usages/impl/rules/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usages/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/usages/rules/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/concurrency/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/config/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/io/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/net/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/ui/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/util/ui/tree/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/vcsUtil/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/xdebugger/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/xml/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/com/intellij/xml/util/package.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/fileTemplates/internal/MetaModel.mm.ft" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/i18n/ExternalSystemBundle.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/icons/kevs_16x16.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/icons/kevs_48x48.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/messages/JavaCoreBundle.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/org/kevoree/modeling/mm.bnf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/classes/org/kevoree/modeling/test.mm" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/javadoc-bundle-options/package-list" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/maven-archiver/pom.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea/.idea/misc.xml" afterPath="$PROJECT_DIR$/org.kevoree.modeling.idea/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/org.kevoree.modeling.idea/.idea/workspace.xml" afterPath="$PROJECT_DIR$/org.kevoree.modeling.idea/.idea/workspace.xml" />
+    </list>
+    <ignored path="org.kevoree.modeling.idea.root.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <ignored path="$PROJECT_DIR$/org.kevoree.modeling.dsl/target/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="org.kevoree.modeling.idea.root" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8229342" vertical-offset="487" max-vertical-offset="1185">
+              <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/org.kevoree.modeling.dsl/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Kevoree :: Modeling :: IDEA :: Root" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Kevoree :: Modeling :: IDEA :: Root" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-1440" />
+    <option name="y" value="22" />
+    <option name="width" value="1440" />
+    <option name="height" value="878" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.dsl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.root" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="org.kevoree.modeling.idea.dsl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../dukeboard/kevoree-modeling-framework/pom.xml" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="LayoutCode.rearrangeEntriesXML" value="false" />
+  </component>
+  <component name="PsiViewer.ProjectComponent">
+    <option name="HIGHLIGHT" value="false" />
+    <option name="FILTER_WHITESPACE" value="false" />
+    <option name="SHOW_PROPERTIES" value="true" />
+    <option name="SPLIT_DIVIDER_POSITION" value="300" />
+    <option name="AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="AUTOSCROLL_FROM_SOURCE" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/lib" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="ToolWindowManager">
+    <frame x="-1440" y="22" width="1440" height="878" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Kotlin Bytecode" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3590844" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25608012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20992367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="KevoreeEditor" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="myTodoPanelSettings">
+      <TodoPanelSettings />
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6118881" vertical-offset="0" max-vertical-offset="2700">
+          <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8229342" vertical-offset="487" max-vertical-offset="1185">
+          <caret line="65" column="44" selection-start-line="65" selection-start-column="44" selection-end-line="65" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

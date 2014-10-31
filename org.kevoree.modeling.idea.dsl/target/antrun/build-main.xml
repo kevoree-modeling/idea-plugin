@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <echo message="prepare phase"/>
+  <unzip src="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/lib/openapi.jar" dest="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes"/>
+  <unzip src="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/lib/kotlin-compiler-0.9.206.jar" dest="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes"/>
+  <unzip src="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/../org.kevoree.modeling.idea/org.kevoree.modeling.idea.zip" dest="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes"/>
+  <unzip src="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/org.kevoree.modeling.idea/lib/org.kevoree.modeling.idea.jar" dest="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes"/>
+  <delete dir="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/org.kevoree.modeling.idea/lib"/>
+  <delete dir="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/kotlin"/>
+  <delete dir="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/org/jetbrains/k2js"/>
+  <delete dir="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/org/jetbrains/kotlin"/>
+  <delete dir="/Users/duke/Documents/dev/kevoreeTeam/org.kevoree.modeling.idea/org.kevoree.modeling.idea.dsl/target/classes/org/jetbrains/js"/>
+</target>
+</project>
