@@ -3,7 +3,7 @@
     <groupId>org.kevoree.modeling.idea</groupId>
     <artifactId>org.kevoree.modeling.idea.root</artifactId>
     <packaging>pom</packaging>
-    <version>11-SNAPSHOT</version>
+    <version>11</version>
     <name>Kevoree :: Modeling :: IDEA :: Root</name>
     <url>https://github.com/kevoree/org.kevoree.modeling.idea</url>
     <description>Kevoree Modeling IDEA Framework</description>
