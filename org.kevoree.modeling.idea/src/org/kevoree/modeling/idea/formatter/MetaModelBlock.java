@@ -207,6 +207,17 @@ public class MetaModelBlock extends AbstractBlock {
                 return singleSpace();
             }
 
+            if (type1 == MetaModelTypes.DECLARATION && type2 == MetaModelTypes.COMMENT) {
+                return newLine();
+            }
+            if (type1 == MetaModelTypes.COMMENT && type2 == MetaModelTypes.DECLARATION) {
+                return newLine();
+            }
+            if (type1 == MetaModelTypes.COMMENT && type2 == MetaModelTypes.COMMENT) {
+                return newLine();
+            }
+
+
             System.out.println("Formatting Warning. Spacing unspecified between t1:" + type1 + " type2:" + type2);
         }
         return noSpace();

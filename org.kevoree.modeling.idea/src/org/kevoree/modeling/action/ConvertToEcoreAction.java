@@ -38,15 +38,13 @@ public class ConvertToEcoreAction extends AnAction implements DumbAware {
     public void actionPerformed(AnActionEvent anActionEvent) {
         StandaloneParser parser = new StandaloneParser(anActionEvent.getProject());
         VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(anActionEvent.getDataContext());
-
         FileDocumentManager.getInstance().saveDocument(FileDocumentManager.getInstance().getDocument(currentFile));
-
         try {
             PsiFile psi = parser.parser(currentFile);
             List<String> errors = parser.check(psi);
             if (!errors.isEmpty()) {
 
-                for(String s : errors){
+                for (String s : errors) {
                     System.out.println(s);
                 }
 
@@ -55,11 +53,13 @@ public class ConvertToEcoreAction extends AnAction implements DumbAware {
                 String path = currentFile.getCanonicalPath();
                 File target = new File(path.replace(".mm", ".ecore"));
                 parser.convert2ecore(psi, target);
+                currentFile.refresh(false, false);
+                currentFile.getParent().refresh(false, true);
+                anActionEvent.getProject().getBaseDir().refresh(false, true);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        currentFile.getParent().refresh(true, true);
 
     }
 }

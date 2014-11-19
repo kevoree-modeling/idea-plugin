@@ -1,13 +1,16 @@
 package org.kevoree.modeling.action;
 
+import com.google.common.io.ByteStreams;
 import com.google.common.io.Files;
+import com.intellij.execution.configurations.CommandLineBuilder;
+import com.intellij.execution.configurations.GeneralCommandLine;
+import com.intellij.execution.configurations.JavaCommandLineStateUtil;
+import com.intellij.execution.configurations.JavaParameters;
+import com.intellij.execution.process.OSProcessHandler;
 import com.intellij.notification.Notification;
 import com.intellij.notification.NotificationType;
 import com.intellij.notification.Notifications;
-import com.intellij.openapi.actionSystem.AnAction;
-import com.intellij.openapi.actionSystem.AnActionEvent;
-import com.intellij.openapi.actionSystem.DataKeys;
-import com.intellij.openapi.actionSystem.Presentation;
+import com.intellij.openapi.actionSystem.*;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.openapi.fileEditor.FileDocumentManager;
 import com.intellij.openapi.module.Module;
@@ -15,6 +18,9 @@ import com.intellij.openapi.progress.ProgressIndicator;
 import com.intellij.openapi.progress.ProgressManager;
 import com.intellij.openapi.progress.Task;
 import com.intellij.openapi.project.DumbAware;
+import com.intellij.openapi.projectRoots.JavaSdkType;
+import com.intellij.openapi.projectRoots.Sdk;
+import com.intellij.openapi.projectRoots.impl.JavaAwareProjectJdkTableImpl;
 import com.intellij.openapi.roots.ModifiableRootModel;
 import com.intellij.openapi.roots.ModuleRootManager;
 import com.intellij.openapi.roots.ProjectRootManager;
@@ -23,16 +29,14 @@ import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.lang.reflect.Method;
-import java.net.URL;
-import java.net.URLClassLoader;
+import java.io.OutputStream;
 
 /**
  * Created by duke on 7/17/14.
  */
 public class GenerateJavaAction extends AnAction implements DumbAware {
-
 
     @Override
     public void update(AnActionEvent e) {
@@ -48,109 +52,138 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
 
     @Override
     public void actionPerformed(final AnActionEvent anActionEvent) {
+        generate(anActionEvent, false);
+    }
 
-        final VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(anActionEvent.getDataContext());
-
-        FileDocumentManager.getInstance().saveDocument(FileDocumentManager.getInstance().getDocument(currentFile));
-
-
-        ProgressManager.getInstance().run(new Task.Backgroundable(anActionEvent.getProject(), "KMF Compiler 2 JAR") {
-            public void run(@NotNull ProgressIndicator progressIndicator) {
-
-                Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation started", NotificationType.INFORMATION));
-
-                progressIndicator.setFraction(0.10);
-                progressIndicator.setText("downloading compiler file...");
-                final File compiler = KMFCompilerResolver.resolveCompiler();
-                progressIndicator.setFraction(0.20);
-                progressIndicator.setText("compile KMF code...");
-                try {
-                    URL[] urls = {new URL("file:///" + compiler.getAbsolutePath())};
-                    final URLClassLoader urlClassLoader = new InvertedURLClassLoader(urls);
-                    final Class cls = urlClassLoader.loadClass("org.kevoree.modeling.kotlin.standalone.App");
-
-                    final String path = currentFile.getCanonicalPath();
-
-                    Thread t = new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                                Thread.currentThread().setContextClassLoader(urlClassLoader);
-                                Method meth = cls.getMethod("main", String[].class);
-                                String[] params = {path};
-                                meth.invoke(null, (Object) params); // static method doesn't have an instance
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-
-
-                        }
-                    });
-                    t.start();
-                    t.join();
-
-                    // Finished
-                    progressIndicator.setFraction(1.0);
-                    progressIndicator.setText("finished");
-
-                    Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation success", NotificationType.INFORMATION));
-
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-
-                ApplicationManager.getApplication().invokeLater(new Runnable() {
+    public void generate(final AnActionEvent anActionEvent, final boolean js) {
+        ApplicationManager.getApplication().invokeLater(new Runnable() {
+            public void run() {
+                ApplicationManager.getApplication().runWriteAction(new Runnable() {
                     public void run() {
-                        ApplicationManager.getApplication().runWriteAction(new Runnable() {
-                            public void run() {
-
-                                assert currentFile != null;
-                                final VirtualFile[] libDir = new VirtualFile[1];
-                                try {
-                                    libDir[0] = currentFile.getParent().findChild(currentFile.getName() + ".libs");
-                                    if (libDir[0] == null) {
-                                        libDir[0] = currentFile.getParent().createChildDirectory(this, currentFile.getName() + ".libs");
-                                    }
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                                String resultFile = currentFile.getCanonicalPath().replace(currentFile.getExtension(), "jar");
-                                File resultFileP = new File(resultFile);
-
-                                try {
-                                    File target = new File(libDir[0].getCanonicalPath(), resultFileP.getName());
-                                    if (target.exists()) {
-                                        target.delete();
-                                    }
-                                    Files.copy(resultFileP, target);
-                                    resultFileP.delete();
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-
-
-                                Module module = ProjectRootManager.getInstance(getProject()).getFileIndex().getModuleForFile(currentFile);
-                                ModuleRootManager moduleRootManager = ModuleRootManager.getInstance(module);
-                                ModifiableRootModel rootModel = moduleRootManager.getModifiableModel();
-                                Library library = rootModel.getModuleLibraryTable().getLibraryByName(currentFile.getName());
-                                if (library == null) {
-                                    library = rootModel.getModuleLibraryTable().getModifiableModel().createLibrary(currentFile.getName());
-                                }
-                                Library.ModifiableModel modifiableModel = library.getModifiableModel();
-                                modifiableModel.addJarDirectory(libDir[0], false);
-                                modifiableModel.commit();
-                                rootModel.commit();
-
-                                currentFile.getParent().refresh(false, true);
+                        final VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(anActionEvent.getDataContext());
+                        FileDocumentManager.getInstance().saveDocument(FileDocumentManager.getInstance().getDocument(currentFile));
+                        try {
+                            VirtualFile foundDir = anActionEvent.getProject().getBaseDir().findChild("gen");
+                            if (foundDir == null) {
+                                foundDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "gen");
+                            } else {
+                                foundDir.delete(this);
+                                foundDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "gen");
                             }
-                        });
+                            final VirtualFile genDir = foundDir;
+                            ProgressManager.getInstance().run(new Task.Backgroundable(anActionEvent.getProject(), "KMF Compiler 2 JAR") {
+                                public void run(@NotNull ProgressIndicator progressIndicator) {
+                                    Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation started", NotificationType.INFORMATION));
+                                    progressIndicator.setFraction(0.10);
+                                    progressIndicator.setText("Downloading KMF Compiler...");
+                                    final String askedVersion = VersionAnalyzer.getKMFVersion(currentFile);
+                                    final File compiler = KMFCompilerResolver.resolveCompiler(askedVersion);
+                                    if (compiler == null) {
+                                        progressIndicator.setFraction(1.0);
+                                        progressIndicator.setText("compiler not found");
+                                        Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compiler not found for version " + askedVersion, NotificationType.INFORMATION));
+                                        return;
+                                    }
+                                    progressIndicator.setFraction(0.20);
+                                    progressIndicator.setText("compile KMF code...");
+                                    try {
+                                        Sdk[] sdks = JavaAwareProjectJdkTableImpl.getInstance().getAllJdks();
+                                        Sdk foundSdk = null;
+                                        for (Sdk sdk : sdks) {
+                                            if (sdk.getSdkType() instanceof JavaSdkType) {
+                                                if (sdk.getVersionString() != null && sdk.getVersionString().contains("1.8")) {
+                                                    foundSdk = sdk;
+                                                }
+                                            }
+                                        }
+                                        if (foundSdk != null) {
+                                            JavaParameters parameters = new JavaParameters();
+                                            parameters.setJdk(foundSdk);
+                                            parameters.setUseDynamicClasspath(false);
+                                            parameters.setMainClass("org.kevoree.modeling.generator.standalone.App");
+                                            parameters.setWorkingDirectory(anActionEvent.getProject().getBasePath());
+                                            parameters.getClassPath().add(compiler);
+                                            parameters.getVMParametersList().add("-Doutput=" + genDir.getPath());
+                                            parameters.getProgramParametersList().add(currentFile.getPath());
+                                            if (js) {
+                                                parameters.getProgramParametersList().add("js");
+                                            }
+                                            GeneralCommandLine gcmd = CommandLineBuilder.createFromJavaParameters(parameters, anActionEvent.getProject(), false);
+                                            OSProcessHandler handler = JavaCommandLineStateUtil.startProcess(gcmd, true);
+                                            handler.setShouldDestroyProcessRecursively(true);
+                                            int res = handler.getProcess().waitFor();
+                                            progressIndicator.setFraction(1.0);
+                                            progressIndicator.setText("finished");
+                                            Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation success", NotificationType.INFORMATION));
+                                            genDir.refresh(false, true);
+                                            genDir.getParent().refresh(false, true);
+                                            ApplicationManager.getApplication().invokeLater(new Runnable() {
+                                                public void run() {
+                                                    ApplicationManager.getApplication().runWriteAction(new Runnable() {
+                                                        public void run() {
+                                                            Module module = ProjectRootManager.getInstance(anActionEvent.getProject()).getFileIndex().getModuleForFile(currentFile);
+                                                            ModuleRootManager moduleRootManager = ModuleRootManager.getInstance(module);
+                                                            ModifiableRootModel rootModel = moduleRootManager.getModifiableModel();
+                                                            VirtualFile srcJava = genDir.findChild("java");
+                                                            if (srcJava != null) {
+                                                                rootModel.getContentEntries()[0].addSourceFolder(srcJava, false);
+                                                            }
+                                                            //TODO avoid in case of maven
+                                                            VirtualFile libDir = anActionEvent.getProject().getBaseDir().findChild("lib");
+                                                            if (libDir == null) {
+                                                                try {
+                                                                    libDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "lib");
+                                                                } catch (IOException e) {
+                                                                    e.printStackTrace();
+                                                                }
+                                                            }
+                                                            File microFramework = KMFCompilerResolver.resolveMicroFramework(askedVersion);
+                                                            if (microFramework != null) {
+                                                                VirtualFile kmf_fwk = libDir.findChild(microFramework.getName());
+                                                                if (kmf_fwk == null) {
+                                                                    try {
+                                                                        VirtualFile framework = libDir.createChildData(this, microFramework.getName());
+                                                                        byte[] payload = ByteStreams.toByteArray(new FileInputStream(microFramework));
+                                                                        OutputStream os = framework.getOutputStream(this);
+                                                                        os.write(payload);
+                                                                        os.flush();
+                                                                        os.close();
+                                                                    } catch (IOException e) {
+                                                                        e.printStackTrace();
+                                                                    }
+                                                                }
+                                                                Library library = rootModel.getModuleLibraryTable().getLibraryByName("kmf");
+                                                                if (library == null) {
+                                                                    library = rootModel.getModuleLibraryTable().getModifiableModel().createLibrary("kmf");
+                                                                }
+                                                                Library.ModifiableModel modifiableModel = library.getModifiableModel();
+                                                                modifiableModel.addJarDirectory(libDir, false);
+                                                                modifiableModel.commit();
 
+                                                            }
+                                                            rootModel.commit();
+                                                            currentFile.getParent().refresh(false, true);
+                                                        }
+                                                    });
+                                                }
+                                            });
 
+                                        } else {
+                                            progressIndicator.setFraction(1.0);
+                                            progressIndicator.setText("error");
+                                            Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation fail, no compatible JDK founded", NotificationType.INFORMATION));
+                                        }
+                                        // Finished
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            });
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
-
-
             }
         });
 

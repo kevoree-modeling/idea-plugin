@@ -105,7 +105,7 @@
         </action>
 
         <action id="GenerateJava" class="org.kevoree.modeling.action.GenerateJavaAction"
-                text="Compile to JAR" description="Compile2JAR">
+                text="Compile to Java" description="Compile2JAR">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
 
