@@ -25,77 +25,7 @@
     <favorites_list name="org.kevoree.modeling.idea.plugin" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="GenerateJavaAction.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3477589" vertical-offset="945" max-vertical-offset="2985">
-              <caret line="93" column="101" selection-start-line="93" selection-start-column="101" selection-end-line="93" selection-end-column="101" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2260#2261#0" expanded="true" />
-                <element signature="e#2306#2307#0" expanded="true" />
-                <element signature="e#2445#13456#0" expanded="true" />
-                <element signature="e#2561#13430#0" expanded="true" />
-                <element signature="e#7793#12520#0" expanded="true" />
-                <element signature="e#7981#12422#0" expanded="true" />
-                <element signature="e#12421#12422#0" expanded="true" />
-                <element signature="e#12519#12520#0" expanded="true" />
-                <element signature="e#13429#13430#0" expanded="true" />
-                <element signature="e#13455#13456#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KMFCompilerResolver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/KMFCompilerResolver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="690">
-              <caret line="35" column="53" selection-start-line="35" selection-start-column="53" selection-end-line="35" selection-end-column="53" />
-              <folding>
-                <element signature="e#1025#1033#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="VersionAnalyzer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/VersionAnalyzer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvertedURLClassLoader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/InvertedURLClassLoader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GenerateJSAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
-              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-              <folding>
-                <element signature="e#275#276#0" expanded="true" />
-                <element signature="e#320#321#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -106,13 +36,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/../../../dukeboard/kevoree-modeling-framework/org.kevoree.modeling.idea/src/org/kevoree/modeling/_MetaModelLexer.flex" />
-        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelBlock.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/VersionAnalyzer.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/KMFCompilerResolver.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java" />
+        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
       </list>
     </option>
   </component>
@@ -633,14 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1200" max-vertical-offset="1800">
-          <caret line="110" column="0" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/execution/configurations/JavaParameters.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07968128" vertical-offset="215" max-vertical-offset="2055">
@@ -675,24 +597,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/InvertedURLClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="795">
-          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/VersionAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/openapi.jar!/com/intellij/openapi/roots/ContentEntry.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.41907513" vertical-offset="0" max-vertical-offset="1125">
@@ -711,17 +615,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.07055503" vertical-offset="0" max-vertical-offset="1063">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="300">
+        <state vertical-scroll-proportion="0.12751159" vertical-offset="0" max-vertical-offset="1294">
           <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
           <folding>
             <element signature="e#275#276#0" expanded="true" />
@@ -732,8 +628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3477589" vertical-offset="945" max-vertical-offset="2985">
-          <caret line="93" column="101" selection-start-line="93" selection-start-column="101" selection-end-line="93" selection-end-column="101" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="945" max-vertical-offset="2985">
+          <caret line="88" column="41" selection-start-line="88" selection-start-column="41" selection-end-line="88" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2260#2261#0" expanded="true" />
@@ -747,6 +643,40 @@
             <element signature="e#13429#13430#0" expanded="true" />
             <element signature="e#13455#13456#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/VersionAnalyzer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToMMAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.057959814" vertical-offset="0" max-vertical-offset="1294">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5930569" vertical-offset="0" max-vertical-offset="1830">
+          <caret line="41" column="34" selection-start-line="41" selection-start-column="34" selection-end-line="41" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
