@@ -15,6 +15,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes;
 import org.kevoree.modeling.MetaModelIcons;
+import org.kevoree.modeling.action.KMFCompilerResolver;
 import org.kevoree.modeling.idea.MetaModelTemplatesFactory;
 
 /**
@@ -44,14 +45,22 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
     protected PsiElement doCreate(PsiDirectory psiDirectory, String parameterName, String typeName) throws IncorrectOperationException {
         MetaModelTemplatesFactory.Template template = MetaModelTemplatesFactory.Template.MetaModel;
         String fileName = fileNameFromTypeName(typeName, parameterName);
-        return MetaModelTemplatesFactory.createFromTemplate(psiDirectory, fileName, template,"class kmf.Concept {\n" +
-                "    @contained\n" +
-                "    concepts : kmf.Concept2[0,*]\n" +
-                "}\n" +
-                "\n" +
-                "class kmf.Concept2 {\n" +
-                "    @id name : String\n" +
-                "}\n");
+
+        StringBuilder sample = new StringBuilder();
+        sample.append("//KMF_VERSION=" + KMFCompilerResolver.resolveLastVersion() + "\n");
+        sample.append("//VERSION=1.0.0-SNAPSHOT\n");
+        sample.append("class sample.Cloud {\n");
+        sample.append("    nodes : sample.Node[0,*]\n");
+        sample.append("}\n");
+        sample.append("class sample.Node {\n");
+        sample.append("    name : String\n");
+        sample.append("    softwares : sample.Software[0,*]\n");
+        sample.append("}\n");
+        sample.append("class sample.Software {\n");
+        sample.append("    name : String\n");
+        sample.append("    size : Int\n");
+        sample.append("}\n");
+        return MetaModelTemplatesFactory.createFromTemplate(psiDirectory, fileName, template, sample.toString());
     }
 
 
