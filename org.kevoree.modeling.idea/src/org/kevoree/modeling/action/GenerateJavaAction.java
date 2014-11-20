@@ -1,7 +1,6 @@
 package org.kevoree.modeling.action;
 
 import com.google.common.io.ByteStreams;
-import com.google.common.io.Files;
 import com.intellij.execution.configurations.CommandLineBuilder;
 import com.intellij.execution.configurations.GeneralCommandLine;
 import com.intellij.execution.configurations.JavaCommandLineStateUtil;
@@ -27,6 +26,7 @@ import com.intellij.openapi.roots.ProjectRootManager;
 import com.intellij.openapi.roots.libraries.Library;
 import com.intellij.openapi.vfs.VirtualFile;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.jps.model.java.JavaResourceRootType;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -105,8 +105,14 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                             parameters.getClassPath().add(compiler);
                                             parameters.getVMParametersList().add("-Doutput=" + genDir.getPath());
                                             parameters.getProgramParametersList().add(currentFile.getPath());
+                                            VirtualFile resourcesDir = null;
                                             if (js) {
                                                 parameters.getProgramParametersList().add("js");
+                                                resourcesDir = anActionEvent.getProject().getBaseDir().findChild("resources");
+                                                if (resourcesDir == null) {
+                                                    resourcesDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "resources");
+                                                }
+                                                parameters.getVMParametersList().add("-Dresources=" + resourcesDir.getPath());
                                             }
                                             GeneralCommandLine gcmd = CommandLineBuilder.createFromJavaParameters(parameters, anActionEvent.getProject(), false);
                                             OSProcessHandler handler = JavaCommandLineStateUtil.startProcess(gcmd, true);
@@ -117,6 +123,7 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                             Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation success", NotificationType.INFORMATION));
                                             genDir.refresh(false, true);
                                             genDir.getParent().refresh(false, true);
+                                            final VirtualFile finalResourcesDir = resourcesDir;
                                             ApplicationManager.getApplication().invokeLater(new Runnable() {
                                                 public void run() {
                                                     ApplicationManager.getApplication().runWriteAction(new Runnable() {
@@ -127,6 +134,9 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                                             VirtualFile srcJava = genDir.findChild("java");
                                                             if (srcJava != null) {
                                                                 rootModel.getContentEntries()[0].addSourceFolder(srcJava, false);
+                                                            }
+                                                            if (finalResourcesDir != null) {
+                                                                rootModel.getContentEntries()[0].addSourceFolder(finalResourcesDir, JavaResourceRootType.RESOURCE);
                                                             }
                                                             //TODO avoid in case of maven
                                                             VirtualFile libDir = anActionEvent.getProject().getBaseDir().findChild("lib");
