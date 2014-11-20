@@ -173,6 +173,11 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                                             }
                                                             rootModel.commit();
                                                             currentFile.getParent().refresh(false, true);
+
+                                                            if (finalResourcesDir != null) {
+                                                                finalResourcesDir.refresh(false, true);
+                                                            }
+
                                                         }
                                                     });
                                                 }
