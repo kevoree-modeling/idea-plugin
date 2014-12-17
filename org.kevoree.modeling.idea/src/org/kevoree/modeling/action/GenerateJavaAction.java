@@ -56,21 +56,41 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
     }
 
     public void generate(final AnActionEvent anActionEvent, final boolean js) {
+
         ApplicationManager.getApplication().invokeLater(new Runnable() {
             public void run() {
                 ApplicationManager.getApplication().runWriteAction(new Runnable() {
                     public void run() {
                         final VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(anActionEvent.getDataContext());
+                        Module module = ProjectRootManager.getInstance(anActionEvent.getProject()).getFileIndex().getModuleForFile(currentFile);
                         FileDocumentManager.getInstance().saveDocument(FileDocumentManager.getInstance().getDocument(currentFile));
+                        VirtualFile moduleRoot = null;
+                        if (module.getModuleFile() == null) {
+                            String relPath = module.getModuleFilePath().substring(0, module.getModuleFilePath().lastIndexOf(File.separator));
+                            moduleRoot = anActionEvent.getProject().getBaseDir().getFileSystem().findFileByPath(relPath);
+                        } else {
+                            moduleRoot = module.getModuleFile().getParent();
+                        }
+
                         try {
-                            VirtualFile foundDir = anActionEvent.getProject().getBaseDir().findChild("gen");
+                            VirtualFile foundDir = moduleRoot.findChild("gen");
                             if (foundDir == null) {
-                                foundDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "gen");
+                                foundDir = moduleRoot.createChildDirectory(this, "gen");
                             } else {
                                 foundDir.delete(this);
-                                foundDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "gen");
+                                foundDir = moduleRoot.createChildDirectory(this, "gen");
                             }
+
+                            VirtualFile resourcesDir = null;
+                            if (js) {
+                                resourcesDir = moduleRoot.findChild("resources");
+                                if (resourcesDir == null) {
+                                    resourcesDir = moduleRoot.createChildDirectory(this, "resources");
+                                }
+                            }
+                            final VirtualFile finalResourcesDir = resourcesDir;
                             final VirtualFile genDir = foundDir;
+                            final VirtualFile finalModuleRoot = moduleRoot;
                             ProgressManager.getInstance().run(new Task.Backgroundable(anActionEvent.getProject(), "KMF Compiler 2 JAR") {
                                 public void run(@NotNull ProgressIndicator progressIndicator) {
                                     Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation started", NotificationType.INFORMATION));
@@ -103,16 +123,11 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                             parameters.setMainClass("org.kevoree.modeling.generator.standalone.App");
                                             parameters.setWorkingDirectory(anActionEvent.getProject().getBasePath());
                                             parameters.getClassPath().add(compiler);
-                                            parameters.getVMParametersList().add("-Doutput=" + genDir.getPath());
+                                            parameters.getVMParametersList().add("-Doutput=" + genDir.getPath() + "");
                                             parameters.getProgramParametersList().add(currentFile.getPath());
-                                            VirtualFile resourcesDir = null;
                                             if (js) {
                                                 parameters.getProgramParametersList().add("js");
-                                                resourcesDir = anActionEvent.getProject().getBaseDir().findChild("resources");
-                                                if (resourcesDir == null) {
-                                                    resourcesDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "resources");
-                                                }
-                                                parameters.getVMParametersList().add("-Dresources=" + resourcesDir.getPath());
+                                                parameters.getVMParametersList().add("-Dresources=" + finalResourcesDir.getPath() + "");
                                             }
                                             GeneralCommandLine gcmd = CommandLineBuilder.createFromJavaParameters(parameters, anActionEvent.getProject(), false);
                                             OSProcessHandler handler = JavaCommandLineStateUtil.startProcess(gcmd, true);
@@ -123,7 +138,6 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                             Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation success", NotificationType.INFORMATION));
                                             genDir.refresh(false, true);
                                             genDir.getParent().refresh(false, true);
-                                            final VirtualFile finalResourcesDir = resourcesDir;
                                             ApplicationManager.getApplication().invokeLater(new Runnable() {
                                                 public void run() {
                                                     ApplicationManager.getApplication().runWriteAction(new Runnable() {
@@ -139,10 +153,10 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                                                 rootModel.getContentEntries()[0].addSourceFolder(finalResourcesDir, JavaResourceRootType.RESOURCE);
                                                             }
                                                             //TODO avoid in case of maven
-                                                            VirtualFile libDir = anActionEvent.getProject().getBaseDir().findChild("lib");
+                                                            VirtualFile libDir = finalModuleRoot.findChild("lib");
                                                             if (libDir == null) {
                                                                 try {
-                                                                    libDir = anActionEvent.getProject().getBaseDir().createChildDirectory(this, "lib");
+                                                                    libDir = finalModuleRoot.createChildDirectory(this, "lib");
                                                                 } catch (IOException e) {
                                                                     e.printStackTrace();
                                                                 }

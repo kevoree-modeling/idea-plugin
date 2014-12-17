@@ -59,12 +59,12 @@ public class PrettyPrinter {
 
         for (EAttribute eAttribute : cls.getEAttributes()) {
             for (EAnnotation ea : eAttribute.getEAnnotations()) {
-                if (ea.getSource().equals("learn")) {
+                if (ea.getSource().equals("precision")) {
                     String level = ea.getDetails().get("level");
                     if (level != null) {
-                        sw.write("    @learn(" + level + ")\n");
+                        sw.write("    @precision(" + level + ")\n");
                     } else {
-                        sw.write("    @learn\n");
+                        sw.write("    @precision\n");
                     }
                 }
             }

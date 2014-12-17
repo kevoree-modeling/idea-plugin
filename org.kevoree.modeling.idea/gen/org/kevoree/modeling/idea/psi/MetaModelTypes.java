@@ -16,6 +16,9 @@ public interface MetaModelTypes {
   IElementType DECLARATION = new MetaModelElementType("DECLARATION");
   IElementType ENUM_DECLARATION = new MetaModelElementType("ENUM_DECLARATION");
   IElementType ENUM_ELEM_DECLARATION = new MetaModelElementType("ENUM_ELEM_DECLARATION");
+  IElementType INFER_DECLARATION = new MetaModelElementType("INFER_DECLARATION");
+  IElementType INFER_DEP_DECLARATION = new MetaModelElementType("INFER_DEP_DECLARATION");
+  IElementType INFER_DEP_TIME_DECL = new MetaModelElementType("INFER_DEP_TIME_DECL");
   IElementType MULTIPLICITY_DECLARATION = new MetaModelElementType("MULTIPLICITY_DECLARATION");
   IElementType MULTIPLICITY_DECLARATION_LOWER = new MetaModelElementType("MULTIPLICITY_DECLARATION_LOWER");
   IElementType MULTIPLICITY_DECLARATION_UPPER = new MetaModelElementType("MULTIPLICITY_DECLARATION_UPPER");
@@ -29,6 +32,7 @@ public interface MetaModelTypes {
   IElementType RELATION_NAME = new MetaModelElementType("RELATION_NAME");
   IElementType RELATION_OPPOSITE = new MetaModelElementType("RELATION_OPPOSITE");
   IElementType TYPE_DECLARATION = new MetaModelElementType("TYPE_DECLARATION");
+  IElementType USING_DECLARATION = new MetaModelElementType("USING_DECLARATION");
 
   IElementType ANNOT_PARAM_CLOSE = new MetaModelTokenType(")");
   IElementType ANNOT_PARAM_OPEN = new MetaModelTokenType("(");
@@ -42,8 +46,10 @@ public interface MetaModelTypes {
   IElementType ENUM = new MetaModelTokenType("enum");
   IElementType EOF = new MetaModelTokenType("<<EOF>>");
   IElementType EQ = new MetaModelTokenType("=");
+  IElementType FROM = new MetaModelTokenType("from");
   IElementType FUNC = new MetaModelTokenType("func");
   IElementType IDENT = new MetaModelTokenType("IDENT");
+  IElementType INFER = new MetaModelTokenType("infer");
   IElementType MULT_CLOSE = new MetaModelTokenType("]");
   IElementType MULT_OPEN = new MetaModelTokenType("[");
   IElementType MULT_SEP = new MetaModelTokenType(".");
@@ -54,6 +60,7 @@ public interface MetaModelTypes {
   IElementType STRING = new MetaModelTokenType("string");
   IElementType SUB = new MetaModelTokenType("/");
   IElementType TANNOTATION = new MetaModelTokenType("TANNOTATION");
+  IElementType USING = new MetaModelTokenType("using");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
@@ -81,6 +88,15 @@ public interface MetaModelTypes {
       }
       else if (type == ENUM_ELEM_DECLARATION) {
         return new MetaModelEnumElemDeclarationImpl(node);
+      }
+      else if (type == INFER_DECLARATION) {
+        return new MetaModelInferDeclarationImpl(node);
+      }
+      else if (type == INFER_DEP_DECLARATION) {
+        return new MetaModelInferDepDeclarationImpl(node);
+      }
+      else if (type == INFER_DEP_TIME_DECL) {
+        return new MetaModelInferDepTimeDeclImpl(node);
       }
       else if (type == MULTIPLICITY_DECLARATION) {
         return new MetaModelMultiplicityDeclarationImpl(node);
@@ -120,6 +136,9 @@ public interface MetaModelTypes {
       }
       else if (type == TYPE_DECLARATION) {
         return new MetaModelTypeDeclarationImpl(node);
+      }
+      else if (type == USING_DECLARATION) {
+        return new MetaModelUsingDeclarationImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

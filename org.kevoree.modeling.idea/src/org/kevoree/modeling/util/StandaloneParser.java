@@ -325,7 +325,7 @@ public class StandaloneParser {
                                         if ("@contained".equals(element.getText())) {
                                             isContained[0] = true;
                                         }
-                                        if (element.getText() != null && element.getText().startsWith("@learn")) {
+                                        if (element.getText() != null && element.getText().startsWith("@precision")) {
                                             isLearn[0] = true;
                                             MetaModelAnnotation annot = (MetaModelAnnotation) element;
                                             if (annot.getAnnotationParam() != null) {
@@ -363,7 +363,7 @@ public class StandaloneParser {
                                 structuralFeature = eatt;
                                 if (isLearn[0]) {
                                     EAnnotation annotation = factory.createEAnnotation();
-                                    annotation.setSource("learn");
+                                    annotation.setSource("precision");
                                     annotation.getDetails().put("level", learnLevel[0]);
                                     eatt.getEAnnotations().add(annotation);
                                 }
@@ -486,7 +486,7 @@ public class StandaloneParser {
                                     errors.add("@contained is only valid on references (WITHOUT PrimitiveTypes: " + builder + ")");
                                 }
                             } else {
-                                if (element.getText() != null && element.getText().startsWith("@learn")) {
+                                if (element.getText() != null && element.getText().startsWith("@precision")) {
                                     if (!finalIsAttribute) {
                                         StringBuilder builder = new StringBuilder();
                                         for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -495,10 +495,10 @@ public class StandaloneParser {
                                             }
                                             builder.append(p.name());
                                         }
-                                        errors.add("@learn is only valid on attributes (with PrimitiveTypes: " + builder + ")");
+                                        errors.add("@precision is only valid on attributes (with PrimitiveTypes: " + builder + ")");
                                     }
                                 } else {
-                                    errors.add(element.getText() + " is not a valid annotation @id, @learn and @contained expected");
+                                    errors.add(element.getText() + " is not a valid annotation @id, @precision and @contained expected");
                                 }
                             }
                         }
@@ -520,7 +520,7 @@ public class StandaloneParser {
                 final boolean[] isValidated = {false};
                 if (!isValidated[0]) {
                     PsiElement parent = o.getParent();
-                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration)) {
+                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration) && !(parent instanceof MetaModelInferDeclaration)) {
                         PsiFile file = o.getContainingFile();
                         file.acceptChildren(new MetaModelVisitor() {
                             @Override
@@ -540,6 +540,13 @@ public class StandaloneParser {
 
                             @Override
                             public void visitEnumDeclaration(@NotNull MetaModelEnumDeclaration oo) {
+                                if (oo.getTypeDeclaration().getName().equals(o.getName())) {
+                                    isValidated[0] = true;
+                                }
+                            }
+
+                            @Override
+                            public void visitInferDeclaration(@NotNull MetaModelInferDeclaration oo) {
                                 if (oo.getTypeDeclaration().getName().equals(o.getName())) {
                                     isValidated[0] = true;
                                 }

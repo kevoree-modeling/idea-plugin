@@ -27,24 +27,20 @@ public class MetaModelFoldingBuilder implements FoldingBuilder {
 
 
     private void appendDescriptors(final ASTNode node, final Document document, final List<FoldingDescriptor> descriptors) {
-
-        if(node.getElementType() == MetaModelTypes.CLASS_DECLARATION || node.getElementType() == MetaModelTypes.ENUM_DECLARATION) {
+        if (node.getElementType() == MetaModelTypes.CLASS_DECLARATION || node.getElementType() == MetaModelTypes.ENUM_DECLARATION || node.getElementType() == MetaModelTypes.INFER_DECLARATION) {
             TextRange fullRange = node.getTextRange();
-            if(fullRange.getEndOffset() - fullRange.getStartOffset() > 0) {
+            if (fullRange.getEndOffset() - fullRange.getStartOffset() > 0) {
 
                 try {
-                    TextRange shortRange = new TextRange(fullRange.getStartOffset() + document.getText(fullRange).indexOf("{") + 1,fullRange.getEndOffset() - 1);
+                    TextRange shortRange = new TextRange(fullRange.getStartOffset() + document.getText(fullRange).indexOf("{") + 1, fullRange.getEndOffset() - 1);
                     if (shortRange.getEndOffset() - shortRange.getStartOffset() > 1) {
                         descriptors.add(new FoldingDescriptor(node, shortRange));
                     }
-                } catch (Exception e){
+                } catch (Throwable e) {
 
                 }
-
-
             }
         }
-
         ASTNode child = node.getFirstChildNode();
         while (child != null) {
             appendDescriptors(child, document, descriptors);

@@ -31,7 +31,7 @@ public class MetaModelBlock extends AbstractBlock {
 
         while(child != null) {
             if(child.getElementType() != TokenType.WHITE_SPACE) {
-                if(child.getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
+                if(child.getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION || child.getElementType() == MetaModelTypes.INFER_DEP_DECLARATION) {
                     blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
                 } else if(child.getElementType() == MetaModelTypes.ANNOTATIONS) {
                     if(child.getFirstChildNode() != null) {
@@ -50,7 +50,7 @@ public class MetaModelBlock extends AbstractBlock {
 
     @Override
     public Indent getIndent() {
-        if(getNode().getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
+        if(getNode().getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION || getNode().getElementType() == MetaModelTypes.INFER_DEP_DECLARATION) {
             return Indent.getNormalIndent();
         }
         return super.getIndent();
@@ -67,6 +67,10 @@ public class MetaModelBlock extends AbstractBlock {
                 return singleSpace();
             }
 
+            if (type1 == MetaModelTypes.INFER && type2 == MetaModelTypes.TYPE_DECLARATION) {
+                return singleSpace();
+            }
+
             if (type1 == MetaModelTypes.FUNC && type2 == MetaModelTypes.OPERATION_NAME) {
                 return singleSpace();
             }
@@ -76,6 +80,10 @@ public class MetaModelBlock extends AbstractBlock {
             }
 
             if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.PARENTS_DECLARATION) {
+                return singleSpace();
+            }
+
+            if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.USING_DECLARATION) {
                 return singleSpace();
             }
 
@@ -95,6 +103,10 @@ public class MetaModelBlock extends AbstractBlock {
                 return singleSpace();
             }
 
+            if (type1 == MetaModelTypes.USING_DECLARATION && type2 == MetaModelTypes.BODY_OPEN) {
+                return singleSpace();
+            }
+
             if (type1 == MetaModelTypes.ANNOTATIONS && type2 == MetaModelTypes.RELATION_NAME) {
                 return Spacing.createSpacing(1, 1, 1, false, 1);
             }
@@ -103,8 +115,16 @@ public class MetaModelBlock extends AbstractBlock {
                 return singleSpace();
             }
 
+            if (type1 == MetaModelTypes.USING && type2 == MetaModelTypes.IDENT) {
+                return singleSpace();
+            }
+
             if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.MULTIPLICITY_DECLARATION) {
                 return noSpace();
+            }
+
+            if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.INFER_DEP_TIME_DECL) {
+                return singleSpace();
             }
 
             if (type1 == MetaModelTypes.MULT_OPEN && type2 == MetaModelTypes.MULTIPLICITY_DECLARATION_LOWER) {
@@ -127,6 +147,14 @@ public class MetaModelBlock extends AbstractBlock {
                 return singleSpace();
             }
 
+            if (type1 == MetaModelTypes.MULTIPLICITY_DECLARATION && type2 == MetaModelTypes.INFER_DEP_TIME_DECL) {
+                return singleSpace();
+            }
+
+            if (type1 == MetaModelTypes.FROM && type2 == MetaModelTypes.STRING) {
+                return singleSpace();
+            }
+
             if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.RELATION_OPPOSITE) {
                 return singleSpace();
             }
@@ -142,6 +170,11 @@ public class MetaModelBlock extends AbstractBlock {
             if (type1 == MetaModelTypes.RELATION_DECLARATION && type2 == MetaModelTypes.RELATION_DECLARATION) {
                 return Spacing.createSpacing(1, 1, 1, false, 1);
             }
+
+            if (type1 == MetaModelTypes.INFER_DEP_DECLARATION && type2 == MetaModelTypes.INFER_DEP_DECLARATION) {
+                return Spacing.createSpacing(1, 1, 1, false, 1);
+            }
+
             if (type1 == MetaModelTypes.CLASS_ELEM_DECLARATION && type2 == MetaModelTypes.CLASS_ELEM_DECLARATION) {
                 return Spacing.createSpacing(1, 1, 1, false, 1);
             }
@@ -153,6 +186,11 @@ public class MetaModelBlock extends AbstractBlock {
             if (type1 == MetaModelTypes.ENUM_ELEM_DECLARATION && type2 == MetaModelTypes.BODY_CLOSE) {
                 return newLine();
             }
+
+            if (type1 == MetaModelTypes.INFER_DEP_DECLARATION && type2 == MetaModelTypes.BODY_CLOSE) {
+                return newLine();
+            }
+
             if (type1 == MetaModelTypes.CLASS_ELEM_DECLARATION && type2 == MetaModelTypes.BODY_CLOSE) {
                 return newLine();
             }

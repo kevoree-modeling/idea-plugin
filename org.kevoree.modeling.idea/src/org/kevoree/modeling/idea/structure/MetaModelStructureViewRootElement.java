@@ -76,6 +76,20 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                     }
 
                     @Override
+                    public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
+                        super.visitInferDeclaration(o);
+                        if (o.getTypeDeclaration() != null) {
+                            MetaModelStructureViewInferElement classElement = new MetaModelStructureViewInferElement(o, editor);
+                            processDependencies(o, classElement, editor);
+                            if (o.getTypeDeclaration().getName().lastIndexOf(".") != -1) {
+                                processPackages(MetaModelStructureViewRootElement.this, o.getTypeDeclaration().getName()).innerClasses.add(classElement);
+                            } else {
+                                MetaModelStructureViewRootElement.this.innerClasses.add(classElement);
+                            }
+                        }
+                    }
+
+                    @Override
                     public void visitPsiElement(@NotNull PsiElement o) {
                         super.visitPsiElement(o);
                         o.acceptChildren(this);
@@ -178,6 +192,13 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
             } else {
                 System.err.println("Could not find appropriate ClassElem declaration type in processReference for Structure view");
             }
+        }
+    }
+
+    private void processDependencies(MetaModelInferDeclaration o, MetaModelStructureViewInferElement inferElement, Editor editor) {
+        for (MetaModelInferDepDeclaration depDecl : o.getInferDepDeclarationList()) {
+            MetaModelStructureViewInferDependencyElement dependencyElement = new MetaModelStructureViewInferDependencyElement(depDecl, editor);
+            inferElement.dependencies.add(dependencyElement);
         }
     }
 

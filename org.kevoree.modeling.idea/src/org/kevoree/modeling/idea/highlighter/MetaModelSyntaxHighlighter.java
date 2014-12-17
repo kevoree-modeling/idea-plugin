@@ -58,6 +58,16 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.FUNC)) {
             return KEYWORD_KEYS;
         }
+        if (tokenType.equals(MetaModelTypes.INFER)) {
+            return KEYWORD_KEYS;
+        }
+        if (tokenType.equals(MetaModelTypes.USING)) {
+            return KEYWORD_KEYS;
+        }
+        if (tokenType.equals(MetaModelTypes.FROM)) {
+            return KEYWORD_KEYS;
+        }
+
         if (tokenType.equals(MetaModelTypes.OPPOSITE)) {
             return KEYWORD_KEYS;
         }

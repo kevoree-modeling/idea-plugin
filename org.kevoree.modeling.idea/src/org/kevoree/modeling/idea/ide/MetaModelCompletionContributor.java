@@ -17,7 +17,6 @@ import org.kevoree.modeling.util.PrimitiveTypes;
  */
 public class MetaModelCompletionContributor extends CompletionContributor {
 
-
     public MetaModelCompletionContributor() {
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement(MetaModelTypes.IDENT).withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.COLON)),
@@ -35,7 +34,17 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                     MetaModelDeclaration declaration = (MetaModelDeclaration) element;
                                     if (declaration.getClassDeclaration() != null && declaration.getClassDeclaration().getTypeDeclaration() != null) {
                                         resultSet.addElement(LookupElementBuilder.create(declaration.getClassDeclaration().getTypeDeclaration()));
+                                    } else {
+                                        if (declaration.getInferDeclaration() != null && declaration.getInferDeclaration().getTypeDeclaration() != null) {
+                                            resultSet.addElement(LookupElementBuilder.create(declaration.getInferDeclaration().getTypeDeclaration()));
+                                        } else {
+                                            if (declaration.getEnumDeclaration() != null && declaration.getEnumDeclaration().getTypeDeclaration() != null) {
+                                                resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration()));
+                                            }
+                                        }
                                     }
+
+
                                 }
                                 super.visitElement(element);
                             }

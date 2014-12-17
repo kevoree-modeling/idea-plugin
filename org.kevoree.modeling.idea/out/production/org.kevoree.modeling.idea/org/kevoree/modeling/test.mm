@@ -1,16 +1,23 @@
+//KMF_VERSION=3.0.0
+//VERSION=3.0.0
+
 class p.TypeDefinition {
-    @id name : String
-    @contained properties : p.Property[0,*]
+    @id
+    name : String
+    @contained
+    properties : p.Property[0,*]
 }
+
 class p.ComponentType : p.TypeDefinition {
     portNumber : Int
 }
+
 class p.Property {
-       @id name : String
-       value : String
+    @id
+    name : String
+    value : String
 
-       func myFunction(p : String,p: p.Property) : String
-
+    func myFunction(p : String, p : p.Property) : String
 }
 
 

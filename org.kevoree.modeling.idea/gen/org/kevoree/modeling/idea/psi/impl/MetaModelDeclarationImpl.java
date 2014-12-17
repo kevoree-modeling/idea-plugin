@@ -36,8 +36,8 @@ public class MetaModelDeclarationImpl extends ASTWrapperPsiElement implements Me
 
   @Override
   @Nullable
-  public PsiElement getEof() {
-    return findChildByType(EOF);
+  public MetaModelInferDeclaration getInferDeclaration() {
+    return findChildByClass(MetaModelInferDeclaration.class);
   }
 
 }

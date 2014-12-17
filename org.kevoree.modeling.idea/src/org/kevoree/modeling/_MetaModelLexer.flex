@@ -33,9 +33,12 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   {WHITE_SPACE}      { return com.intellij.psi.TokenType.WHITE_SPACE; }
 
   "class"            { return CLASS; }
+  "infer"            { return INFER; }
   "enum"             { return ENUM; }
   "func"             { return FUNC; }
+  "using"            { return USING; }
   "oppositeOf"       { return OPPOSITE; }
+  "from"             { return FROM; }
   ":"                { return COLON; }
   ","                { return COMMA; }
   "/"                { return SUB; }

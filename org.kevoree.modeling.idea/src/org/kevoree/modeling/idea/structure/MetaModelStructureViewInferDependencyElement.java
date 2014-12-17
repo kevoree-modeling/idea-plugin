@@ -10,6 +10,7 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.kevoree.modeling.idea.psi.MetaModelInferDepDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
 import org.kevoree.modeling.util.PrimitiveTypes;
 
@@ -18,9 +19,9 @@ import javax.swing.*;
 /**
  * Created by gregory.nain on 16/07/2014.
  */
-public class MetaModelStructureViewReferenceElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewInferDependencyElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelRelationDeclaration refDecl;
+    private MetaModelInferDepDeclaration depDeclaration;
     private Editor editor;
     private Icon myIcon = PlatformIcons.FIELD_ICON;
     private String simpleType;
@@ -29,8 +30,8 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     private boolean contained = false;
 
 
-    public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
-        this.refDecl = refDecl;
+    public MetaModelStructureViewInferDependencyElement(MetaModelInferDepDeclaration refDecl, Editor editor) {
+        this.depDeclaration = refDecl;
         this.editor = editor;
         simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
 
@@ -40,20 +41,11 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     private void setIcon() {
         for (PrimitiveTypes p : PrimitiveTypes.values()) {
-            if (refDecl.getTypeDeclaration().getName().equals(p.name())) {
+            if (depDeclaration.getTypeDeclaration().getName().equals(p.name())) {
                 attribute = true;
-                if (refDecl.getAnnotations().getText() != null && !refDecl.getAnnotations().getText().equals("")) {
-                    id = true;
-                    myIcon = AllIcons.Nodes.C_protected;
-                } else {
-                    myIcon = PlatformIcons.PROPERTY_ICON;
-                }
+                myIcon = PlatformIcons.PROPERTY_ICON;
                 return;
             }
-        }
-        if (refDecl.getAnnotations().getText() != null && refDecl.getAnnotations().getText().equals("@contained")) {
-            contained = true;
-            myIcon = AllIcons.Actions.ShowWriteAccess;
         }
     }
 
@@ -71,12 +63,12 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     @Override
     public Object getValue() {
-        return refDecl;
+        return depDeclaration;
     }
 
     @Override
     public void navigate(boolean b) {
-        editor.getCaretModel().moveToOffset(refDecl.getTextOffset());
+        editor.getCaretModel().moveToOffset(depDeclaration.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
 
@@ -98,7 +90,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                return refDecl.getRelationName().getText() + " : " + simpleType;
+                return depDeclaration.getIdent().getText() + " : " + simpleType;
             }
 
             @Nullable
@@ -123,6 +115,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getRelationName().getText();
+        return depDeclaration.getIdent().getText();
     }
 }

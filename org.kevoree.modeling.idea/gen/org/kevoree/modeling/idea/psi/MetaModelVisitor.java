@@ -39,6 +39,18 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInferDepDeclaration(@NotNull MetaModelInferDepDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitInferDepTimeDecl(@NotNull MetaModelInferDepTimeDecl o) {
+    visitPsiElement(o);
+  }
+
   public void visitMultiplicityDeclaration(@NotNull MetaModelMultiplicityDeclaration o) {
     visitPsiElement(o);
   }
@@ -89,6 +101,10 @@ public class MetaModelVisitor extends PsiElementVisitor {
 
   public void visitTypeDeclaration(@NotNull MetaModelTypeDeclaration o) {
     visitNamedElement(o);
+  }
+
+  public void visitUsingDeclaration(@NotNull MetaModelUsingDeclaration o) {
+    visitPsiElement(o);
   }
 
   public void visitNamedElement(@NotNull MetaModelNamedElement o) {

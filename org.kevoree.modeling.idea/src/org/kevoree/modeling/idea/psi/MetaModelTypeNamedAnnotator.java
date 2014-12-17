@@ -61,7 +61,7 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                                 annotationHolder.createErrorAnnotation(psiElement, "@contained is only valid on references (WITHOUT PrimitiveTypes: "+builder+")");
                             }
                         } else {
-                            if (element.getText()!=null&&element.getText().startsWith("@learn")) {
+                            if (element.getText()!=null&&element.getText().startsWith("@precision")) {
                                 if(!finalIsAttribute){
                                     StringBuilder builder =new StringBuilder();
                                     for(PrimitiveTypes p : PrimitiveTypes.values()){
@@ -70,10 +70,10 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                                         }
                                         builder.append(p.name());
                                     }
-                                    annotationHolder.createErrorAnnotation(psiElement, "@learn is only valid on attributes (WITHOUT PrimitiveTypes: "+builder+")");
+                                    annotationHolder.createErrorAnnotation(psiElement, "@precision is only valid on attributes (WITHOUT PrimitiveTypes: "+builder+")");
                                 }
                             } else {
-                                annotationHolder.createErrorAnnotation(psiElement, psiElement.getText()+" is not a valid annotation, @id,@learn or @contained expected");
+                                annotationHolder.createErrorAnnotation(psiElement, psiElement.getText()+" is not a valid annotation, @id,@precision or @contained expected");
                             }
                         }
                     }
@@ -100,7 +100,7 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                 }
                 if (!isValidated[0]) {
                     PsiElement parent = psiElement.getParent();
-                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration)) {
+                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration) && !(parent instanceof MetaModelInferDeclaration)) {
                         PsiFile file = psiElement.getContainingFile();
                         file.acceptChildren(new MetaModelVisitor() {
                             @Override
@@ -123,6 +123,14 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                                     isValidated[0] = true;
                                 }
                             }
+
+                            @Override
+                            public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
+                                if(o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())){
+                                    isValidated[0] = true;
+                                }
+                            }
+
 
                         });
                         if(!isValidated[0]){

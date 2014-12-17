@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>13</version>
+    <version>14</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,17 +11,18 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V13: Fix templates for intiale project creation
-      V12: Fix output directories for generation for Java and JS
-      V11: Support for KMFv4
-      V10: Support IntelliJ 14
-      V9: First version supporting Operation declaration in .mm
-      V8: Fix Enum generation to ECore (attribute)
-      V7: Fix Enum generation to ECore (eClassifier)
-      V6: Add @learn management into ECore import/export
-      V5: Add @learn annotation management
-      V4: Add support for enum
-      V3: Improve refresh strategy for structure, add support for KMFv3
+      V14: Fix html output directory<br />
+      V13: Fix templates for intiale project creation<br />
+      V12: Fix output directories for generation for Java and JS<br />
+      V11: Support for KMFv4<br />
+      V10: Support IntelliJ 14<br />
+      V9: First version supporting Operation declaration in .mm<br />
+      V8: Fix Enum generation to ECore (attribute)<br />
+      V7: Fix Enum generation to ECore (eClassifier)<br />
+      V6: Add @learn management into ECore import/export<br />
+      V5: Add @learn annotation management<br />
+      V4: Add support for enum<br />
+      V3: Improve refresh strategy for structure, add support for KMFv3<br />
       V2: fix bad template.<br>
       V1: initial version.<br>
     ]]>
