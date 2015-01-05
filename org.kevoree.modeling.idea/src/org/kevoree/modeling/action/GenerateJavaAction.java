@@ -43,7 +43,7 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
         super.update(e);
         VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(e.getDataContext());
         final Presentation presentation = e.getPresentation();
-        if (currentFile != null && (currentFile.getName().endsWith(".mm") || currentFile.getName().endsWith(".ecore"))) {
+        if (currentFile != null && (currentFile.getName().endsWith(".mm"))) {
             presentation.setEnabledAndVisible(true);
         } else {
             presentation.setEnabledAndVisible(false);
