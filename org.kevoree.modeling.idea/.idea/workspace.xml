@@ -29,8 +29,8 @@
       <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1875">
-              <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
+              <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -39,8 +39,8 @@
       <file leaf-file-name="MetaModelCompletionContributor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83759844" vertical-offset="529" max-vertical-offset="1680">
-              <caret line="110" column="115" selection-start-line="110" selection-start-column="115" selection-end-line="110" selection-end-column="115" />
+            <state vertical-scroll-proportion="0.80807084" vertical-offset="499" max-vertical-offset="1635">
+              <caret line="106" column="101" selection-start-line="106" selection-start-column="101" selection-end-line="106" selection-end-column="101" />
               <folding>
                 <element signature="e#3477#3912#0" expanded="true" />
                 <element signature="e#3911#3912#0" expanded="true" />
@@ -48,8 +48,8 @@
                 <element signature="e#5119#5120#0" expanded="true" />
                 <element signature="e#5340#5934#0" expanded="true" />
                 <element signature="e#5933#5934#0" expanded="true" />
-                <element signature="e#6088#7244#0" expanded="true" />
-                <element signature="e#7243#7244#0" expanded="true" />
+                <element signature="e#6088#7108#0" expanded="true" />
+                <element signature="e#7107#7108#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1043,16 +1043,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="1875">
-          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1890">
+          <caret line="10" column="21" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83759844" vertical-offset="529" max-vertical-offset="1680">
-          <caret line="110" column="115" selection-start-line="110" selection-start-column="115" selection-end-line="110" selection-end-column="115" />
+        <state vertical-scroll-proportion="0.80807084" vertical-offset="499" max-vertical-offset="1635">
+          <caret line="106" column="101" selection-start-line="106" selection-start-column="101" selection-end-line="106" selection-end-column="101" />
           <folding>
             <element signature="e#3477#3912#0" expanded="true" />
             <element signature="e#3911#3912#0" expanded="true" />
@@ -1060,8 +1060,8 @@
             <element signature="e#5119#5120#0" expanded="true" />
             <element signature="e#5340#5934#0" expanded="true" />
             <element signature="e#5933#5934#0" expanded="true" />
-            <element signature="e#6088#7244#0" expanded="true" />
-            <element signature="e#7243#7244#0" expanded="true" />
+            <element signature="e#6088#7108#0" expanded="true" />
+            <element signature="e#7107#7108#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>15</version>
+    <version>16</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,6 +11,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
+      V16: Fix annotations completion
       V15: Fix precision annotation, initiate infer classes<br />
       V14: Fix html output directory<br />
       V13: Fix templates for intiale project creation<br />

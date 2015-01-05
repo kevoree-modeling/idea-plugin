@@ -105,9 +105,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
                         if(parameters.getPosition().getParent()!= null){
                             if(parameters.getPosition().getParent() instanceof MetaModelDeclaration){
-
-                                System.err.println(parameters.getPosition().getNode().getElementType().equals(MetaModelTypes.IDENT));
-
                                 if(parameters.getPosition().getNode().getElementType().equals(MetaModelTypes.IDENT)){
                                     resultSet.addElement(LookupElementBuilder.create("@id"));
                                     resultSet.addElement(LookupElementBuilder.create("@contained"));
