@@ -8,6 +8,7 @@ import com.intellij.psi.PsiElementVisitor;
 import com.intellij.util.ProcessingContext;
 import org.jetbrains.annotations.NotNull;
 import org.kevoree.modeling.MetaModelLanguage;
+import org.kevoree.modeling.idea.psi.MetaModelClassDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelTypes;
 import org.kevoree.modeling.util.PrimitiveTypes;
@@ -64,18 +65,19 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         );
 
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement(MetaModelTypes.ANNOTATION).withLanguage(MetaModelLanguage.INSTANCE),
+                PlatformPatterns.psiElement(MetaModelTypes.TANNOTATION).withLanguage(MetaModelLanguage.INSTANCE),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,
                                                @NotNull final CompletionResultSet resultSet) {
-
-                        if(parameters.getPosition().getText().startsWith("@")){
+                        if (parameters.getPosition().getText().startsWith("@")) {
                             resultSet.addElement(LookupElementBuilder.create("id"));
                             resultSet.addElement(LookupElementBuilder.create("contained"));
+                            resultSet.addElement(LookupElementBuilder.create("precision"));
                         } else {
                             resultSet.addElement(LookupElementBuilder.create("@id"));
                             resultSet.addElement(LookupElementBuilder.create("@contained"));
+                            resultSet.addElement(LookupElementBuilder.create("@precision"));
                         }
                     }
                 }
@@ -88,9 +90,35 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                                ProcessingContext context,
                                                @NotNull CompletionResultSet resultSet) {
                         resultSet.addElement(LookupElementBuilder.create("class "));
+                        resultSet.addElement(LookupElementBuilder.create("infer "));
+                        resultSet.addElement(LookupElementBuilder.create("enum "));
                     }
                 }
         );
+
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+
+                        if(parameters.getPosition().getParent()!= null){
+                            if(parameters.getPosition().getParent() instanceof MetaModelDeclaration){
+
+                                System.err.println(parameters.getPosition().getNode().getElementType().equals(MetaModelTypes.IDENT));
+
+                                if(parameters.getPosition().getNode().getElementType().equals(MetaModelTypes.IDENT)){
+                                    resultSet.addElement(LookupElementBuilder.create("@id"));
+                                    resultSet.addElement(LookupElementBuilder.create("@contained"));
+                                    resultSet.addElement(LookupElementBuilder.create("@precision"));
+                                }
+                            }
+                        }
+                    }
+                }
+        );
+
     }
 
 }
