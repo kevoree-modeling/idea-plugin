@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>16</version>
+    <version>17</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,7 +11,8 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V16: Fix annotations completion
+      V17: Fix ECORE multiplicity management<br />
+      V16: Fix annotations completion<br />
       V15: Fix precision annotation, initiate infer classes<br />
       V14: Fix html output directory<br />
       V13: Fix templates for intiale project creation<br />
@@ -61,7 +62,8 @@
                              implementationClass="org.kevoree.modeling.idea.folder.MetaModelFoldingBuilder"/>
 
         <gotoSymbolContributor implementation="org.kevoree.modeling.idea.psi.MetaModelChooseByNameContributor"/>
-        <lang.psiStructureViewFactory language="MetaModel" implementationClass="org.kevoree.modeling.idea.structure.MetaModelStructureViewFactory" />
+        <lang.psiStructureViewFactory language="MetaModel"
+                                      implementationClass="org.kevoree.modeling.idea.structure.MetaModelStructureViewFactory"/>
 
         <!--
         <psi.referenceContributor implementation="org.kevoree.modeling.idea.psi.MetaModelReferenceContributor"/>

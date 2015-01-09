@@ -72,7 +72,7 @@ public class PrettyPrinter {
                 sw.write("    @id\n");
             }
             String multiplicity = "";
-            if (eAttribute.getUpperBound() != 1 && eAttribute.getLowerBound() != 1) {
+            if (eAttribute.getUpperBound() != 1 || eAttribute.getLowerBound() != 1) {
                 multiplicity = multiplicity + "[";
                 if (eAttribute.getLowerBound() == -1) {
                     multiplicity = multiplicity + "*";
@@ -96,7 +96,7 @@ public class PrettyPrinter {
             }
             String multiplicity = "";
             String opposite = "";
-            if (eRef.getUpperBound() != 1 && eRef.getLowerBound() != 1) {
+            if (eRef.getUpperBound() != 1 || eRef.getLowerBound() != 1) {
                 multiplicity = multiplicity + "[";
                 if (eRef.getLowerBound() == -1) {
                     multiplicity = multiplicity + "*";

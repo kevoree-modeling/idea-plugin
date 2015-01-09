@@ -22,13 +22,12 @@ import java.io.IOException;
  */
 public class ConvertToMMAction extends AnAction implements DumbAware {
 
-
     @Override
     public void update(AnActionEvent e) {
         super.update(e);
         VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(e.getDataContext());
         final Presentation presentation = e.getPresentation();
-        if(currentFile != null && currentFile.getName().endsWith(".ecore")){
+        if (currentFile != null && currentFile.getName().endsWith(".ecore")) {
             presentation.setEnabledAndVisible(true);
         } else {
             presentation.setEnabledAndVisible(false);
@@ -41,14 +40,14 @@ public class ConvertToMMAction extends AnAction implements DumbAware {
     public void actionPerformed(AnActionEvent anActionEvent) {
         VirtualFile currentFile = DataKeys.VIRTUAL_FILE.getData(anActionEvent.getDataContext());
         FileDocumentManager.getInstance().saveDocument(FileDocumentManager.getInstance().getDocument(currentFile));
-
         String path = currentFile.getCanonicalPath();
+
         File origin = new File(path);
         File target = new File(path.replace("ecore", MetaModelLanguageType.DEFAULT_EXTENSION));
         FileWriter writer = null;
         try {
             writer = new FileWriter(target);
-            prettyPrinter.prettyPrint(origin,writer);
+            prettyPrinter.prettyPrint(origin, writer);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -59,8 +58,7 @@ public class ConvertToMMAction extends AnAction implements DumbAware {
                 e.printStackTrace();
             }
         }
-
-        currentFile.getParent().refresh(true,true);
+        currentFile.getParent().refresh(true, true);
 
     }
 }
