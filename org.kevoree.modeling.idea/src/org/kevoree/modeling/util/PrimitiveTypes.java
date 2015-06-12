@@ -5,7 +5,7 @@ package org.kevoree.modeling.util;
  */
 public enum PrimitiveTypes {
 
-    String, Long, Int, Bool, Short, Double, Float;
+    String, Long, Int, Bool, Short, Double, Float, Continuous;
 
     public static boolean isPrimitive(String originalName) {
         for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -37,6 +37,9 @@ public enum PrimitiveTypes {
         }
         if (originalName.equals("Float")) {
             return "java.lang.Float";
+        }
+        if (originalName.equals("Continuous")) {
+            return "java.lang.Double";
         }
         return originalName;
     }

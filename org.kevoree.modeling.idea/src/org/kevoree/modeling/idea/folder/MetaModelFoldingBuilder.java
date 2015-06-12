@@ -32,9 +32,13 @@ public class MetaModelFoldingBuilder implements FoldingBuilder {
             if (fullRange.getEndOffset() - fullRange.getStartOffset() > 0) {
 
                 try {
-                    TextRange shortRange = new TextRange(fullRange.getStartOffset() + document.getText(fullRange).indexOf("{") + 1, fullRange.getEndOffset() - 1);
-                    if (shortRange.getEndOffset() - shortRange.getStartOffset() > 1) {
-                        descriptors.add(new FoldingDescriptor(node, shortRange));
+                    int startOffset = fullRange.getStartOffset() + document.getText(fullRange).indexOf("{") + 1;
+                    int endOffset = fullRange.getEndOffset() - 1;
+                    if(startOffset < endOffset){
+                        TextRange shortRange = new TextRange(startOffset, fullRange.getEndOffset() - 1);
+                        if (shortRange.getEndOffset() - shortRange.getStartOffset() > 1) {
+                            descriptors.add(new FoldingDescriptor(node, shortRange));
+                        }
                     }
                 } catch (Throwable e) {
 
