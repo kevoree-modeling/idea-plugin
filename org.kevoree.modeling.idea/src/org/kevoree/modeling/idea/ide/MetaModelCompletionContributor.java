@@ -38,7 +38,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
                         if (parameters.getPosition().getParent() != null) {
                             if (parameters.getPosition().getParent().getParent() != null) {
-                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOuputDeclaration) {
+                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOutputDeclaration) {
                                     //add all attributes
                                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                                         resultSet.addElement(LookupElementBuilder.create(p.toString()));

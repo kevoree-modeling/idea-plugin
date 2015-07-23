@@ -89,8 +89,8 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     else if (t == OPERATION_RETURN) {
       r = OPERATION_RETURN(b, 0);
     }
-    else if (t == OUPUT_DECLARATION) {
-      r = OUPUT_DECLARATION(b, 0);
+    else if (t == OUTPUT_DECLARATION) {
+      r = OUTPUT_DECLARATION(b, 0);
     }
     else if (t == OUTPUT_NAME) {
       r = OUTPUT_NAME(b, 0);
@@ -118,9 +118,6 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     }
     else if (t == TYPE_DECLARATION) {
       r = TYPE_DECLARATION(b, 0);
-    }
-    else if (t == VERSION_DECLARATION) {
-      r = VERSION_DECLARATION(b, 0);
     }
     else {
       r = parse_root_(t, b, 0);
@@ -204,7 +201,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // TEMPORAL_LIMIT_DECLARATION | TEMPORAL_RESOLUTION_DECLARATION | ATTRIBUTE_DECLARATION | RELATION_DECLARATION | OPERATION_DECLARATION | DEPENDENCY_DECLARATION | INPUT_DECLARATION | OUPUT_DECLARATION | INFER_WITH_DECLARATION
+  // TEMPORAL_LIMIT_DECLARATION | TEMPORAL_RESOLUTION_DECLARATION | ATTRIBUTE_DECLARATION | RELATION_DECLARATION | OPERATION_DECLARATION | DEPENDENCY_DECLARATION | INPUT_DECLARATION | OUTPUT_DECLARATION | INFER_WITH_DECLARATION
   public static boolean CLASS_ELEM_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "CLASS_ELEM_DECLARATION")) return false;
     boolean r;
@@ -216,19 +213,21 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     if (!r) r = OPERATION_DECLARATION(b, l + 1);
     if (!r) r = DEPENDENCY_DECLARATION(b, l + 1);
     if (!r) r = INPUT_DECLARATION(b, l + 1);
-    if (!r) r = OUPUT_DECLARATION(b, l + 1);
+    if (!r) r = OUTPUT_DECLARATION(b, l + 1);
     if (!r) r = INFER_WITH_DECLARATION(b, l + 1);
     exit_section_(b, l, m, CLASS_ELEM_DECLARATION, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // CLASS_DECLARATION | ENUM_DECLARATION | eof | newline | CRLF
+  // MODEL_VERSION_DECLARATION | KMF_VERSION_DECLARATION | CLASS_DECLARATION | ENUM_DECLARATION | eof | newline | CRLF
   public static boolean DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "DECLARATION")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, "<declaration>");
-    r = CLASS_DECLARATION(b, l + 1);
+    r = MODEL_VERSION_DECLARATION(b, l + 1);
+    if (!r) r = KMF_VERSION_DECLARATION(b, l + 1);
+    if (!r) r = CLASS_DECLARATION(b, l + 1);
     if (!r) r = ENUM_DECLARATION(b, l + 1);
     if (!r) r = consumeToken(b, EOF);
     if (!r) r = consumeToken(b, NEWLINE);
@@ -355,36 +354,13 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // VERSION_DECLARATION* DECLARATION*
+  // DECLARATION*
   static boolean METAMODEL(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "METAMODEL")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = METAMODEL_0(b, l + 1);
-    r = r && METAMODEL_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // VERSION_DECLARATION*
-  private static boolean METAMODEL_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "METAMODEL_0")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!VERSION_DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "METAMODEL_0", c)) break;
-      c = current_position_(b);
-    }
-    return true;
-  }
-
-  // DECLARATION*
-  private static boolean METAMODEL_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "METAMODEL_1")) return false;
     int c = current_position_(b);
     while (true) {
       if (!DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "METAMODEL_1", c)) break;
+      if (!empty_element_parsed_guard_(b, "METAMODEL", c)) break;
       c = current_position_(b);
     }
     return true;
@@ -569,8 +545,8 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
 
   /* ********************************************************** */
   // OUTPUT OUTPUT_NAME COLON TYPE_DECLARATION
-  public static boolean OUPUT_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OUPUT_DECLARATION")) return false;
+  public static boolean OUTPUT_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "OUTPUT_DECLARATION")) return false;
     if (!nextTokenIs(b, OUTPUT)) return false;
     boolean r;
     Marker m = enter_section_(b);
@@ -578,7 +554,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     r = r && OUTPUT_NAME(b, l + 1);
     r = r && consumeToken(b, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
-    exit_section_(b, m, OUPUT_DECLARATION, r);
+    exit_section_(b, m, OUTPUT_DECLARATION, r);
     return r;
   }
 
@@ -748,20 +724,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // MODEL_VERSION_DECLARATION | KMF_VERSION_DECLARATION
-  public static boolean VERSION_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "VERSION_DECLARATION")) return false;
-    if (!nextTokenIs(b, "<version declaration>", KMF_VERSION, VERSION)) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<version declaration>");
-    r = MODEL_VERSION_DECLARATION(b, l + 1);
-    if (!r) r = KMF_VERSION_DECLARATION(b, l + 1);
-    exit_section_(b, l, m, VERSION_DECLARATION, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // !(CLASS|ENUM)
+  // !(VERSION|KMF_VERSION|CLASS|ENUM)
   static boolean rule_start(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start")) return false;
     boolean r;
@@ -771,12 +734,14 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // CLASS|ENUM
+  // VERSION|KMF_VERSION|CLASS|ENUM
   private static boolean rule_start_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, CLASS);
+    r = consumeToken(b, VERSION);
+    if (!r) r = consumeToken(b, KMF_VERSION);
+    if (!r) r = consumeToken(b, CLASS);
     if (!r) r = consumeToken(b, ENUM);
     exit_section_(b, m, null, r);
     return r;

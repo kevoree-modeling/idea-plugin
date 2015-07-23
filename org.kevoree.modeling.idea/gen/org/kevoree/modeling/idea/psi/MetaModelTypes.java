@@ -30,7 +30,7 @@ public interface MetaModelTypes {
   IElementType OPERATION_PARAM = new MetaModelElementType("OPERATION_PARAM");
   IElementType OPERATION_PARAMS = new MetaModelElementType("OPERATION_PARAMS");
   IElementType OPERATION_RETURN = new MetaModelElementType("OPERATION_RETURN");
-  IElementType OUPUT_DECLARATION = new MetaModelElementType("OUPUT_DECLARATION");
+  IElementType OUTPUT_DECLARATION = new MetaModelElementType("OUTPUT_DECLARATION");
   IElementType OUTPUT_NAME = new MetaModelElementType("OUTPUT_NAME");
   IElementType PARENTS_DECLARATION = new MetaModelElementType("PARENTS_DECLARATION");
   IElementType PRECISION_DECLARATION = new MetaModelElementType("PRECISION_DECLARATION");
@@ -40,7 +40,6 @@ public interface MetaModelTypes {
   IElementType TEMPORAL_LIMIT_DECLARATION = new MetaModelElementType("TEMPORAL_LIMIT_DECLARATION");
   IElementType TEMPORAL_RESOLUTION_DECLARATION = new MetaModelElementType("TEMPORAL_RESOLUTION_DECLARATION");
   IElementType TYPE_DECLARATION = new MetaModelElementType("TYPE_DECLARATION");
-  IElementType VERSION_DECLARATION = new MetaModelElementType("VERSION_DECLARATION");
 
   IElementType ANNOT_PARAM_CLOSE = new MetaModelTokenType(")");
   IElementType ANNOT_PARAM_OPEN = new MetaModelTokenType("(");
@@ -147,8 +146,8 @@ public interface MetaModelTypes {
       else if (type == OPERATION_RETURN) {
         return new MetaModelOperationReturnImpl(node);
       }
-      else if (type == OUPUT_DECLARATION) {
-        return new MetaModelOuputDeclarationImpl(node);
+      else if (type == OUTPUT_DECLARATION) {
+        return new MetaModelOutputDeclarationImpl(node);
       }
       else if (type == OUTPUT_NAME) {
         return new MetaModelOutputNameImpl(node);
@@ -176,9 +175,6 @@ public interface MetaModelTypes {
       }
       else if (type == TYPE_DECLARATION) {
         return new MetaModelTypeDeclarationImpl(node);
-      }
-      else if (type == VERSION_DECLARATION) {
-        return new MetaModelVersionDeclarationImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
     }

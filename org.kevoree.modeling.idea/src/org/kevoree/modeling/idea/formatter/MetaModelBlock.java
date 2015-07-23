@@ -30,13 +30,14 @@ public class MetaModelBlock extends AbstractBlock {
             if (child.getElementType() != TokenType.WHITE_SPACE) {
                 if (child.getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
                     blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
+                } else if (child.getElementType() == MetaModelTypes.ENUM_ELEM_DECLARATION) {
+                    blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
                 } else {
                     blocks.add(new MetaModelBlock(child, getAlignment(), getWrap()));
                 }
             }
             child = child.getTreeNext();
         }
-
         return blocks;
     }
 
@@ -44,6 +45,9 @@ public class MetaModelBlock extends AbstractBlock {
     @Override
     public Indent getIndent() {
         if (getNode().getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
+            return Indent.getNormalIndent();
+        }
+        if (getNode().getElementType() == MetaModelTypes.ENUM_ELEM_DECLARATION) {
             return Indent.getNormalIndent();
         }
         return super.getIndent();

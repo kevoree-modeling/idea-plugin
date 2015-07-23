@@ -23,7 +23,7 @@ public interface MetaModelClassElemDeclaration extends PsiElement {
   MetaModelOperationDeclaration getOperationDeclaration();
 
   @Nullable
-  MetaModelOuputDeclaration getOuputDeclaration();
+  MetaModelOutputDeclaration getOutputDeclaration();
 
   @Nullable
   MetaModelRelationDeclaration getRelationDeclaration();

@@ -181,8 +181,8 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
             } else if (relDec.getInputDeclaration() != null) {
                 MetaModelStructureViewInputElement inputElement = new MetaModelStructureViewInputElement(relDec.getInputDeclaration(), editor);
                 classElement.inputs.add(inputElement);
-            } else if (relDec.getOuputDeclaration() != null) {
-                MetaModelStructureViewOutputElement outputElement = new MetaModelStructureViewOutputElement(relDec.getOuputDeclaration(), editor);
+            } else if (relDec.getOutputDeclaration() != null) {
+                MetaModelStructureViewOutputElement outputElement = new MetaModelStructureViewOutputElement(relDec.getOutputDeclaration(), editor);
                 classElement.outputs.add(outputElement);
             } else if (relDec.getInferWithDeclaration() != null) {
                 MetaModelStructureViewInferWithElement inferWithElement = new MetaModelStructureViewInferWithElement(relDec.getInferWithDeclaration(), editor);

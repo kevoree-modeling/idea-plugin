@@ -23,21 +23,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MetaModelSyntaxHighlighter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelSyntaxHighlighter.java">
+      <file leaf-file-name="plugin.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="40" column="61" selection-start-line="40" selection-start-column="61" selection-end-line="40" selection-end-column="61" />
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MetaModelColorSettingsPage.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelColorSettingsPage.java">
+      <file leaf-file-name="mm.bnf" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/mm.bnf">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3964059">
-              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetaModelStructureViewRootElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewRootElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="184" column="94" selection-start-line="184" selection-start-column="94" selection-end-line="184" selection-end-column="94" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetaModelStructureViewOutputElement.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewOutputElement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetaModelTypeDeclaration.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypeDeclaration.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.18957347">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetaModelTypeNamedAnnotator.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelTypeNamedAnnotator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="159" selection-start-line="28" selection-start-column="159" selection-end-line="28" selection-end-column="159" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MetaModelCompletionContributor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_MetaModelLexer.flex" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.flex">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -63,31 +125,20 @@
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/KMFCompilerResolver.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/action/NewMetaModelFileAction.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/InferenceEngines.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/test.mm" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewInferElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewInferDependencyElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/PrettyPrinter.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToMMAction.java" />
-        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="/mm.bnf.preview" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelTypeNamedAnnotator.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/folder/MetaModelFoldingBuilder.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelFormattingModelBuilder.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/StandaloneParser.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelChooseByNameContributor.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/PrimitiveTypes.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.flex" />
-        <option value="$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypeDeclaration.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/mm.bnf" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelBlock.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/MetaModelFileTypeFactory.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewAttributeElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewReferenceElement.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewOutputElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewDependencyElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewInputElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewInferWithElement.java" />
@@ -96,9 +147,22 @@
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewTemporalResolutionElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewTemporalLimitElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewClassElement.java" />
-        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewRootElement.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelSyntaxHighlighter.java" />
         <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelColorSettingsPage.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/StandaloneParser.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelBlock.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/util/PrettyPrinter.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/MetaModelTemplatesFactory.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/action/NewMetaModelFileAction.java" />
+        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/mm.bnf" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.flex" />
+        <option value="$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/impl/MetaModelOuputDeclarationImpl.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewRootElement.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewOutputElement.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelTypeNamedAnnotator.java" />
+        <option value="$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java" />
+        <option value="$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypeDeclaration.java" />
       </list>
     </option>
   </component>
@@ -198,15 +262,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modeling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="standalone" />
+              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -220,33 +276,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modeling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org.kevoree.modeling.idea.plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org.kevoree.modeling.idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modeling" />
+              <option name="myItemId" value="gen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -254,7 +284,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="highlighter" />
+              <option name="myItemId" value="psi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -268,29 +298,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="gen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="modeling" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="action" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org.kevoree.modeling.idea.plugin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="org.kevoree.modeling.idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -619,7 +631,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18268467" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2626798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2626798" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="PsiViewer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962668" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -655,158 +667,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/openapi/diagnostic/Logger.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37379575">
-          <caret line="114" column="0" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/InferenceEngines.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="73" selection-start-line="45" selection-start-column="73" selection-end-line="45" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/lib/org.eclipse.emf.ecore/2.9.2-v20131212-0545/org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar!/org/eclipse/emf/ecore/ETypedElement.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25984251">
-          <caret line="27" column="8" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/PrettyPrinter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="15" selection-start-line="35" selection-start-column="15" selection-end-line="35" selection-end-column="15" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToMMAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/util.jar!/com/intellij/openapi/util/TextRange.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.259259">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/test.mm">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelLanguageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelLanguage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1779661">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelIcons.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/standalone/Transformation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/VersionAnalyzer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="33" selection-start-line="21" selection-start-column="33" selection-end-line="21" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="614" column="19" selection-start-line="614" selection-start-column="19" selection-end-line="614" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13716814">
-          <caret line="13" column="49" selection-start-line="13" selection-start-column="49" selection-end-line="13" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelTypeNamedAnnotator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7079646">
-          <caret line="120" column="15" selection-start-line="120" selection-start-column="15" selection-end-line="120" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelBraceMatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.058651026">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.102639295">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -823,14 +687,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.51319647">
           <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/StandaloneParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="425" column="55" selection-start-line="425" selection-start-column="55" selection-end-line="425" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -853,114 +709,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33298096">
-          <caret line="72" column="15" selection-start-line="72" selection-start-column="15" selection-end-line="72" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/PrimitiveTypes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="19" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.flex">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="31" column="78" selection-start-line="31" selection-start-column="78" selection-end-line="31" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/mm.bnf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-43.88889">
-          <caret line="79" column="21" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="21" />
-          <folding>
-            <element signature="e#1#1485#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelBlock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="58" selection-start-line="53" selection-start-column="58" selection-end-line="53" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypeDeclaration.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.444445">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.222222">
-          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
-          <folding>
-            <element signature="e#1561#4533#0" expanded="false" />
-            <element signature="e#2966#4343#0" expanded="false" />
-            <element signature="e#4342#4343#0" expanded="false" />
-            <element signature="e#4532#4533#0" expanded="false" />
-            <element signature="e#1561#4533#0" expanded="false" />
-            <element signature="e#4532#4533#0" expanded="false" />
-            <element signature="e#4771#5200#0" expanded="false" />
-            <element signature="e#5199#5200#0" expanded="false" />
-            <element signature="e#5420#6173#0" expanded="false" />
-            <element signature="e#6172#6173#0" expanded="false" />
-            <element signature="e#6327#7460#0" expanded="false" />
-            <element signature="e#7459#7460#0" expanded="false" />
-            <element signature="e#7701#8136#0" expanded="false" />
-            <element signature="e#8135#8136#0" expanded="false" />
-            <element signature="e#8349#8824#0" expanded="false" />
-            <element signature="e#8823#8824#0" expanded="false" />
-            <element signature="e#9037#9517#0" expanded="false" />
-            <element signature="e#9516#9517#0" expanded="false" />
-            <element signature="e#9737#10709#0" expanded="false" />
-            <element signature="e#10708#10709#0" expanded="false" />
-            <element signature="e#10929#11411#0" expanded="false" />
-            <element signature="e#11410#11411#0" expanded="false" />
-            <element signature="e#11626#12128#0" expanded="false" />
-            <element signature="e#12127#12128#0" expanded="false" />
-            <element signature="e#13031#13509#0" expanded="false" />
-            <element signature="e#13508#13509#0" expanded="false" />
-            <element signature="e#13733#14241#0" expanded="false" />
-            <element signature="e#14240#14241#0" expanded="false" />
-            <element signature="e#14470#14963#0" expanded="false" />
-            <element signature="e#14962#14963#0" expanded="false" />
-            <element signature="e#15177#15573#0" expanded="false" />
-            <element signature="e#15572#15573#0" expanded="false" />
-            <element signature="e#15787#16183#0" expanded="false" />
-            <element signature="e#16182#16183#0" expanded="false" />
-            <element signature="e#16404#16800#0" expanded="false" />
-            <element signature="e#16799#16800#0" expanded="false" />
-            <element signature="e#17021#17417#0" expanded="false" />
-            <element signature="e#17416#17417#0" expanded="false" />
-            <element signature="e#17633#18029#0" expanded="false" />
-            <element signature="e#18028#18029#0" expanded="false" />
-            <element signature="e#18246#18642#0" expanded="false" />
-            <element signature="e#18641#18642#0" expanded="false" />
-            <element signature="e#18867#19263#0" expanded="false" />
-            <element signature="e#19262#19263#0" expanded="false" />
-            <element signature="e#19494#19890#0" expanded="false" />
-            <element signature="e#19889#19890#0" expanded="false" />
-            <element signature="e#20111#20507#0" expanded="false" />
-            <element signature="e#20506#20507#0" expanded="false" />
-            <element signature="e#20726#21122#0" expanded="false" />
-            <element signature="e#21121#21122#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -972,23 +725,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/MetaModelTemplatesFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewAttributeElement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding>
-            <element signature="e#1397#1398#0" expanded="true" />
-            <element signature="e#1424#1425#0" expanded="true" />
-            <element signature="e#1592#1593#0" expanded="true" />
-            <element signature="e#1622#1623#0" expanded="true" />
+            <element signature="e#1397#1398#0" expanded="false" />
+            <element signature="e#1424#1425#0" expanded="false" />
+            <element signature="e#1592#1593#0" expanded="false" />
+            <element signature="e#1622#1623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1013,14 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17954299">
           <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewOutputElement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9038055">
-          <caret line="87" column="0" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1058,8 +795,8 @@
         <state vertical-scroll-proportion="0.8487486">
           <caret line="77" column="48" selection-start-line="77" selection-start-column="48" selection-end-line="77" selection-end-column="48" />
           <folding>
-            <element signature="e#1850#1851#0" expanded="true" />
-            <element signature="e#1949#1950#0" expanded="true" />
+            <element signature="e#1850#1851#0" expanded="false" />
+            <element signature="e#1949#1950#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1085,18 +822,18 @@
         <state vertical-scroll-proportion="0.84038055">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1188#1189#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1869#1870#0" expanded="true" />
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#2151#2152#0" expanded="true" />
-            <element signature="e#2211#2212#0" expanded="true" />
-            <element signature="e#2284#2285#0" expanded="true" />
-            <element signature="e#2318#2319#0" expanded="true" />
-            <element signature="e#2384#2385#0" expanded="true" />
-            <element signature="e#2424#2425#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="false" />
+            <element signature="e#1152#1153#0" expanded="false" />
+            <element signature="e#1188#1189#0" expanded="false" />
+            <element signature="e#1220#1221#0" expanded="false" />
+            <element signature="e#1869#1870#0" expanded="false" />
+            <element signature="e#1925#1926#0" expanded="false" />
+            <element signature="e#2151#2152#0" expanded="false" />
+            <element signature="e#2211#2212#0" expanded="false" />
+            <element signature="e#2284#2285#0" expanded="false" />
+            <element signature="e#2318#2319#0" expanded="false" />
+            <element signature="e#2384#2385#0" expanded="false" />
+            <element signature="e#2424#2425#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1119,8 +856,8 @@
         <state vertical-scroll-proportion="0.26955602">
           <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
-            <element signature="e#2243#2244#0" expanded="true" />
-            <element signature="e#2309#2310#0" expanded="true" />
+            <element signature="e#2243#2244#0" expanded="false" />
+            <element signature="e#2309#2310#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1142,18 +879,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewRootElement.java">
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/InferenceEngines.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.5052855">
-          <caret line="182" column="54" selection-start-line="182" selection-start-column="54" selection-end-line="182" selection-end-column="54" />
-          <folding>
-            <element signature="e#4070#4071#0" expanded="true" />
-            <element signature="e#4100#4101#0" expanded="true" />
-            <element signature="e#4210#4211#0" expanded="true" />
-            <element signature="e#4238#4239#0" expanded="true" />
-            <element signature="e#4296#4297#0" expanded="true" />
-            <element signature="e#4324#4325#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="10" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/impl/MetaModelNamedElementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/parser/GeneratedParserUtilBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelColorSettingsPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,10 +935,172 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/highlighter/MetaModelColorSettingsPage.java">
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJSAction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3964059">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.11099366">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/GenerateJavaAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.8541226">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelSyntaxHighlighter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11099366">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelParserDefinition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11099366">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/MetaModelLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11099366">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/StandaloneParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.84143764">
+          <caret line="345" column="67" selection-start-line="345" selection-start-column="58" selection-end-line="345" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/formatter/MetaModelBlock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5232558">
+          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/KMFCompilerResolver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11099366">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToEcoreAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/action/ConvertToMMAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3488372">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/util/PrettyPrinter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8245243">
+          <caret line="66" column="24" selection-start-line="66" selection-start-column="24" selection-end-line="66" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/MetaModelTemplatesFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45983088">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/action/NewMetaModelFileAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.61839324">
+          <caret line="59" column="49" selection-start-line="59" selection-start-column="49" selection-end-line="59" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/_MetaModelLexer.flex">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="45" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewRootElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="184" column="94" selection-start-line="184" selection-start-column="94" selection-end-line="184" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/mm.bnf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="67" column="20" selection-start-line="67" selection-start-column="20" selection-end-line="67" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/structure/MetaModelStructureViewOutputElement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/psi/MetaModelTypeNamedAnnotator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="159" selection-start-line="28" selection-start-column="159" selection-end-line="28" selection-end-column="159" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/org/kevoree/modeling/idea/ide/MetaModelCompletionContributor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="104" selection-start-line="43" selection-start-column="104" selection-end-line="43" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gen/org/kevoree/modeling/idea/psi/MetaModelTypeDeclaration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18957347">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

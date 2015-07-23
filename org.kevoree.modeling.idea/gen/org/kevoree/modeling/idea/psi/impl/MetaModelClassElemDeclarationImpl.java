@@ -54,8 +54,8 @@ public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement impl
 
   @Override
   @Nullable
-  public MetaModelOuputDeclaration getOuputDeclaration() {
-    return findChildByClass(MetaModelOuputDeclaration.class);
+  public MetaModelOutputDeclaration getOutputDeclaration() {
+    return findChildByClass(MetaModelOutputDeclaration.class);
   }
 
   @Override

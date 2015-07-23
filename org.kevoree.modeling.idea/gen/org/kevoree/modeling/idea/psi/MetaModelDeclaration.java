@@ -13,4 +13,10 @@ public interface MetaModelDeclaration extends PsiElement {
   @Nullable
   MetaModelEnumDeclaration getEnumDeclaration();
 
+  @Nullable
+  MetaModelKmfVersionDeclaration getKmfVersionDeclaration();
+
+  @Nullable
+  MetaModelModelVersionDeclaration getModelVersionDeclaration();
+
 }

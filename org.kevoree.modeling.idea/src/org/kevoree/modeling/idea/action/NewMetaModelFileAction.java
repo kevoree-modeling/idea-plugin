@@ -47,18 +47,18 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
         String fileName = fileNameFromTypeName(typeName, parameterName);
 
         StringBuilder sample = new StringBuilder();
-        sample.append("//KMF_VERSION=" + KMFCompilerResolver.resolveLastVersion() + "\n");
-        sample.append("//VERSION=1.0.0-SNAPSHOT\n");
+        sample.append("kmfVersion \"" + KMFCompilerResolver.resolveLastVersion() + "\"\n");
+        sample.append("version \"1.0.0-SNAPSHOT\"\n");
         sample.append("class sample.Cloud {\n");
-        sample.append("    nodes : sample.Node[0,*]\n");
+        sample.append("    ref nodes : sample.Node[0,*]\n");
         sample.append("}\n");
         sample.append("class sample.Node {\n");
-        sample.append("    name : String\n");
-        sample.append("    softwares : sample.Software[0,*]\n");
+        sample.append("    att name : String\n");
+        sample.append("    ref softwares : sample.Software[0,*]\n");
         sample.append("}\n");
         sample.append("class sample.Software {\n");
-        sample.append("    name : String\n");
-        sample.append("    size : Int\n");
+        sample.append("    att name : String\n");
+        sample.append("    att size : Int\n");
         sample.append("}\n");
         return MetaModelTemplatesFactory.createFromTemplate(psiDirectory, fileName, template, sample.toString());
     }

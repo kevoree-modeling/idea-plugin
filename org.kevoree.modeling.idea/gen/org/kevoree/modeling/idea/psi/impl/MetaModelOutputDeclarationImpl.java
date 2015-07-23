@@ -11,27 +11,27 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelVersionDeclarationImpl extends ASTWrapperPsiElement implements MetaModelVersionDeclaration {
+public class MetaModelOutputDeclarationImpl extends ASTWrapperPsiElement implements MetaModelOutputDeclaration {
 
-  public MetaModelVersionDeclarationImpl(ASTNode node) {
+  public MetaModelOutputDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitVersionDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitOutputDeclaration(this);
     else super.accept(visitor);
   }
 
   @Override
-  @Nullable
-  public MetaModelKmfVersionDeclaration getKmfVersionDeclaration() {
-    return findChildByClass(MetaModelKmfVersionDeclaration.class);
+  @NotNull
+  public MetaModelOutputName getOutputName() {
+    return findNotNullChildByClass(MetaModelOutputName.class);
   }
 
   @Override
-  @Nullable
-  public MetaModelModelVersionDeclaration getModelVersionDeclaration() {
-    return findChildByClass(MetaModelModelVersionDeclaration.class);
+  @NotNull
+  public MetaModelTypeDeclaration getTypeDeclaration() {
+    return findNotNullChildByClass(MetaModelTypeDeclaration.class);
   }
 
 }

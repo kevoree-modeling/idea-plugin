@@ -14,9 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.Writer;
 
-/**
- * Created by gregory.nain on 03/07/2014.
- */
 public class PrettyPrinter {
 
     public void prettyPrint(File ecoreModel, Writer writer) throws IOException {
@@ -53,24 +50,9 @@ public class PrettyPrinter {
                 superTypes = superTypes + (superTypes.equals("") ? ": " : ",") + fqn(st);
             }
         }
-
         sw.write("\n");
         sw.write("class " + fqn(cls) + " " + superTypes + " {\n");
-
         for (EAttribute eAttribute : cls.getEAttributes()) {
-            for (EAnnotation ea : eAttribute.getEAnnotations()) {
-                if (ea.getSource().equals("precision")) {
-                    String level = ea.getDetails().get("level");
-                    if (level != null) {
-                        sw.write("    @precision(" + level + ")\n");
-                    } else {
-                        sw.write("    @precision\n");
-                    }
-                }
-            }
-            if (eAttribute.isID()) {
-                sw.write("    @id\n");
-            }
             String multiplicity = "";
             if (eAttribute.getUpperBound() != 1 || eAttribute.getLowerBound() != 1) {
                 multiplicity = multiplicity + "[";
@@ -87,9 +69,8 @@ public class PrettyPrinter {
                 }
                 multiplicity = multiplicity + "]";
             }
-            sw.append("    " + eAttribute.getName() + " : " + convertType(fqn(eAttribute.getEType())) + multiplicity + "\n");
+            sw.append("    att " + eAttribute.getName() + " : " + convertType(fqn(eAttribute.getEType())) + multiplicity + "\n");
         }
-
         for (EReference eRef : cls.getEReferences()) {
             if (eRef.isContainment()) {
                 sw.write("    @contained\n");
@@ -114,7 +95,7 @@ public class PrettyPrinter {
             if (eRef.getEOpposite() != null) {
                 opposite = " oppositeOf " + eRef.getEOpposite().getName();
             }
-            sw.append("    " + eRef.getName() + " : " + convertType(fqn(eRef.getEType())) + multiplicity + opposite + "\n");
+            sw.append("    ref " + eRef.getName() + " : " + convertType(fqn(eRef.getEType())) + multiplicity + opposite + "\n");
         }
 
         for (EOperation eOperation : cls.getEOperations()) {
@@ -123,10 +104,10 @@ public class PrettyPrinter {
                 sw.append("(");
                 boolean isFirst = true;
                 for (EParameter p : eOperation.getEParameters()) {
-                    if(!isFirst){
+                    if (!isFirst) {
                         sw.append(" ,");
                     }
-                    sw.append(p.getName()+" : "+convertType(fqn(p.getEType())));
+                    sw.append(p.getName() + " : " + convertType(fqn(p.getEType())));
                     isFirst = false;
                 }
                 sw.append(")");
@@ -142,7 +123,6 @@ public class PrettyPrinter {
 
 
     protected ResourceSet getEcoreModel(File ecorefile) {
-
         ResourceSetImpl rs = new ResourceSetImpl();
         Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(Resource.Factory.Registry.DEFAULT_EXTENSION, new XMIResourceFactoryImpl());
         try {
@@ -167,7 +147,6 @@ public class PrettyPrinter {
      * @return the Fully Qualified package name
      */
     public String fqn(EPackage pack) {
-
         if (pack == null) {
             try {
                 throw new Exception("Null Package , stop generation");
@@ -175,7 +154,6 @@ public class PrettyPrinter {
                 e.printStackTrace();
             }
         }
-
         String locFqn = pack.getName().toLowerCase();
         EPackage parentPackage = pack.getESuperPackage();
         while (parentPackage != null) {

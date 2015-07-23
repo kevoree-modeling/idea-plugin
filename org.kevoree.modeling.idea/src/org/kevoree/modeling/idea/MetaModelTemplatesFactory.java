@@ -43,16 +43,6 @@ public class MetaModelTemplatesFactory implements FileTemplateGroupDescriptorFac
 
     public static PsiElement createFromTemplate(PsiDirectory directory,String fileName, Template template, String text2) {
 
-        final FileTemplate fileTemplate = FileTemplateManager.getInstance().getInternalTemplate(template.getFile());
-        Properties properties = new Properties(FileTemplateManager.getInstance().getDefaultProperties());
-       /*
-        String text;
-        try {
-            text = fileTemplate.getText(properties);
-        } catch (Exception e) {
-            throw new RuntimeException("Unable to load template for " + template.getFile(), e);
-        }  */
-
         final PsiFileFactory factory = PsiFileFactory.getInstance(directory.getProject());
 
         if ((new File(fileName)).exists()) {

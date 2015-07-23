@@ -95,7 +95,7 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitOuputDeclaration(@NotNull MetaModelOuputDeclaration o) {
+  public void visitOutputDeclaration(@NotNull MetaModelOutputDeclaration o) {
     visitPsiElement(o);
   }
 
@@ -133,10 +133,6 @@ public class MetaModelVisitor extends PsiElementVisitor {
 
   public void visitTypeDeclaration(@NotNull MetaModelTypeDeclaration o) {
     visitNamedElement(o);
-  }
-
-  public void visitVersionDeclaration(@NotNull MetaModelVersionDeclaration o) {
-    visitPsiElement(o);
   }
 
   public void visitNamedElement(@NotNull MetaModelNamedElement o) {

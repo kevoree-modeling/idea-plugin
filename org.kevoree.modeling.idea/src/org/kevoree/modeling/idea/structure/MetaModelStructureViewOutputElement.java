@@ -9,20 +9,19 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelDependencyDeclaration;
-import org.kevoree.modeling.idea.psi.MetaModelOuputDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelOutputDeclaration;
 
 import javax.swing.*;
 
 public class MetaModelStructureViewOutputElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelOuputDeclaration refDecl;
+    private MetaModelOutputDeclaration refDecl;
     private Editor editor;
     private String simpleType;
     private boolean id = false;
     private boolean contained = false;
 
-    public MetaModelStructureViewOutputElement(MetaModelOuputDeclaration refDecl, Editor editor) {
+    public MetaModelStructureViewOutputElement(MetaModelOutputDeclaration refDecl, Editor editor) {
         this.refDecl = refDecl;
         this.editor = editor;
         simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);

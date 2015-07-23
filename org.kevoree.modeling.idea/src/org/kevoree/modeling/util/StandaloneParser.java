@@ -419,7 +419,7 @@ public class StandaloneParser {
     public List<String> check(PsiFile psiFile) {
         final List<String> errors = new ArrayList<String>();
         MetaModelVisitor visitor = new MetaModelVisitor() {
-            
+
             @Override
             public void visitTypeDeclaration(final @NotNull MetaModelTypeDeclaration o) {
                 for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -434,7 +434,7 @@ public class StandaloneParser {
                 final boolean[] isValidated = {false};
                 if (!isValidated[0]) {
                     PsiElement parent = o.getParent();
-                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration) && !(parent instanceof MetaModelInferDeclaration)) {
+                    if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration)) {
                         PsiFile file = o.getContainingFile();
                         file.acceptChildren(new MetaModelVisitor() {
                             @Override

@@ -5,9 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelAnnotationParam extends PsiElement {
+public interface MetaModelOutputDeclaration extends PsiElement {
 
   @NotNull
-  PsiElement getNumber();
+  MetaModelOutputName getOutputName();
+
+  @NotNull
+  MetaModelTypeDeclaration getTypeDeclaration();
 
 }
