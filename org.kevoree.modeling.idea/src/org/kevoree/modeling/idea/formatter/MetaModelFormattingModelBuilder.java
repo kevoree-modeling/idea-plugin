@@ -9,9 +9,6 @@ import com.intellij.psi.codeStyle.CodeStyleSettings;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-/**
- * Created by duke on 7/3/14.
- */
 public class MetaModelFormattingModelBuilder implements FormattingModelBuilder {
     @NotNull
     @Override

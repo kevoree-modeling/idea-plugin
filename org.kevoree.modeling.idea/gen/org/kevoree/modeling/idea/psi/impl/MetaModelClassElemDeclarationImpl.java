@@ -24,14 +24,56 @@ public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement impl
 
   @Override
   @Nullable
+  public MetaModelAttributeDeclaration getAttributeDeclaration() {
+    return findChildByClass(MetaModelAttributeDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelDependencyDeclaration getDependencyDeclaration() {
+    return findChildByClass(MetaModelDependencyDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelInferWithDeclaration getInferWithDeclaration() {
+    return findChildByClass(MetaModelInferWithDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelInputDeclaration getInputDeclaration() {
+    return findChildByClass(MetaModelInputDeclaration.class);
+  }
+
+  @Override
+  @Nullable
   public MetaModelOperationDeclaration getOperationDeclaration() {
     return findChildByClass(MetaModelOperationDeclaration.class);
   }
 
   @Override
   @Nullable
+  public MetaModelOuputDeclaration getOuputDeclaration() {
+    return findChildByClass(MetaModelOuputDeclaration.class);
+  }
+
+  @Override
+  @Nullable
   public MetaModelRelationDeclaration getRelationDeclaration() {
     return findChildByClass(MetaModelRelationDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelTemporalLimitDeclaration getTemporalLimitDeclaration() {
+    return findChildByClass(MetaModelTemporalLimitDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelTemporalResolutionDeclaration getTemporalResolutionDeclaration() {
+    return findChildByClass(MetaModelTemporalResolutionDeclaration.class);
   }
 
 }

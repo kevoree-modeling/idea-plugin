@@ -124,14 +124,6 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                                 }
                             }
 
-                            @Override
-                            public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
-                                if(o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())){
-                                    isValidated[0] = true;
-                                }
-                            }
-
-
                         });
                         if(!isValidated[0]){
                             annotationHolder.createErrorAnnotation(psiElement, "Type identifier not found, please declare corresponding class");

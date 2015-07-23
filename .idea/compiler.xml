@@ -23,6 +23,12 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="org.kevoree.modeling.dsl" />
+      </profile>
+      <profile default="false" name="Annotation profile for org.kevoree.modeling.idea.dsl" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
         <module name="org.kevoree.modeling.idea.dsl" />
       </profile>
     </annotationProcessing>

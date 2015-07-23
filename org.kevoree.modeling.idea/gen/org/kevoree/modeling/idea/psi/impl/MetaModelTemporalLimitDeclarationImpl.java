@@ -11,21 +11,21 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelInferDepTimeDeclImpl extends ASTWrapperPsiElement implements MetaModelInferDepTimeDecl {
+public class MetaModelTemporalLimitDeclarationImpl extends ASTWrapperPsiElement implements MetaModelTemporalLimitDeclaration {
 
-  public MetaModelInferDepTimeDeclImpl(ASTNode node) {
+  public MetaModelTemporalLimitDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitInferDepTimeDecl(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitTemporalLimitDeclaration(this);
     else super.accept(visitor);
   }
 
   @Override
   @NotNull
-  public PsiElement getString() {
-    return findNotNullChildByType(STRING);
+  public PsiElement getNumber() {
+    return findNotNullChildByType(NUMBER);
   }
 
 }

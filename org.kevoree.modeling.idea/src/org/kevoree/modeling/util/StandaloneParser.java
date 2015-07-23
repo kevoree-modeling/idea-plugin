@@ -314,27 +314,7 @@ public class StandaloneParser {
                             final boolean[] isContained = {false};
                             final boolean[] isLearn = {false};
                             final String[] learnLevel = {""};
-                            MetaModelAnnotations annotations = relation.getAnnotations();
-                            if (annotations != null) {
-                                annotations.acceptChildren(new PsiElementVisitor() {
-                                    @Override
-                                    public void visitElement(PsiElement element) {
-                                        if ("@id".equals(element.getText())) {
-                                            isID[0] = true;
-                                        }
-                                        if ("@contained".equals(element.getText())) {
-                                            isContained[0] = true;
-                                        }
-                                        if (element.getText() != null && element.getText().startsWith("@precision")) {
-                                            isLearn[0] = true;
-                                            MetaModelAnnotation annot = (MetaModelAnnotation) element;
-                                            if (annot.getAnnotationParam() != null) {
-                                                learnLevel[0] = annot.getAnnotationParam().getNumber().getText();
-                                            }
-                                        }
-                                    }
-                                });
-                            }
+
                             //Process multiplicity
                             MetaModelMultiplicityDeclaration multiplicityDeclaration = relation.getMultiplicityDeclaration();
                             String lower = null;
@@ -439,73 +419,7 @@ public class StandaloneParser {
     public List<String> check(PsiFile psiFile) {
         final List<String> errors = new ArrayList<String>();
         MetaModelVisitor visitor = new MetaModelVisitor() {
-
-            @Override
-            public void visitAnnotations(@NotNull MetaModelAnnotations psiElement) {
-                MetaModelAnnotations annotations = (MetaModelAnnotations) psiElement;
-                Boolean isAttribute = false;
-                Boolean isReference = false;
-                if (annotations.getParent() instanceof MetaModelRelationDeclaration) {
-                    MetaModelRelationDeclaration declaration = (MetaModelRelationDeclaration) annotations.getParent();
-
-                    for (PrimitiveTypes p : PrimitiveTypes.values()) {
-                        if (p.name().equals(declaration.getTypeDeclaration().getName())) {
-                            isAttribute = true;
-                        }
-                    }
-                    isReference = true;
-                } else {
-                    errors.add("Annotation must be placed on references or attributes declaration");
-                }
-                final Boolean finalIsAttribute = isAttribute;
-                final Boolean finalIsReference = isReference;
-                annotations.acceptChildren(new PsiElementVisitor() {
-                    @Override
-                    public void visitElement(PsiElement element) {
-                        if ("@id".equals(element.getText())) {
-                            if (!finalIsAttribute) {
-                                StringBuilder builder = new StringBuilder();
-                                for (PrimitiveTypes p : PrimitiveTypes.values()) {
-                                    if (builder.length() != 0) {
-                                        builder.append(",");
-                                    }
-                                    builder.append(p.name());
-                                }
-                                errors.add("@id is only valid on attributes (with PrimitiveTypes: " + builder + ")");
-                            }
-                        } else {
-                            if ("@contained".equals(element.getText())) {
-                                if (!finalIsReference) {
-                                    StringBuilder builder = new StringBuilder();
-                                    for (PrimitiveTypes p : PrimitiveTypes.values()) {
-                                        if (builder.length() != 0) {
-                                            builder.append(",");
-                                        }
-                                        builder.append(p.name());
-                                    }
-                                    errors.add("@contained is only valid on references (WITHOUT PrimitiveTypes: " + builder + ")");
-                                }
-                            } else {
-                                if (element.getText() != null && element.getText().startsWith("@precision")) {
-                                    if (!finalIsAttribute) {
-                                        StringBuilder builder = new StringBuilder();
-                                        for (PrimitiveTypes p : PrimitiveTypes.values()) {
-                                            if (builder.length() != 0) {
-                                                builder.append(",");
-                                            }
-                                            builder.append(p.name());
-                                        }
-                                        errors.add("@precision is only valid on attributes (with PrimitiveTypes: " + builder + ")");
-                                    }
-                                } else {
-                                    errors.add(element.getText() + " is not a valid annotation @id, @precision and @contained expected");
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-
+            
             @Override
             public void visitTypeDeclaration(final @NotNull MetaModelTypeDeclaration o) {
                 for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -545,12 +459,6 @@ public class StandaloneParser {
                                 }
                             }
 
-                            @Override
-                            public void visitInferDeclaration(@NotNull MetaModelInferDeclaration oo) {
-                                if (oo.getTypeDeclaration().getName().equals(o.getName())) {
-                                    isValidated[0] = true;
-                                }
-                            }
                         });
                         if (!isValidated[0]) {
                             errors.add("Type identifier not found, please declare corresponding class");

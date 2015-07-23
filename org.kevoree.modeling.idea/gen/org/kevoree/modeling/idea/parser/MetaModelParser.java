@@ -9,9 +9,10 @@ import com.intellij.psi.tree.IElementType;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.tree.TokenSet;
 import com.intellij.lang.PsiParser;
+import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
-public class MetaModelParser implements PsiParser {
+public class MetaModelParser implements PsiParser, LightPsiParser {
 
   public ASTNode parse(IElementType t, PsiBuilder b) {
     parseLight(t, b);
@@ -22,14 +23,11 @@ public class MetaModelParser implements PsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == ANNOTATION) {
-      r = ANNOTATION(b, 0);
+    if (t == ATTRIBUTE_DECLARATION) {
+      r = ATTRIBUTE_DECLARATION(b, 0);
     }
-    else if (t == ANNOTATIONS) {
-      r = ANNOTATIONS(b, 0);
-    }
-    else if (t == ANNOTATION_PARAM) {
-      r = ANNOTATION_PARAM(b, 0);
+    else if (t == ATTRIBUTE_NAME) {
+      r = ATTRIBUTE_NAME(b, 0);
     }
     else if (t == CLASS_DECLARATION) {
       r = CLASS_DECLARATION(b, 0);
@@ -40,20 +38,32 @@ public class MetaModelParser implements PsiParser {
     else if (t == DECLARATION) {
       r = DECLARATION(b, 0);
     }
+    else if (t == DEPENDENCY_DECLARATION) {
+      r = DEPENDENCY_DECLARATION(b, 0);
+    }
+    else if (t == DEPENDENCY_NAME) {
+      r = DEPENDENCY_NAME(b, 0);
+    }
     else if (t == ENUM_DECLARATION) {
       r = ENUM_DECLARATION(b, 0);
     }
     else if (t == ENUM_ELEM_DECLARATION) {
       r = ENUM_ELEM_DECLARATION(b, 0);
     }
-    else if (t == INFER_DECLARATION) {
-      r = INFER_DECLARATION(b, 0);
+    else if (t == INFER_WITH_DECLARATION) {
+      r = INFER_WITH_DECLARATION(b, 0);
     }
-    else if (t == INFER_DEP_DECLARATION) {
-      r = INFER_DEP_DECLARATION(b, 0);
+    else if (t == INPUT_DECLARATION) {
+      r = INPUT_DECLARATION(b, 0);
     }
-    else if (t == INFER_DEP_TIME_DECL) {
-      r = INFER_DEP_TIME_DECL(b, 0);
+    else if (t == INPUT_NAME) {
+      r = INPUT_NAME(b, 0);
+    }
+    else if (t == KMF_VERSION_DECLARATION) {
+      r = KMF_VERSION_DECLARATION(b, 0);
+    }
+    else if (t == MODEL_VERSION_DECLARATION) {
+      r = MODEL_VERSION_DECLARATION(b, 0);
     }
     else if (t == MULTIPLICITY_DECLARATION) {
       r = MULTIPLICITY_DECLARATION(b, 0);
@@ -79,8 +89,17 @@ public class MetaModelParser implements PsiParser {
     else if (t == OPERATION_RETURN) {
       r = OPERATION_RETURN(b, 0);
     }
+    else if (t == OUPUT_DECLARATION) {
+      r = OUPUT_DECLARATION(b, 0);
+    }
+    else if (t == OUTPUT_NAME) {
+      r = OUTPUT_NAME(b, 0);
+    }
     else if (t == PARENTS_DECLARATION) {
       r = PARENTS_DECLARATION(b, 0);
+    }
+    else if (t == PRECISION_DECLARATION) {
+      r = PRECISION_DECLARATION(b, 0);
     }
     else if (t == RELATION_DECLARATION) {
       r = RELATION_DECLARATION(b, 0);
@@ -91,11 +110,17 @@ public class MetaModelParser implements PsiParser {
     else if (t == RELATION_OPPOSITE) {
       r = RELATION_OPPOSITE(b, 0);
     }
+    else if (t == TEMPORAL_LIMIT_DECLARATION) {
+      r = TEMPORAL_LIMIT_DECLARATION(b, 0);
+    }
+    else if (t == TEMPORAL_RESOLUTION_DECLARATION) {
+      r = TEMPORAL_RESOLUTION_DECLARATION(b, 0);
+    }
     else if (t == TYPE_DECLARATION) {
       r = TYPE_DECLARATION(b, 0);
     }
-    else if (t == USING_DECLARATION) {
-      r = USING_DECLARATION(b, 0);
+    else if (t == VERSION_DECLARATION) {
+      r = VERSION_DECLARATION(b, 0);
     }
     else {
       r = parse_root_(t, b, 0);
@@ -108,49 +133,37 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // TANNOTATION ANNOTATION_PARAM?
-  public static boolean ANNOTATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION")) return false;
-    if (!nextTokenIs(b, TANNOTATION)) return false;
+  // ATT ATTRIBUTE_NAME COLON TYPE_DECLARATION PRECISION_DECLARATION?
+  public static boolean ATTRIBUTE_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ATTRIBUTE_DECLARATION")) return false;
+    if (!nextTokenIs(b, ATT)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, TANNOTATION);
-    r = r && ANNOTATION_1(b, l + 1);
-    exit_section_(b, m, ANNOTATION, r);
+    r = consumeToken(b, ATT);
+    r = r && ATTRIBUTE_NAME(b, l + 1);
+    r = r && consumeToken(b, COLON);
+    r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && ATTRIBUTE_DECLARATION_4(b, l + 1);
+    exit_section_(b, m, ATTRIBUTE_DECLARATION, r);
     return r;
   }
 
-  // ANNOTATION_PARAM?
-  private static boolean ANNOTATION_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_1")) return false;
-    ANNOTATION_PARAM(b, l + 1);
+  // PRECISION_DECLARATION?
+  private static boolean ATTRIBUTE_DECLARATION_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ATTRIBUTE_DECLARATION_4")) return false;
+    PRECISION_DECLARATION(b, l + 1);
     return true;
   }
 
   /* ********************************************************** */
-  // ANNOTATION*
-  public static boolean ANNOTATIONS(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATIONS")) return false;
-    Marker m = enter_section_(b, l, _NONE_, "<annotations>");
-    int c = current_position_(b);
-    while (true) {
-      if (!ANNOTATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "ANNOTATIONS", c)) break;
-      c = current_position_(b);
-    }
-    exit_section_(b, l, m, ANNOTATIONS, true, false, null);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // ANNOT_PARAM_OPEN NUMBER ANNOT_PARAM_CLOSE
-  public static boolean ANNOTATION_PARAM(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_PARAM")) return false;
-    if (!nextTokenIs(b, ANNOT_PARAM_OPEN)) return false;
+  // IDENT
+  public static boolean ATTRIBUTE_NAME(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ATTRIBUTE_NAME")) return false;
+    if (!nextTokenIs(b, IDENT)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, ANNOT_PARAM_OPEN, NUMBER, ANNOT_PARAM_CLOSE);
-    exit_section_(b, m, ANNOTATION_PARAM, r);
+    r = consumeToken(b, IDENT);
+    exit_section_(b, m, ATTRIBUTE_NAME, r);
     return r;
   }
 
@@ -191,30 +204,63 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // RELATION_DECLARATION | OPERATION_DECLARATION
+  // TEMPORAL_LIMIT_DECLARATION | TEMPORAL_RESOLUTION_DECLARATION | ATTRIBUTE_DECLARATION | RELATION_DECLARATION | OPERATION_DECLARATION | DEPENDENCY_DECLARATION | INPUT_DECLARATION | OUPUT_DECLARATION | INFER_WITH_DECLARATION
   public static boolean CLASS_ELEM_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "CLASS_ELEM_DECLARATION")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, "<class elem declaration>");
-    r = RELATION_DECLARATION(b, l + 1);
+    r = TEMPORAL_LIMIT_DECLARATION(b, l + 1);
+    if (!r) r = TEMPORAL_RESOLUTION_DECLARATION(b, l + 1);
+    if (!r) r = ATTRIBUTE_DECLARATION(b, l + 1);
+    if (!r) r = RELATION_DECLARATION(b, l + 1);
     if (!r) r = OPERATION_DECLARATION(b, l + 1);
+    if (!r) r = DEPENDENCY_DECLARATION(b, l + 1);
+    if (!r) r = INPUT_DECLARATION(b, l + 1);
+    if (!r) r = OUPUT_DECLARATION(b, l + 1);
+    if (!r) r = INFER_WITH_DECLARATION(b, l + 1);
     exit_section_(b, l, m, CLASS_ELEM_DECLARATION, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // CLASS_DECLARATION | ENUM_DECLARATION | INFER_DECLARATION | eof | newline | CRLF
+  // CLASS_DECLARATION | ENUM_DECLARATION | eof | newline | CRLF
   public static boolean DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "DECLARATION")) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, "<declaration>");
     r = CLASS_DECLARATION(b, l + 1);
     if (!r) r = ENUM_DECLARATION(b, l + 1);
-    if (!r) r = INFER_DECLARATION(b, l + 1);
     if (!r) r = consumeToken(b, EOF);
     if (!r) r = consumeToken(b, NEWLINE);
     if (!r) r = consumeToken(b, CRLF);
     exit_section_(b, l, m, DECLARATION, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // DEPENDENCY DEPENDENCY_NAME COLON TYPE_DECLARATION
+  public static boolean DEPENDENCY_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "DEPENDENCY_DECLARATION")) return false;
+    if (!nextTokenIs(b, DEPENDENCY)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, DEPENDENCY);
+    r = r && DEPENDENCY_NAME(b, l + 1);
+    r = r && consumeToken(b, COLON);
+    r = r && TYPE_DECLARATION(b, l + 1);
+    exit_section_(b, m, DEPENDENCY_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // IDENT
+  public static boolean DEPENDENCY_NAME(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "DEPENDENCY_NAME")) return false;
+    if (!nextTokenIs(b, IDENT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, IDENT);
+    exit_section_(b, m, DEPENDENCY_NAME, r);
     return r;
   }
 
@@ -259,86 +305,101 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // INFER TYPE_DECLARATION USING_DECLARATION BODY_OPEN INFER_DEP_DECLARATION* BODY_CLOSE
-  public static boolean INFER_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DECLARATION")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, "<infer declaration>");
-    r = consumeToken(b, INFER);
-    p = r; // pin = 1
-    r = r && report_error_(b, TYPE_DECLARATION(b, l + 1));
-    r = p && report_error_(b, USING_DECLARATION(b, l + 1)) && r;
-    r = p && report_error_(b, consumeToken(b, BODY_OPEN)) && r;
-    r = p && report_error_(b, INFER_DECLARATION_4(b, l + 1)) && r;
-    r = p && consumeToken(b, BODY_CLOSE) && r;
-    exit_section_(b, l, m, INFER_DECLARATION, r, p, rule_start_parser_);
-    return r || p;
-  }
-
-  // INFER_DEP_DECLARATION*
-  private static boolean INFER_DECLARATION_4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DECLARATION_4")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!INFER_DEP_DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "INFER_DECLARATION_4", c)) break;
-      c = current_position_(b);
-    }
-    return true;
+  // INFER_WITH string
+  public static boolean INFER_WITH_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INFER_WITH_DECLARATION")) return false;
+    if (!nextTokenIs(b, INFER_WITH)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, INFER_WITH, STRING);
+    exit_section_(b, m, INFER_WITH_DECLARATION, r);
+    return r;
   }
 
   /* ********************************************************** */
-  // IDENT COLON TYPE_DECLARATION MULTIPLICITY_DECLARATION? INFER_DEP_TIME_DECL?
-  public static boolean INFER_DEP_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DEP_DECLARATION")) return false;
+  // INPUT INPUT_NAME string
+  public static boolean INPUT_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INPUT_DECLARATION")) return false;
+    if (!nextTokenIs(b, INPUT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, INPUT);
+    r = r && INPUT_NAME(b, l + 1);
+    r = r && consumeToken(b, STRING);
+    exit_section_(b, m, INPUT_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // IDENT
+  public static boolean INPUT_NAME(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INPUT_NAME")) return false;
     if (!nextTokenIs(b, IDENT)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, IDENT, COLON);
-    r = r && TYPE_DECLARATION(b, l + 1);
-    r = r && INFER_DEP_DECLARATION_3(b, l + 1);
-    r = r && INFER_DEP_DECLARATION_4(b, l + 1);
-    exit_section_(b, m, INFER_DEP_DECLARATION, r);
+    r = consumeToken(b, IDENT);
+    exit_section_(b, m, INPUT_NAME, r);
     return r;
   }
 
-  // MULTIPLICITY_DECLARATION?
-  private static boolean INFER_DEP_DECLARATION_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DEP_DECLARATION_3")) return false;
-    MULTIPLICITY_DECLARATION(b, l + 1);
-    return true;
-  }
-
-  // INFER_DEP_TIME_DECL?
-  private static boolean INFER_DEP_DECLARATION_4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DEP_DECLARATION_4")) return false;
-    INFER_DEP_TIME_DECL(b, l + 1);
-    return true;
-  }
-
   /* ********************************************************** */
-  // FROM string
-  public static boolean INFER_DEP_TIME_DECL(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INFER_DEP_TIME_DECL")) return false;
-    if (!nextTokenIs(b, FROM)) return false;
+  // KMF_VERSION string
+  public static boolean KMF_VERSION_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "KMF_VERSION_DECLARATION")) return false;
+    if (!nextTokenIs(b, KMF_VERSION)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, FROM, STRING);
-    exit_section_(b, m, INFER_DEP_TIME_DECL, r);
+    r = consumeTokens(b, 0, KMF_VERSION, STRING);
+    exit_section_(b, m, KMF_VERSION_DECLARATION, r);
     return r;
   }
 
   /* ********************************************************** */
-  // DECLARATION*
+  // VERSION_DECLARATION* DECLARATION*
   static boolean METAMODEL(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "METAMODEL")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = METAMODEL_0(b, l + 1);
+    r = r && METAMODEL_1(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
+  }
+
+  // VERSION_DECLARATION*
+  private static boolean METAMODEL_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "METAMODEL_0")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "METAMODEL", c)) break;
+      if (!VERSION_DECLARATION(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "METAMODEL_0", c)) break;
       c = current_position_(b);
     }
     return true;
+  }
+
+  // DECLARATION*
+  private static boolean METAMODEL_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "METAMODEL_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!DECLARATION(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "METAMODEL_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // VERSION string
+  public static boolean MODEL_VERSION_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "MODEL_VERSION_DECLARATION")) return false;
+    if (!nextTokenIs(b, VERSION)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, VERSION, STRING);
+    exit_section_(b, m, MODEL_VERSION_DECLARATION, r);
+    return r;
   }
 
   /* ********************************************************** */
@@ -507,6 +568,33 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
+  // OUTPUT OUTPUT_NAME COLON TYPE_DECLARATION
+  public static boolean OUPUT_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "OUPUT_DECLARATION")) return false;
+    if (!nextTokenIs(b, OUTPUT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, OUTPUT);
+    r = r && OUTPUT_NAME(b, l + 1);
+    r = r && consumeToken(b, COLON);
+    r = r && TYPE_DECLARATION(b, l + 1);
+    exit_section_(b, m, OUPUT_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // IDENT
+  public static boolean OUTPUT_NAME(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "OUTPUT_NAME")) return false;
+    if (!nextTokenIs(b, IDENT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, IDENT);
+    exit_section_(b, m, OUTPUT_NAME, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // COLON TYPE_DECLARATION (COMMA TYPE_DECLARATION)*
   public static boolean PARENTS_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "PARENTS_DECLARATION")) return false;
@@ -544,19 +632,31 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // ANNOTATIONS RELATION_NAME COLON TYPE_DECLARATION MULTIPLICITY_DECLARATION? RELATION_OPPOSITE?
+  // PRECISION NUMBER
+  public static boolean PRECISION_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "PRECISION_DECLARATION")) return false;
+    if (!nextTokenIs(b, PRECISION)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, PRECISION, NUMBER);
+    exit_section_(b, m, PRECISION_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // REF RELATION_NAME COLON TYPE_DECLARATION MULTIPLICITY_DECLARATION? RELATION_OPPOSITE?
   public static boolean RELATION_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "RELATION_DECLARATION")) return false;
-    if (!nextTokenIs(b, "<relation declaration>", IDENT, TANNOTATION)) return false;
+    if (!nextTokenIs(b, REF)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<relation declaration>");
-    r = ANNOTATIONS(b, l + 1);
+    Marker m = enter_section_(b);
+    r = consumeToken(b, REF);
     r = r && RELATION_NAME(b, l + 1);
     r = r && consumeToken(b, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
     r = r && RELATION_DECLARATION_4(b, l + 1);
     r = r && RELATION_DECLARATION_5(b, l + 1);
-    exit_section_(b, l, m, RELATION_DECLARATION, r, false, null);
+    exit_section_(b, m, RELATION_DECLARATION, r);
     return r;
   }
 
@@ -612,6 +712,30 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
+  // TEMPORAL_LIMIT NUMBER
+  public static boolean TEMPORAL_LIMIT_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "TEMPORAL_LIMIT_DECLARATION")) return false;
+    if (!nextTokenIs(b, TEMPORAL_LIMIT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, TEMPORAL_LIMIT, NUMBER);
+    exit_section_(b, m, TEMPORAL_LIMIT_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // TEMPORAL_RESOLUTION NUMBER
+  public static boolean TEMPORAL_RESOLUTION_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "TEMPORAL_RESOLUTION_DECLARATION")) return false;
+    if (!nextTokenIs(b, TEMPORAL_RESOLUTION)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, TEMPORAL_RESOLUTION, NUMBER);
+    exit_section_(b, m, TEMPORAL_RESOLUTION_DECLARATION, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // IDENT
   public static boolean TYPE_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "TYPE_DECLARATION")) return false;
@@ -624,19 +748,20 @@ public class MetaModelParser implements PsiParser {
   }
 
   /* ********************************************************** */
-  // USING IDENT
-  public static boolean USING_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "USING_DECLARATION")) return false;
-    if (!nextTokenIs(b, USING)) return false;
+  // MODEL_VERSION_DECLARATION | KMF_VERSION_DECLARATION
+  public static boolean VERSION_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "VERSION_DECLARATION")) return false;
+    if (!nextTokenIs(b, "<version declaration>", KMF_VERSION, VERSION)) return false;
     boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, USING, IDENT);
-    exit_section_(b, m, USING_DECLARATION, r);
+    Marker m = enter_section_(b, l, _NONE_, "<version declaration>");
+    r = MODEL_VERSION_DECLARATION(b, l + 1);
+    if (!r) r = KMF_VERSION_DECLARATION(b, l + 1);
+    exit_section_(b, l, m, VERSION_DECLARATION, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // !(CLASS|ENUM|INFER)
+  // !(CLASS|ENUM)
   static boolean rule_start(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start")) return false;
     boolean r;
@@ -646,14 +771,13 @@ public class MetaModelParser implements PsiParser {
     return r;
   }
 
-  // CLASS|ENUM|INFER
+  // CLASS|ENUM
   private static boolean rule_start_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, CLASS);
     if (!r) r = consumeToken(b, ENUM);
-    if (!r) r = consumeToken(b, INFER);
     exit_section_(b, m, null, r);
     return r;
   }

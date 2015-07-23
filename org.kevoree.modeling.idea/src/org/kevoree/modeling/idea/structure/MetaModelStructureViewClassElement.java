@@ -10,6 +10,7 @@ import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.kevoree.modeling.idea.psi.MetaModelClassDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelInferWithDeclaration;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -23,7 +24,19 @@ public class MetaModelStructureViewClassElement implements StructureViewTreeElem
     private MetaModelClassDeclaration classDecl;
     private String presText;
     private Editor editor;
+    public List<MetaModelStructureViewInferWithElement> inferWith = new ArrayList<MetaModelStructureViewInferWithElement>();
+
+    public List<MetaModelStructureViewTemporalResolutionElement> tempResolutions = new ArrayList<MetaModelStructureViewTemporalResolutionElement>();
+    public List<MetaModelStructureViewTemporalLimitElement> tempLimits = new ArrayList<MetaModelStructureViewTemporalLimitElement>();
+
+    public List<MetaModelStructureViewAttributeElement> attributes = new ArrayList<MetaModelStructureViewAttributeElement>();
     public List<MetaModelStructureViewReferenceElement> references = new ArrayList<MetaModelStructureViewReferenceElement>();
+
+    public List<MetaModelStructureViewDependencyElement> dependencies = new ArrayList<MetaModelStructureViewDependencyElement>();
+    public List<MetaModelStructureViewInputElement> inputs = new ArrayList<MetaModelStructureViewInputElement>();
+    public List<MetaModelStructureViewOutputElement> outputs = new ArrayList<MetaModelStructureViewOutputElement>();
+
+
     public List<MetaModelStructureViewOperationElement> operations = new ArrayList<MetaModelStructureViewOperationElement>();
     public List<MetaModelStructureViewParentElement> parents = new ArrayList<MetaModelStructureViewParentElement>();
 
@@ -88,7 +101,18 @@ public class MetaModelStructureViewClassElement implements StructureViewTreeElem
     public TreeElement[] getChildren() {
         List<TreeElement> all = new ArrayList<TreeElement>();
         all.addAll(parents);
+
+        all.addAll(inferWith);
+        all.addAll(tempResolutions);
+        all.addAll(tempLimits);
+        
+        all.addAll(attributes);
         all.addAll(references);
+
+        all.addAll(dependencies);
+        all.addAll(inputs);
+        all.addAll(outputs);
+
         all.addAll(operations);
         return all.toArray(new TreeElement[all.size()]);
     }

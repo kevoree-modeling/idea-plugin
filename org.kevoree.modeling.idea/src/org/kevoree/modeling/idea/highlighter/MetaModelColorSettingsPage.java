@@ -23,7 +23,7 @@ public class MetaModelColorSettingsPage implements ColorSettingsPage {
             new AttributesDescriptor("SEPARATOR", MetaModelSyntaxHighlighter.SEPARATOR),
             new AttributesDescriptor("COMMENT", MetaModelSyntaxHighlighter.COMMENT),
             new AttributesDescriptor("IDENT", MetaModelSyntaxHighlighter.IDENT),
-            new AttributesDescriptor("ANNOTATION", MetaModelSyntaxHighlighter.ANNOTATION),
+            new AttributesDescriptor("NUMBER", MetaModelSyntaxHighlighter.NUMBER),
             new AttributesDescriptor("BAD_CHARACTER", MetaModelSyntaxHighlighter.BAD_CHARACTER),
     };
 

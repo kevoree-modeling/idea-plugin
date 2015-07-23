@@ -5,16 +5,13 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelRelationDeclaration extends PsiElement {
-
-  @Nullable
-  MetaModelMultiplicityDeclaration getMultiplicityDeclaration();
+public interface MetaModelAttributeDeclaration extends PsiElement {
 
   @NotNull
-  MetaModelRelationName getRelationName();
+  MetaModelAttributeName getAttributeName();
 
   @Nullable
-  MetaModelRelationOpposite getRelationOpposite();
+  MetaModelPrecisionDeclaration getPrecisionDeclaration();
 
   @NotNull
   MetaModelTypeDeclaration getTypeDeclaration();

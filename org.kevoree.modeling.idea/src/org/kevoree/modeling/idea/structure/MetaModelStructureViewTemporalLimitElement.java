@@ -1,6 +1,5 @@
 package org.kevoree.modeling.idea.structure;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
@@ -10,26 +9,25 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelTemporalLimitDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelTemporalResolutionDeclaration;
 
 import javax.swing.*;
 
-public class MetaModelStructureViewReferenceElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewTemporalLimitElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelRelationDeclaration refDecl;
+    private MetaModelTemporalLimitDeclaration attDecl;
     private Editor editor;
-    private String simpleType;
     private boolean id = false;
     private boolean contained = false;
 
-    public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
-        this.refDecl = refDecl;
+    public MetaModelStructureViewTemporalLimitElement(MetaModelTemporalLimitDeclaration attDecl, Editor editor) {
+        this.attDecl = attDecl;
         this.editor = editor;
-        simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
     }
 
     public boolean isAttribute() {
-        return false;
+        return true;
     }
 
     public boolean isId() {
@@ -42,12 +40,12 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     @Override
     public Object getValue() {
-        return refDecl;
+        return attDecl;
     }
 
     @Override
     public void navigate(boolean b) {
-        editor.getCaretModel().moveToOffset(refDecl.getTextOffset());
+        editor.getCaretModel().moveToOffset(attDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
 
@@ -69,7 +67,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                return refDecl.getRelationName().getText() + " : " + simpleType;
+                return attDecl.getText();
             }
 
             @Nullable
@@ -81,7 +79,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.PROPERTY_ICON;
+                return PlatformIcons.NEW_PARAMETER;
             }
         };
     }
@@ -94,6 +92,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getRelationName().getText();
+        return attDecl.getText();
     }
 }

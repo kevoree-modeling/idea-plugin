@@ -1,6 +1,5 @@
 package org.kevoree.modeling.idea.structure;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
@@ -10,19 +9,20 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.kevoree.modeling.idea.psi.MetaModelDependencyDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
 
 import javax.swing.*;
 
-public class MetaModelStructureViewReferenceElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewDependencyElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelRelationDeclaration refDecl;
+    private MetaModelDependencyDeclaration refDecl;
     private Editor editor;
     private String simpleType;
     private boolean id = false;
     private boolean contained = false;
 
-    public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
+    public MetaModelStructureViewDependencyElement(MetaModelDependencyDeclaration refDecl, Editor editor) {
         this.refDecl = refDecl;
         this.editor = editor;
         simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
@@ -69,7 +69,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                return refDecl.getRelationName().getText() + " : " + simpleType;
+                return refDecl.getDependencyName().getText() + " : " + simpleType;
             }
 
             @Nullable
@@ -81,7 +81,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.PROPERTY_ICON;
+                return PlatformIcons.FUNCTION_ICON;
             }
         };
     }
@@ -94,6 +94,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getRelationName().getText();
+        return refDecl.getDependencyName().getText();
     }
 }

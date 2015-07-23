@@ -1,6 +1,5 @@
 package org.kevoree.modeling.idea.structure;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
@@ -10,26 +9,29 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.kevoree.modeling.idea.psi.MetaModelAttributeDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
+import org.kevoree.modeling.util.PrimitiveTypes;
 
 import javax.swing.*;
 
-public class MetaModelStructureViewReferenceElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewAttributeElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelRelationDeclaration refDecl;
+    private MetaModelAttributeDeclaration attDecl;
     private Editor editor;
+    private Icon myIcon = PlatformIcons.FIELD_ICON;
     private String simpleType;
     private boolean id = false;
     private boolean contained = false;
 
-    public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
-        this.refDecl = refDecl;
+    public MetaModelStructureViewAttributeElement(MetaModelAttributeDeclaration attDecl, Editor editor) {
+        this.attDecl = attDecl;
         this.editor = editor;
-        simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
+        simpleType = attDecl.getTypeDeclaration().getName().substring(attDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
     }
 
     public boolean isAttribute() {
-        return false;
+        return true;
     }
 
     public boolean isId() {
@@ -42,12 +44,12 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     @Override
     public Object getValue() {
-        return refDecl;
+        return attDecl;
     }
 
     @Override
     public void navigate(boolean b) {
-        editor.getCaretModel().moveToOffset(refDecl.getTextOffset());
+        editor.getCaretModel().moveToOffset(attDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
 
@@ -69,7 +71,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                return refDecl.getRelationName().getText() + " : " + simpleType;
+                return attDecl.getAttributeName().getText() + " : " + simpleType;
             }
 
             @Nullable
@@ -81,7 +83,7 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.PROPERTY_ICON;
+                return myIcon;
             }
         };
     }
@@ -94,6 +96,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getRelationName().getText();
+        return attDecl.getAttributeName().getText();
     }
 }

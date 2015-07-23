@@ -1,11 +1,8 @@
 package org.kevoree.modeling.util;
 
-/**
- * Created by duke on 7/11/14.
- */
 public enum PrimitiveTypes {
 
-    String, Long, Int, Bool, Short, Double, Float, Continuous;
+    String, Long, Int, Bool, Double, Continuous;
 
     public static boolean isPrimitive(String originalName) {
         for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -29,14 +26,8 @@ public enum PrimitiveTypes {
         if (originalName.equals("Long")) {
             return "java.lang.Long";
         }
-        if (originalName.equals("Short")) {
-            return "java.lang.Short";
-        }
         if (originalName.equals("Double")) {
             return "java.lang.Double";
-        }
-        if (originalName.equals("Float")) {
-            return "java.lang.Float";
         }
         if (originalName.equals("Continuous")) {
             return "java.lang.Double";
@@ -65,13 +56,13 @@ public enum PrimitiveTypes {
             return "Long";
         }
         if (originalName.equals("Short") || originalName.equals("EShort") || originalName.equals("EShortObject")) {
-            return "Short";
+            return "Int";
         }
         if (originalName.equals("Double") || originalName.equals("EDouble") || originalName.equals("EDoubleObject")) {
             return "Double";
         }
         if (originalName.equals("Float") || originalName.equals("EFloat") || originalName.equals("EFloatObject")) {
-            return "Float";
+            return "Double";
         }
         return originalName;
     }

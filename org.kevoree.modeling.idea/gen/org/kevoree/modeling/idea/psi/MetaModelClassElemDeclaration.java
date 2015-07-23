@@ -8,9 +8,30 @@ import com.intellij.psi.PsiElement;
 public interface MetaModelClassElemDeclaration extends PsiElement {
 
   @Nullable
+  MetaModelAttributeDeclaration getAttributeDeclaration();
+
+  @Nullable
+  MetaModelDependencyDeclaration getDependencyDeclaration();
+
+  @Nullable
+  MetaModelInferWithDeclaration getInferWithDeclaration();
+
+  @Nullable
+  MetaModelInputDeclaration getInputDeclaration();
+
+  @Nullable
   MetaModelOperationDeclaration getOperationDeclaration();
 
   @Nullable
+  MetaModelOuputDeclaration getOuputDeclaration();
+
+  @Nullable
   MetaModelRelationDeclaration getRelationDeclaration();
+
+  @Nullable
+  MetaModelTemporalLimitDeclaration getTemporalLimitDeclaration();
+
+  @Nullable
+  MetaModelTemporalResolutionDeclaration getTemporalResolutionDeclaration();
 
 }

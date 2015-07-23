@@ -9,45 +9,48 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelClassDeclaration;
-import org.kevoree.modeling.idea.psi.MetaModelInferDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelDependencyDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelOuputDeclaration;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
-public class MetaModelStructureViewInferElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewOutputElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelInferDeclaration classDecl;
-    private String presText;
+    private MetaModelOuputDeclaration refDecl;
     private Editor editor;
-    public List<MetaModelStructureViewInferDependencyElement> dependencies = new ArrayList<MetaModelStructureViewInferDependencyElement>();
+    private String simpleType;
+    private boolean id = false;
+    private boolean contained = false;
 
-    public MetaModelStructureViewInferElement(MetaModelInferDeclaration classDecl, Editor editor) {
-        this.classDecl = classDecl;
+    public MetaModelStructureViewOutputElement(MetaModelOuputDeclaration refDecl, Editor editor) {
+        this.refDecl = refDecl;
         this.editor = editor;
-        int indexOfPoint = classDecl.getTypeDeclaration().getName().lastIndexOf(".");
-        if (indexOfPoint > 0) {
-            presText = classDecl.getTypeDeclaration().getName().substring(indexOfPoint + 1);
-        } else {
-            presText = classDecl.getTypeDeclaration().getName();
-        }
+        simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
+    }
+
+    public boolean isAttribute() {
+        return false;
+    }
+
+    public boolean isId() {
+        return id;
+    }
+
+    public boolean isContained() {
+        return contained;
     }
 
     @Override
     public Object getValue() {
-        return classDecl;
+        return refDecl;
     }
 
     @Override
     public void navigate(boolean b) {
-        //System.out.println("Editor:" + editor.getClass());
-        editor.getCaretModel().moveToOffset(classDecl.getTextOffset());
+        editor.getCaretModel().moveToOffset(refDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
+
 
     @Override
     public boolean canNavigate() {
@@ -66,7 +69,7 @@ public class MetaModelStructureViewInferElement implements StructureViewTreeElem
             @Nullable
             @Override
             public String getPresentableText() {
-                return presText;
+                return refDecl.getOutputName().getText() + " : " + simpleType;
             }
 
             @Nullable
@@ -78,21 +81,19 @@ public class MetaModelStructureViewInferElement implements StructureViewTreeElem
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.CLASS_ICON;
+                return PlatformIcons.EXPORT_ICON;
             }
         };
     }
 
     @Override
     public TreeElement[] getChildren() {
-        List<TreeElement> all = new ArrayList<TreeElement>();
-        all.addAll(dependencies);
-        return all.toArray(new TreeElement[all.size()]);
+        return EMPTY_ARRAY;
     }
 
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return presText;
+        return refDecl.getOutputName().getText();
     }
 }

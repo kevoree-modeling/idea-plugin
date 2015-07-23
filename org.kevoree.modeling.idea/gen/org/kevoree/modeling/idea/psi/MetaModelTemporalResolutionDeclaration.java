@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelDeclaration extends PsiElement {
+public interface MetaModelTemporalResolutionDeclaration extends PsiElement {
 
-  @Nullable
-  MetaModelClassDeclaration getClassDeclaration();
-
-  @Nullable
-  MetaModelEnumDeclaration getEnumDeclaration();
+  @NotNull
+  PsiElement getNumber();
 
 }

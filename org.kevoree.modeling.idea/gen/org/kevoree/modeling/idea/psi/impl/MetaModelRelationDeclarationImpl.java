@@ -23,12 +23,6 @@ public class MetaModelRelationDeclarationImpl extends ASTWrapperPsiElement imple
   }
 
   @Override
-  @NotNull
-  public MetaModelAnnotations getAnnotations() {
-    return findNotNullChildByClass(MetaModelAnnotations.class);
-  }
-
-  @Override
   @Nullable
   public MetaModelMultiplicityDeclaration getMultiplicityDeclaration() {
     return findChildByClass(MetaModelMultiplicityDeclaration.class);

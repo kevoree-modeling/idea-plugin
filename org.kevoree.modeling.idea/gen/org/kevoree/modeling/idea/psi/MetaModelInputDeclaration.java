@@ -5,12 +5,12 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelDeclaration extends PsiElement {
+public interface MetaModelInputDeclaration extends PsiElement {
 
-  @Nullable
-  MetaModelClassDeclaration getClassDeclaration();
+  @NotNull
+  MetaModelInputName getInputName();
 
-  @Nullable
-  MetaModelEnumDeclaration getEnumDeclaration();
+  @NotNull
+  PsiElement getString();
 
 }

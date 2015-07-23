@@ -7,15 +7,11 @@ import com.intellij.psi.PsiElement;
 
 public class MetaModelVisitor extends PsiElementVisitor {
 
-  public void visitAnnotation(@NotNull MetaModelAnnotation o) {
+  public void visitAttributeDeclaration(@NotNull MetaModelAttributeDeclaration o) {
     visitPsiElement(o);
   }
 
-  public void visitAnnotations(@NotNull MetaModelAnnotations o) {
-    visitPsiElement(o);
-  }
-
-  public void visitAnnotationParam(@NotNull MetaModelAnnotationParam o) {
+  public void visitAttributeName(@NotNull MetaModelAttributeName o) {
     visitPsiElement(o);
   }
 
@@ -31,6 +27,14 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitDependencyDeclaration(@NotNull MetaModelDependencyDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitDependencyName(@NotNull MetaModelDependencyName o) {
+    visitPsiElement(o);
+  }
+
   public void visitEnumDeclaration(@NotNull MetaModelEnumDeclaration o) {
     visitPsiElement(o);
   }
@@ -39,15 +43,23 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
+  public void visitInferWithDeclaration(@NotNull MetaModelInferWithDeclaration o) {
     visitPsiElement(o);
   }
 
-  public void visitInferDepDeclaration(@NotNull MetaModelInferDepDeclaration o) {
+  public void visitInputDeclaration(@NotNull MetaModelInputDeclaration o) {
     visitPsiElement(o);
   }
 
-  public void visitInferDepTimeDecl(@NotNull MetaModelInferDepTimeDecl o) {
+  public void visitInputName(@NotNull MetaModelInputName o) {
+    visitPsiElement(o);
+  }
+
+  public void visitKmfVersionDeclaration(@NotNull MetaModelKmfVersionDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitModelVersionDeclaration(@NotNull MetaModelModelVersionDeclaration o) {
     visitPsiElement(o);
   }
 
@@ -83,7 +95,19 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitOuputDeclaration(@NotNull MetaModelOuputDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitOutputName(@NotNull MetaModelOutputName o) {
+    visitPsiElement(o);
+  }
+
   public void visitParentsDeclaration(@NotNull MetaModelParentsDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitPrecisionDeclaration(@NotNull MetaModelPrecisionDeclaration o) {
     visitPsiElement(o);
   }
 
@@ -99,11 +123,19 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
+  public void visitTemporalLimitDeclaration(@NotNull MetaModelTemporalLimitDeclaration o) {
+    visitPsiElement(o);
+  }
+
+  public void visitTemporalResolutionDeclaration(@NotNull MetaModelTemporalResolutionDeclaration o) {
+    visitPsiElement(o);
+  }
+
   public void visitTypeDeclaration(@NotNull MetaModelTypeDeclaration o) {
     visitNamedElement(o);
   }
 
-  public void visitUsingDeclaration(@NotNull MetaModelUsingDeclaration o) {
+  public void visitVersionDeclaration(@NotNull MetaModelVersionDeclaration o) {
     visitPsiElement(o);
   }
 

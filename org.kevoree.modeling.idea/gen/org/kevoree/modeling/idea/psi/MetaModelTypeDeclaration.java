@@ -9,11 +9,9 @@ public interface MetaModelTypeDeclaration extends MetaModelNamedElement {
     @NotNull
     PsiElement getIdent();
 
-    @Override
-    PsiElement setName(String s);
+    PsiElement setName(String newName);
 
     @Nullable
-    @Override
     PsiElement getNameIdentifier();
 
 }

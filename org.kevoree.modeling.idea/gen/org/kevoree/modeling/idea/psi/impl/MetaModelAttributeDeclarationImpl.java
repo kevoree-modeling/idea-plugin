@@ -11,39 +11,33 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelInferDepDeclarationImpl extends ASTWrapperPsiElement implements MetaModelInferDepDeclaration {
+public class MetaModelAttributeDeclarationImpl extends ASTWrapperPsiElement implements MetaModelAttributeDeclaration {
 
-  public MetaModelInferDepDeclarationImpl(ASTNode node) {
+  public MetaModelAttributeDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitInferDepDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitAttributeDeclaration(this);
     else super.accept(visitor);
   }
 
   @Override
-  @Nullable
-  public MetaModelInferDepTimeDecl getInferDepTimeDecl() {
-    return findChildByClass(MetaModelInferDepTimeDecl.class);
+  @NotNull
+  public MetaModelAttributeName getAttributeName() {
+    return findNotNullChildByClass(MetaModelAttributeName.class);
   }
 
   @Override
   @Nullable
-  public MetaModelMultiplicityDeclaration getMultiplicityDeclaration() {
-    return findChildByClass(MetaModelMultiplicityDeclaration.class);
+  public MetaModelPrecisionDeclaration getPrecisionDeclaration() {
+    return findChildByClass(MetaModelPrecisionDeclaration.class);
   }
 
   @Override
   @NotNull
   public MetaModelTypeDeclaration getTypeDeclaration() {
     return findNotNullChildByClass(MetaModelTypeDeclaration.class);
-  }
-
-  @Override
-  @NotNull
-  public PsiElement getIdent() {
-    return findNotNullChildByType(IDENT);
   }
 
 }

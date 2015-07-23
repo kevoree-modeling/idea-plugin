@@ -18,9 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
 public class MetaModelStructureViewRootElement implements StructureViewTreeElement {
 
     private PsiFile element;
@@ -52,7 +49,7 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                                     classElement.parents.add(new MetaModelStructureViewParentElement(d, editor));
                                 }
                             }
-                            processReferences(o, classElement, editor);
+                            processSubDec(o, classElement, editor);
                             if (o.getTypeDeclaration().getName().lastIndexOf(".") != -1) {
                                 processPackages(MetaModelStructureViewRootElement.this, o.getTypeDeclaration().getName()).innerClasses.add(classElement);
                             } else {
@@ -71,20 +68,6 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                                 processPackages(MetaModelStructureViewRootElement.this, o.getTypeDeclaration().getName()).innerClasses.add(enumElement);
                             } else {
                                 MetaModelStructureViewRootElement.this.innerClasses.add(enumElement);
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void visitInferDeclaration(@NotNull MetaModelInferDeclaration o) {
-                        super.visitInferDeclaration(o);
-                        if (o.getTypeDeclaration() != null) {
-                            MetaModelStructureViewInferElement classElement = new MetaModelStructureViewInferElement(o, editor);
-                            processDependencies(o, classElement, editor);
-                            if (o.getTypeDeclaration().getName().lastIndexOf(".") != -1) {
-                                processPackages(MetaModelStructureViewRootElement.this, o.getTypeDeclaration().getName()).innerClasses.add(classElement);
-                            } else {
-                                MetaModelStructureViewRootElement.this.innerClasses.add(classElement);
                             }
                         }
                     }
@@ -181,24 +164,38 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
         return pack;
     }
 
-    private void processReferences(MetaModelClassDeclaration o, MetaModelStructureViewClassElement classElement, Editor editor) {
+    private void processSubDec(MetaModelClassDeclaration o, MetaModelStructureViewClassElement classElement, Editor editor) {
         for (MetaModelClassElemDeclaration relDec : o.getClassElemDeclarationList()) {
-            if(relDec.getOperationDeclaration() != null) {
+            if (relDec.getOperationDeclaration() != null) {
                 MetaModelStructureViewOperationElement referenceElement = new MetaModelStructureViewOperationElement(relDec.getOperationDeclaration(), editor);
                 classElement.operations.add(referenceElement);
-            } else if(relDec.getRelationDeclaration() != null) {
+            } else if (relDec.getRelationDeclaration() != null) {
                 MetaModelStructureViewReferenceElement referenceElement = new MetaModelStructureViewReferenceElement(relDec.getRelationDeclaration(), editor);
                 classElement.references.add(referenceElement);
+            } else if (relDec.getAttributeDeclaration() != null) {
+                MetaModelStructureViewAttributeElement attributeElement = new MetaModelStructureViewAttributeElement(relDec.getAttributeDeclaration(), editor);
+                classElement.attributes.add(attributeElement);
+            } else if (relDec.getDependencyDeclaration() != null) {
+                MetaModelStructureViewDependencyElement dependencyElement = new MetaModelStructureViewDependencyElement(relDec.getDependencyDeclaration(), editor);
+                classElement.dependencies.add(dependencyElement);
+            } else if (relDec.getInputDeclaration() != null) {
+                MetaModelStructureViewInputElement inputElement = new MetaModelStructureViewInputElement(relDec.getInputDeclaration(), editor);
+                classElement.inputs.add(inputElement);
+            } else if (relDec.getOuputDeclaration() != null) {
+                MetaModelStructureViewOutputElement outputElement = new MetaModelStructureViewOutputElement(relDec.getOuputDeclaration(), editor);
+                classElement.outputs.add(outputElement);
+            } else if (relDec.getInferWithDeclaration() != null) {
+                MetaModelStructureViewInferWithElement inferWithElement = new MetaModelStructureViewInferWithElement(relDec.getInferWithDeclaration(), editor);
+                classElement.inferWith.add(inferWithElement);
+            } else if (relDec.getTemporalResolutionDeclaration() != null) {
+                MetaModelStructureViewTemporalResolutionElement elem = new MetaModelStructureViewTemporalResolutionElement(relDec.getTemporalResolutionDeclaration(), editor);
+                classElement.tempResolutions.add(elem);
+            } else if (relDec.getTemporalLimitDeclaration() != null) {
+                MetaModelStructureViewTemporalLimitElement elem = new MetaModelStructureViewTemporalLimitElement(relDec.getTemporalLimitDeclaration(), editor);
+                classElement.tempLimits.add(elem);
             } else {
                 System.err.println("Could not find appropriate ClassElem declaration type in processReference for Structure view");
             }
-        }
-    }
-
-    private void processDependencies(MetaModelInferDeclaration o, MetaModelStructureViewInferElement inferElement, Editor editor) {
-        for (MetaModelInferDepDeclaration depDecl : o.getInferDepDeclarationList()) {
-            MetaModelStructureViewInferDependencyElement dependencyElement = new MetaModelStructureViewInferDependencyElement(depDecl, editor);
-            inferElement.dependencies.add(dependencyElement);
         }
     }
 

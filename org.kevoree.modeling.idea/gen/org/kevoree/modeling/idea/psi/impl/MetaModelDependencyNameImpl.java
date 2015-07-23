@@ -11,14 +11,14 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelUsingDeclarationImpl extends ASTWrapperPsiElement implements MetaModelUsingDeclaration {
+public class MetaModelDependencyNameImpl extends ASTWrapperPsiElement implements MetaModelDependencyName {
 
-  public MetaModelUsingDeclarationImpl(ASTNode node) {
+  public MetaModelDependencyNameImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitUsingDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitDependencyName(this);
     else super.accept(visitor);
   }
 

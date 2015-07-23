@@ -11,33 +11,27 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelInferDeclarationImpl extends ASTWrapperPsiElement implements MetaModelInferDeclaration {
+public class MetaModelOuputDeclarationImpl extends ASTWrapperPsiElement implements MetaModelOuputDeclaration {
 
-  public MetaModelInferDeclarationImpl(ASTNode node) {
+  public MetaModelOuputDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitInferDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitOuputDeclaration(this);
     else super.accept(visitor);
   }
 
   @Override
   @NotNull
-  public List<MetaModelInferDepDeclaration> getInferDepDeclarationList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelInferDepDeclaration.class);
+  public MetaModelOutputName getOutputName() {
+    return findNotNullChildByClass(MetaModelOutputName.class);
   }
 
   @Override
-  @Nullable
+  @NotNull
   public MetaModelTypeDeclaration getTypeDeclaration() {
-    return findChildByClass(MetaModelTypeDeclaration.class);
-  }
-
-  @Override
-  @Nullable
-  public MetaModelUsingDeclaration getUsingDeclaration() {
-    return findChildByClass(MetaModelUsingDeclaration.class);
+    return findNotNullChildByClass(MetaModelTypeDeclaration.class);
   }
 
 }

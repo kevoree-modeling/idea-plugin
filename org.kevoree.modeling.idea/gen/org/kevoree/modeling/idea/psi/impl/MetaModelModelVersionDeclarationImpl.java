@@ -11,27 +11,21 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelAnnotationImpl extends ASTWrapperPsiElement implements MetaModelAnnotation {
+public class MetaModelModelVersionDeclarationImpl extends ASTWrapperPsiElement implements MetaModelModelVersionDeclaration {
 
-  public MetaModelAnnotationImpl(ASTNode node) {
+  public MetaModelModelVersionDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitAnnotation(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitModelVersionDeclaration(this);
     else super.accept(visitor);
   }
 
   @Override
-  @Nullable
-  public MetaModelAnnotationParam getAnnotationParam() {
-    return findChildByClass(MetaModelAnnotationParam.class);
-  }
-
-  @Override
   @NotNull
-  public PsiElement getTannotation() {
-    return findNotNullChildByType(TANNOTATION);
+  public PsiElement getString() {
+    return findNotNullChildByType(STRING);
   }
 
 }

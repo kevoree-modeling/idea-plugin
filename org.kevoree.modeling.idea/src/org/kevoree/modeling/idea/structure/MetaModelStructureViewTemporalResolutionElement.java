@@ -1,6 +1,5 @@
 package org.kevoree.modeling.idea.structure;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
@@ -10,47 +9,25 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelInferDepDeclaration;
-import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
-import org.kevoree.modeling.util.PrimitiveTypes;
+import org.kevoree.modeling.idea.psi.MetaModelAttributeDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelTemporalResolutionDeclaration;
 
 import javax.swing.*;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
-public class MetaModelStructureViewInferDependencyElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewTemporalResolutionElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelInferDepDeclaration depDeclaration;
+    private MetaModelTemporalResolutionDeclaration attDecl;
     private Editor editor;
-    private Icon myIcon = PlatformIcons.FIELD_ICON;
-    private String simpleType;
-    private boolean attribute = false;
     private boolean id = false;
     private boolean contained = false;
 
-
-    public MetaModelStructureViewInferDependencyElement(MetaModelInferDepDeclaration refDecl, Editor editor) {
-        this.depDeclaration = refDecl;
+    public MetaModelStructureViewTemporalResolutionElement(MetaModelTemporalResolutionDeclaration attDecl, Editor editor) {
+        this.attDecl = attDecl;
         this.editor = editor;
-        simpleType = refDecl.getTypeDeclaration().getName().substring(refDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
-
-        setIcon();
-
-    }
-
-    private void setIcon() {
-        for (PrimitiveTypes p : PrimitiveTypes.values()) {
-            if (depDeclaration.getTypeDeclaration().getName().equals(p.name())) {
-                attribute = true;
-                myIcon = PlatformIcons.PROPERTY_ICON;
-                return;
-            }
-        }
     }
 
     public boolean isAttribute() {
-        return attribute;
+        return true;
     }
 
     public boolean isId() {
@@ -63,12 +40,12 @@ public class MetaModelStructureViewInferDependencyElement implements StructureVi
 
     @Override
     public Object getValue() {
-        return depDeclaration;
+        return attDecl;
     }
 
     @Override
     public void navigate(boolean b) {
-        editor.getCaretModel().moveToOffset(depDeclaration.getTextOffset());
+        editor.getCaretModel().moveToOffset(attDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
 
@@ -90,7 +67,7 @@ public class MetaModelStructureViewInferDependencyElement implements StructureVi
             @Nullable
             @Override
             public String getPresentableText() {
-                return depDeclaration.getIdent().getText() + " : " + simpleType;
+                return attDecl.getText();
             }
 
             @Nullable
@@ -102,7 +79,7 @@ public class MetaModelStructureViewInferDependencyElement implements StructureVi
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return myIcon;
+                return PlatformIcons.NEW_PARAMETER;
             }
         };
     }
@@ -115,6 +92,6 @@ public class MetaModelStructureViewInferDependencyElement implements StructureVi
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return depDeclaration.getIdent().getText();
+        return attDecl.getText();
     }
 }

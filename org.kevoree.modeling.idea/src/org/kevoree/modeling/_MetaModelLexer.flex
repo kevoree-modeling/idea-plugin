@@ -25,41 +25,48 @@ WHITE_SPACE=({LINE_WS}|{EOL})+
 COMMENT="//".*
 NUMBER=[\-]?[0-9]+[.]?[0-9]*
 IDENT=[\*\.a-zA-Z0-9_\-]+
-TANNOTATION=[@][\.a-zA-Z0-9_\-]+
 STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
 
 %%
 <YYINITIAL> {
-  {WHITE_SPACE}      { return com.intellij.psi.TokenType.WHITE_SPACE; }
+  {WHITE_SPACE}             { return com.intellij.psi.TokenType.WHITE_SPACE; }
 
-  "class"            { return CLASS; }
-  "infer"            { return INFER; }
-  "enum"             { return ENUM; }
-  "func"             { return FUNC; }
-  "using"            { return USING; }
-  "oppositeOf"       { return OPPOSITE; }
-  "from"             { return FROM; }
-  ":"                { return COLON; }
-  ","                { return COMMA; }
-  "/"                { return SUB; }
-  "="                { return EQ; }
-  "["                { return MULT_OPEN; }
-  "{"                { return BODY_OPEN; }
-  "]"                { return MULT_CLOSE; }
-  "}"                { return BODY_CLOSE; }
-  "("                { return ANNOT_PARAM_OPEN; }
-  ")"                { return ANNOT_PARAM_CLOSE; }
-  "."                { return MULT_SEP; }
-  "*"                { return STAR; }
-  "<<EOF>>"          { return EOF; }
-  "newline"          { return NEWLINE; }
-  "CRLF"             { return CRLF; }
+  "version"                 { return VERSION; }
+  "kmfVersion"              { return KMF_VERSION; }
+  "class"                   { return CLASS; }
+  "inferWith"               { return INFER_WITH; }
+  "enum"                    { return ENUM; }
+  "func"                    { return FUNC; }
+  "att"                     { return ATT; }
+  "ref"                     { return REF; }
+  "oppositeOf"              { return OPPOSITE; }
+  "from"                    { return FROM; }
+  "dependency"              { return DEPENDENCY; }
+  "temporalResolution"      { return TEMPORAL_RESOLUTION; }
+  "temporalLimit"           { return TEMPORAL_LIMIT; }
+  "input"                   { return INPUT; }
+  "output"                  { return OUTPUT; }
+  "precision"               { return PRECISION; }
+  ":"                       { return COLON; }
+  ","                       { return COMMA; }
+  "/"                       { return SUB; }
+  "="                       { return EQ; }
+  "["                       { return MULT_OPEN; }
+  "{"                       { return BODY_OPEN; }
+  "]"                       { return MULT_CLOSE; }
+  "}"                       { return BODY_CLOSE; }
+  "("                       { return ANNOT_PARAM_OPEN; }
+  ")"                       { return ANNOT_PARAM_CLOSE; }
+  "."                       { return MULT_SEP; }
+  "*"                       { return STAR; }
+  "<<EOF>>"                 { return EOF; }
+  "newline"                 { return NEWLINE; }
+  "CRLF"                    { return CRLF; }
 
-  {COMMENT}          { return COMMENT; }
-  {NUMBER}           { return NUMBER; }
-  {IDENT}            { return IDENT; }
-  {TANNOTATION}      { return TANNOTATION; }
-  {STRING}           { return STRING; }
+  {COMMENT}                 { return COMMENT; }
+  {NUMBER}                  { return NUMBER; }
+  {IDENT}                   { return IDENT; }
+  {STRING}                  { return STRING; }
 
   [^] { return com.intellij.psi.TokenType.BAD_CHARACTER; }
 }

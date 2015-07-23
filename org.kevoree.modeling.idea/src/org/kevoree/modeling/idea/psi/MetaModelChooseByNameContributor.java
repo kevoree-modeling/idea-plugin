@@ -8,9 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by duke on 7/14/14.
- */
 public class MetaModelChooseByNameContributor implements ChooseByNameContributor {
 
 
@@ -22,7 +19,7 @@ public class MetaModelChooseByNameContributor implements ChooseByNameContributor
         List<MetaModelTypeDeclaration> properties = MetaModelUtil.findProperties(project);
         List<String> names = new ArrayList<String>(properties.size());
         for (MetaModelTypeDeclaration property : properties) {
-            if (property.getName() != null && property.getName().length() > 0) {
+            if (property != null && property.getName() != null && property.getName().length() > 0) {
                 names.add(property.getName());
             }
         }
