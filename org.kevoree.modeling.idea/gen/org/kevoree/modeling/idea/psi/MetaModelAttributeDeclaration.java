@@ -8,10 +8,10 @@ import com.intellij.psi.PsiElement;
 public interface MetaModelAttributeDeclaration extends PsiElement {
 
   @NotNull
-  MetaModelAttributeName getAttributeName();
+  List<MetaModelAnnotationDeclr> getAnnotationDeclrList();
 
-  @Nullable
-  MetaModelPrecisionDeclaration getPrecisionDeclaration();
+  @NotNull
+  MetaModelAttributeName getAttributeName();
 
   @NotNull
   MetaModelTypeDeclaration getTypeDeclaration();

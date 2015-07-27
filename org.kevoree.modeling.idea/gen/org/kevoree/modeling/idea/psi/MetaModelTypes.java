@@ -8,6 +8,8 @@ import org.kevoree.modeling.idea.psi.impl.*;
 
 public interface MetaModelTypes {
 
+  IElementType ANNOTATION_DECLR = new MetaModelElementType("ANNOTATION_DECLR");
+  IElementType ANNOTATION_NAME = new MetaModelElementType("ANNOTATION_NAME");
   IElementType ATTRIBUTE_DECLARATION = new MetaModelElementType("ATTRIBUTE_DECLARATION");
   IElementType ATTRIBUTE_NAME = new MetaModelElementType("ATTRIBUTE_NAME");
   IElementType CLASS_DECLARATION = new MetaModelElementType("CLASS_DECLARATION");
@@ -17,11 +19,8 @@ public interface MetaModelTypes {
   IElementType DEPENDENCY_NAME = new MetaModelElementType("DEPENDENCY_NAME");
   IElementType ENUM_DECLARATION = new MetaModelElementType("ENUM_DECLARATION");
   IElementType ENUM_ELEM_DECLARATION = new MetaModelElementType("ENUM_ELEM_DECLARATION");
-  IElementType INFER_WITH_DECLARATION = new MetaModelElementType("INFER_WITH_DECLARATION");
   IElementType INPUT_DECLARATION = new MetaModelElementType("INPUT_DECLARATION");
   IElementType INPUT_NAME = new MetaModelElementType("INPUT_NAME");
-  IElementType KMF_VERSION_DECLARATION = new MetaModelElementType("KMF_VERSION_DECLARATION");
-  IElementType MODEL_VERSION_DECLARATION = new MetaModelElementType("MODEL_VERSION_DECLARATION");
   IElementType OPERATION_DECLARATION = new MetaModelElementType("OPERATION_DECLARATION");
   IElementType OPERATION_NAME = new MetaModelElementType("OPERATION_NAME");
   IElementType OPERATION_PARAM = new MetaModelElementType("OPERATION_PARAM");
@@ -30,12 +29,8 @@ public interface MetaModelTypes {
   IElementType OUTPUT_DECLARATION = new MetaModelElementType("OUTPUT_DECLARATION");
   IElementType OUTPUT_NAME = new MetaModelElementType("OUTPUT_NAME");
   IElementType PARENTS_DECLARATION = new MetaModelElementType("PARENTS_DECLARATION");
-  IElementType PRECISION_DECLARATION = new MetaModelElementType("PRECISION_DECLARATION");
   IElementType RELATION_DECLARATION = new MetaModelElementType("RELATION_DECLARATION");
   IElementType RELATION_NAME = new MetaModelElementType("RELATION_NAME");
-  IElementType RELATION_OPPOSITE = new MetaModelElementType("RELATION_OPPOSITE");
-  IElementType TEMPORAL_LIMIT_DECLARATION = new MetaModelElementType("TEMPORAL_LIMIT_DECLARATION");
-  IElementType TEMPORAL_RESOLUTION_DECLARATION = new MetaModelElementType("TEMPORAL_RESOLUTION_DECLARATION");
   IElementType TYPE_DECLARATION = new MetaModelElementType("TYPE_DECLARATION");
 
   IElementType ANNOT_PARAM_CLOSE = new MetaModelTokenType(")");
@@ -52,30 +47,31 @@ public interface MetaModelTypes {
   IElementType ENUM = new MetaModelTokenType("enum");
   IElementType EOF = new MetaModelTokenType("<<EOF>>");
   IElementType EQ = new MetaModelTokenType("=");
+  IElementType EXTENDS = new MetaModelTokenType("extends");
   IElementType FROM = new MetaModelTokenType("from");
   IElementType FUNC = new MetaModelTokenType("func");
   IElementType IDENT = new MetaModelTokenType("IDENT");
-  IElementType INFER_WITH = new MetaModelTokenType("inferWith");
   IElementType INPUT = new MetaModelTokenType("input");
-  IElementType KMF_VERSION = new MetaModelTokenType("kmfVersion");
   IElementType MREF = new MetaModelTokenType("ref*");
   IElementType MULT_SEP = new MetaModelTokenType(".");
   IElementType NEWLINE = new MetaModelTokenType("newline");
   IElementType NUMBER = new MetaModelTokenType("NUMBER");
-  IElementType OPPOSITE = new MetaModelTokenType("oppositeOf");
   IElementType OUTPUT = new MetaModelTokenType("output");
-  IElementType PRECISION = new MetaModelTokenType("precision");
   IElementType REF = new MetaModelTokenType("ref");
   IElementType STRING = new MetaModelTokenType("string");
   IElementType SUB = new MetaModelTokenType("/");
-  IElementType TEMPORAL_LIMIT = new MetaModelTokenType("temporalLimit");
-  IElementType TEMPORAL_RESOLUTION = new MetaModelTokenType("temporalResolution");
-  IElementType VERSION = new MetaModelTokenType("version");
+  IElementType WITH = new MetaModelTokenType("with");
 
   class Factory {
     public static PsiElement createElement(ASTNode node) {
       IElementType type = node.getElementType();
-       if (type == ATTRIBUTE_DECLARATION) {
+       if (type == ANNOTATION_DECLR) {
+        return new MetaModelAnnotationDeclrImpl(node);
+      }
+      else if (type == ANNOTATION_NAME) {
+        return new MetaModelAnnotationNameImpl(node);
+      }
+      else if (type == ATTRIBUTE_DECLARATION) {
         return new MetaModelAttributeDeclarationImpl(node);
       }
       else if (type == ATTRIBUTE_NAME) {
@@ -102,20 +98,11 @@ public interface MetaModelTypes {
       else if (type == ENUM_ELEM_DECLARATION) {
         return new MetaModelEnumElemDeclarationImpl(node);
       }
-      else if (type == INFER_WITH_DECLARATION) {
-        return new MetaModelInferWithDeclarationImpl(node);
-      }
       else if (type == INPUT_DECLARATION) {
         return new MetaModelInputDeclarationImpl(node);
       }
       else if (type == INPUT_NAME) {
         return new MetaModelInputNameImpl(node);
-      }
-      else if (type == KMF_VERSION_DECLARATION) {
-        return new MetaModelKmfVersionDeclarationImpl(node);
-      }
-      else if (type == MODEL_VERSION_DECLARATION) {
-        return new MetaModelModelVersionDeclarationImpl(node);
       }
       else if (type == OPERATION_DECLARATION) {
         return new MetaModelOperationDeclarationImpl(node);
@@ -141,23 +128,11 @@ public interface MetaModelTypes {
       else if (type == PARENTS_DECLARATION) {
         return new MetaModelParentsDeclarationImpl(node);
       }
-      else if (type == PRECISION_DECLARATION) {
-        return new MetaModelPrecisionDeclarationImpl(node);
-      }
       else if (type == RELATION_DECLARATION) {
         return new MetaModelRelationDeclarationImpl(node);
       }
       else if (type == RELATION_NAME) {
         return new MetaModelRelationNameImpl(node);
-      }
-      else if (type == RELATION_OPPOSITE) {
-        return new MetaModelRelationOppositeImpl(node);
-      }
-      else if (type == TEMPORAL_LIMIT_DECLARATION) {
-        return new MetaModelTemporalLimitDeclarationImpl(node);
-      }
-      else if (type == TEMPORAL_RESOLUTION_DECLARATION) {
-        return new MetaModelTemporalResolutionDeclarationImpl(node);
       }
       else if (type == TYPE_DECLARATION) {
         return new MetaModelTypeDeclarationImpl(node);

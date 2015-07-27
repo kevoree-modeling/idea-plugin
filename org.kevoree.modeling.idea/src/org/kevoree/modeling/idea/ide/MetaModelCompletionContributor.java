@@ -22,10 +22,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         resultSet.addElement(LookupElementBuilder.create("dependency "));
         resultSet.addElement(LookupElementBuilder.create("input "));
         resultSet.addElement(LookupElementBuilder.create("output "));
-
-        resultSet.addElement(LookupElementBuilder.create("inferWith "));
-        resultSet.addElement(LookupElementBuilder.create("temporalResolution "));
-        resultSet.addElement(LookupElementBuilder.create("temporalLimit "));
     }
 
     public MetaModelCompletionContributor() {
@@ -79,6 +75,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.OPPOSITE)),
                 new CompletionProvider<CompletionParameters>() {
@@ -89,7 +86,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         resultSet.stopHere();
                     }
                 }
-        );
+        );*/
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.BODY_CLOSE)),
@@ -164,6 +161,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.INFER_WITH)),
                 new CompletionProvider<CompletionParameters>() {
@@ -179,7 +177,8 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         resultSet.stopHere();
                     }
                 }
-        );
+        );*/
+
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.DEPENDENCY)),
@@ -205,6 +204,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.PRECISION)),
                 new CompletionProvider<CompletionParameters>() {
@@ -215,7 +215,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         resultSet.stopHere();
                     }
                 }
-        );
+        );*/
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.OUTPUT)),
@@ -229,6 +229,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.TEMPORAL_LIMIT)),
                 new CompletionProvider<CompletionParameters>() {
@@ -252,6 +253,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                     }
                 }
         );
+        */
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.IDENT).withText("Continuous")),
@@ -314,6 +316,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.INFER_WITH)),
                 new CompletionProvider<CompletionParameters>() {
@@ -323,7 +326,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         fillInsideClassDecl(resultSet);
                     }
                 }
-        );
+        );*/
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.DEPENDENCY)),
@@ -358,6 +361,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.TEMPORAL_LIMIT)),
                 new CompletionProvider<CompletionParameters>() {
@@ -379,7 +383,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         fillInsideClassDecl(resultSet);
                     }
                 }
-        );
+        );*/
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.BODY_CLOSE)),

@@ -8,6 +8,9 @@ import com.intellij.psi.PsiElement;
 public interface MetaModelClassDeclaration extends PsiElement {
 
   @NotNull
+  List<MetaModelAnnotationDeclr> getAnnotationDeclrList();
+
+  @NotNull
   List<MetaModelClassElemDeclaration> getClassElemDeclarationList();
 
   @Nullable

@@ -28,6 +28,7 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
     public static final TextAttributesKey COMMENT = createTextAttributesKey("MM_COMMENT", DefaultLanguageHighlighterColors.LINE_COMMENT);
     public static final TextAttributesKey IDENT = createTextAttributesKey("MM_IDENT", DefaultLanguageHighlighterColors.STATIC_METHOD);
     public static final TextAttributesKey NUMBER = createTextAttributesKey("MM_NUMBER", DefaultLanguageHighlighterColors.NUMBER);
+    public static final TextAttributesKey ANNOTATION = createTextAttributesKey("MM_ANNOTATION", DefaultLanguageHighlighterColors.METADATA);
     public static final TextAttributesKey BAD_CHARACTER = createTextAttributesKey("MM_BAD_CHARACTER", new TextAttributes(JBColor.RED, null, null, null, Font.BOLD));
 
     private static final TextAttributesKey[] BAD_CHAR_KEYS = new TextAttributesKey[]{BAD_CHARACTER};
@@ -52,12 +53,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
         /* Entities OPERATIONS */
 
-        if (tokenType.equals(MetaModelTypes.VERSION)) {
-            return KEYWORD_KEYS;
-        }
-        if (tokenType.equals(MetaModelTypes.KMF_VERSION)) {
-            return KEYWORD_KEYS;
-        }
         if (tokenType.equals(MetaModelTypes.CLASS)) {
             return KEYWORD_KEYS;
         }
@@ -67,10 +62,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.FUNC)) {
             return KEYWORD_KEYS;
         }
-        if (tokenType.equals(MetaModelTypes.INFER_WITH)) {
-            return KEYWORD_KEYS;
-        }
-
         if (tokenType.equals(MetaModelTypes.ATT)) {
             return KEYWORD_KEYS;
         }
@@ -80,7 +71,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.MREF)) {
             return KEYWORD_KEYS;
         }
-
         if (tokenType.equals(MetaModelTypes.INPUT)) {
             return KEYWORD_KEYS;
         }
@@ -90,22 +80,13 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.DEPENDENCY)) {
             return KEYWORD_KEYS;
         }
-
-        if (tokenType.equals(MetaModelTypes.TEMPORAL_LIMIT)) {
+        if (tokenType.equals(MetaModelTypes.WITH)) {
             return KEYWORD_KEYS;
         }
-        if (tokenType.equals(MetaModelTypes.TEMPORAL_RESOLUTION)) {
+        if (tokenType.equals(MetaModelTypes.EXTENDS)) {
             return KEYWORD_KEYS;
         }
-        if (tokenType.equals(MetaModelTypes.PRECISION)) {
-            return KEYWORD_KEYS;
-        }
-
         if (tokenType.equals(MetaModelTypes.FROM)) {
-            return KEYWORD_KEYS;
-        }
-
-        if (tokenType.equals(MetaModelTypes.OPPOSITE)) {
             return KEYWORD_KEYS;
         }
         /* Separator */
@@ -130,7 +111,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.ANNOT_PARAM_CLOSE)) {
             return SEPARATOR_KEYS;
         }
-
         /* Basic elem */
         if (tokenType.equals(MetaModelTypes.IDENT)) {
             return IDENT_KEYS;

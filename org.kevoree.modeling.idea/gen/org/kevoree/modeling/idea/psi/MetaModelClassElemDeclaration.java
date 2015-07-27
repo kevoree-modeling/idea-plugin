@@ -14,9 +14,6 @@ public interface MetaModelClassElemDeclaration extends PsiElement {
   MetaModelDependencyDeclaration getDependencyDeclaration();
 
   @Nullable
-  MetaModelInferWithDeclaration getInferWithDeclaration();
-
-  @Nullable
   MetaModelInputDeclaration getInputDeclaration();
 
   @Nullable
@@ -27,11 +24,5 @@ public interface MetaModelClassElemDeclaration extends PsiElement {
 
   @Nullable
   MetaModelRelationDeclaration getRelationDeclaration();
-
-  @Nullable
-  MetaModelTemporalLimitDeclaration getTemporalLimitDeclaration();
-
-  @Nullable
-  MetaModelTemporalResolutionDeclaration getTemporalResolutionDeclaration();
 
 }

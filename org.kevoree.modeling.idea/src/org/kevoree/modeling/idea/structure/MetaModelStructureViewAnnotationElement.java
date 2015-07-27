@@ -9,33 +9,18 @@ import com.intellij.openapi.editor.ScrollType;
 import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelAttributeDeclaration;
-import org.kevoree.modeling.idea.psi.MetaModelTemporalResolutionDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelAnnotationDeclr;
 
 import javax.swing.*;
 
-public class MetaModelStructureViewTemporalResolutionElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewAnnotationElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelTemporalResolutionDeclaration attDecl;
+    private MetaModelAnnotationDeclr attDecl;
     private Editor editor;
-    private boolean id = false;
-    private boolean contained = false;
 
-    public MetaModelStructureViewTemporalResolutionElement(MetaModelTemporalResolutionDeclaration attDecl, Editor editor) {
+    public MetaModelStructureViewAnnotationElement(MetaModelAnnotationDeclr attDecl, Editor editor) {
         this.attDecl = attDecl;
         this.editor = editor;
-    }
-
-    public boolean isAttribute() {
-        return true;
-    }
-
-    public boolean isId() {
-        return id;
-    }
-
-    public boolean isContained() {
-        return contained;
     }
 
     @Override
@@ -79,7 +64,7 @@ public class MetaModelStructureViewTemporalResolutionElement implements Structur
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.NEW_PARAMETER;
+                return PlatformIcons.ANALYZE;
             }
         };
     }

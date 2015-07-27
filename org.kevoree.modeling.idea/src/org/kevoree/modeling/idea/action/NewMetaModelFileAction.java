@@ -50,7 +50,7 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
         sample.append("kmfVersion \"" + KMFCompilerResolver.resolveLastVersion() + "\"\n");
         sample.append("version \"1.0.0-SNAPSHOT\"\n");
         sample.append("class sample.Cloud {\n");
-        sample.append("    ref nodes : sample.Node[0,*]\n");
+        sample.append("    ref* nodes : sample.Node\n");
         sample.append("}\n");
         sample.append("class sample.Node {\n");
         sample.append("    att name : String\n");

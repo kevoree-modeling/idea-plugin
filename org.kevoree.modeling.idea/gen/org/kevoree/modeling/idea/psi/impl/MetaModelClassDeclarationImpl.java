@@ -24,6 +24,12 @@ public class MetaModelClassDeclarationImpl extends ASTWrapperPsiElement implemen
 
   @Override
   @NotNull
+  public List<MetaModelAnnotationDeclr> getAnnotationDeclrList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelAnnotationDeclr.class);
+  }
+
+  @Override
+  @NotNull
   public List<MetaModelClassElemDeclaration> getClassElemDeclarationList() {
     return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelClassElemDeclaration.class);
   }

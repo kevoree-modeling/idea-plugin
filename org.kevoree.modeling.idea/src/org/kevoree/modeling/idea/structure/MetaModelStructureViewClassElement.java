@@ -10,24 +10,17 @@ import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.kevoree.modeling.idea.psi.MetaModelClassDeclaration;
-import org.kevoree.modeling.idea.psi.MetaModelInferWithDeclaration;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
 public class MetaModelStructureViewClassElement implements StructureViewTreeElement, SortableTreeElement {
 
     private MetaModelClassDeclaration classDecl;
     private String presText;
     private Editor editor;
-    public List<MetaModelStructureViewInferWithElement> inferWith = new ArrayList<MetaModelStructureViewInferWithElement>();
-
-    public List<MetaModelStructureViewTemporalResolutionElement> tempResolutions = new ArrayList<MetaModelStructureViewTemporalResolutionElement>();
-    public List<MetaModelStructureViewTemporalLimitElement> tempLimits = new ArrayList<MetaModelStructureViewTemporalLimitElement>();
+    public List<MetaModelStructureViewAnnotationElement> annotationsDeclr = new ArrayList<MetaModelStructureViewAnnotationElement>();
 
     public List<MetaModelStructureViewAttributeElement> attributes = new ArrayList<MetaModelStructureViewAttributeElement>();
     public List<MetaModelStructureViewReferenceElement> references = new ArrayList<MetaModelStructureViewReferenceElement>();
@@ -102,10 +95,8 @@ public class MetaModelStructureViewClassElement implements StructureViewTreeElem
         List<TreeElement> all = new ArrayList<TreeElement>();
         all.addAll(parents);
 
-        all.addAll(inferWith);
-        all.addAll(tempResolutions);
-        all.addAll(tempLimits);
-        
+        all.addAll(annotationsDeclr);
+
         all.addAll(attributes);
         all.addAll(references);
 

@@ -36,12 +36,6 @@ public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement impl
 
   @Override
   @Nullable
-  public MetaModelInferWithDeclaration getInferWithDeclaration() {
-    return findChildByClass(MetaModelInferWithDeclaration.class);
-  }
-
-  @Override
-  @Nullable
   public MetaModelInputDeclaration getInputDeclaration() {
     return findChildByClass(MetaModelInputDeclaration.class);
   }
@@ -62,18 +56,6 @@ public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement impl
   @Nullable
   public MetaModelRelationDeclaration getRelationDeclaration() {
     return findChildByClass(MetaModelRelationDeclaration.class);
-  }
-
-  @Override
-  @Nullable
-  public MetaModelTemporalLimitDeclaration getTemporalLimitDeclaration() {
-    return findChildByClass(MetaModelTemporalLimitDeclaration.class);
-  }
-
-  @Override
-  @Nullable
-  public MetaModelTemporalResolutionDeclaration getTemporalResolutionDeclaration() {
-    return findChildByClass(MetaModelTemporalResolutionDeclaration.class);
   }
 
 }

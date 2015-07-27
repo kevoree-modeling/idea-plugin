@@ -339,7 +339,7 @@ public class StandaloneParser {
                             if (PrimitiveTypes.isPrimitive(typeName) || previousFound instanceof EEnum) {
                                 //Create ECore Attribute
                                 org.eclipse.emf.ecore.EAttribute eatt = factory.createEAttribute();
-                                eatt.setName(relation.getRelationName().getIdent().getText());
+                               // eatt.setName(relation.getRelationName().getIdent().getText());
                                 if (previousFound != null) {
                                     eatt.setEType(previousFound);
                                 } else {
@@ -363,14 +363,16 @@ public class StandaloneParser {
                                     founded = getOrCreate(relation.getTypeDeclaration().getIdent().getText(), r, factory);
                                 }
                                 ref.setEType(founded);
-                                ref.setName(relation.getRelationName().getIdent().getText());
+                               // ref.setName(relation.getRelationName().getIdent().getText());
                                 newType.getEStructuralFeatures().add(ref);
                                 structuralFeature = ref;
 
+                                /*
                                 MetaModelRelationOpposite opposite = relation.getRelationOpposite();
                                 if (opposite != null) {
                                     postProcess.put(ref, opposite.getIdent().getText());
                                 }
+                                */
                             }
 
                             /*

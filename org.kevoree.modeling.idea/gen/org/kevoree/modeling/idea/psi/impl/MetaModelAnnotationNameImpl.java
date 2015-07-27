@@ -11,21 +11,21 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelInferWithDeclarationImpl extends ASTWrapperPsiElement implements MetaModelInferWithDeclaration {
+public class MetaModelAnnotationNameImpl extends ASTWrapperPsiElement implements MetaModelAnnotationName {
 
-  public MetaModelInferWithDeclarationImpl(ASTNode node) {
+  public MetaModelAnnotationNameImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitInferWithDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitAnnotationName(this);
     else super.accept(visitor);
   }
 
   @Override
   @NotNull
-  public PsiElement getString() {
-    return findNotNullChildByType(STRING);
+  public PsiElement getIdent() {
+    return findNotNullChildByType(IDENT);
   }
 
 }

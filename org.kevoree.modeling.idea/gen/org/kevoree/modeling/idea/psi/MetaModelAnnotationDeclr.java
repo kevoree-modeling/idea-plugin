@@ -5,9 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelPrecisionDeclaration extends PsiElement {
+public interface MetaModelAnnotationDeclr extends PsiElement {
 
   @NotNull
+  MetaModelAnnotationName getAnnotationName();
+
+  @Nullable
   PsiElement getNumber();
+
+  @Nullable
+  PsiElement getString();
 
 }

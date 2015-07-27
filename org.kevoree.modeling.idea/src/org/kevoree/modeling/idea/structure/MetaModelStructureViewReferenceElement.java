@@ -1,6 +1,5 @@
 package org.kevoree.modeling.idea.structure;
 
-import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
@@ -19,8 +18,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     private MetaModelRelationDeclaration refDecl;
     private Editor editor;
     private String simpleType;
-    private boolean id = false;
-    private boolean contained = false;
 
     public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
         this.refDecl = refDecl;
@@ -30,14 +27,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     public boolean isAttribute() {
         return false;
-    }
-
-    public boolean isId() {
-        return id;
-    }
-
-    public boolean isContained() {
-        return contained;
     }
 
     @Override
@@ -69,10 +58,10 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                if(refDecl.getText().trim().startsWith("ref*")){
-                    return "*"+refDecl.getRelationName().getText() + " : " + simpleType;
+                if (refDecl.getText().trim().startsWith("ref*")) {
+                    return "*" + refDecl.getTypeDeclaration().getName() + " : " + simpleType;
                 } else {
-                    return refDecl.getRelationName().getText() + " : " + simpleType;
+                    return refDecl.getTypeDeclaration().getName() + " : " + simpleType;
                 }
             }
 
@@ -98,6 +87,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getRelationName().getText();
+        return refDecl.getTypeDeclaration().getName();
     }
 }

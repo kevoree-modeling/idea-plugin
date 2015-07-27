@@ -23,9 +23,7 @@ public class MetaModelBlock extends AbstractBlock {
     protected List<Block> buildChildren() {
         List<Block> blocks = new ArrayList<Block>();
         Alignment innerBodyAlignment = Alignment.createAlignment();
-
         ASTNode child = getNode().getFirstChildNode();
-
         while (child != null) {
             if (child.getElementType() != TokenType.WHITE_SPACE) {
                 if (child.getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
@@ -60,28 +58,22 @@ public class MetaModelBlock extends AbstractBlock {
             IElementType type1 = ((AbstractBlock) child1).getNode().getElementType();
             IElementType type2 = ((AbstractBlock) child2).getNode().getElementType();
 
-            if (type1 == MetaModelTypes.VERSION && type2 == MetaModelTypes.STRING) {
-                return singleSpace();
-            }
-            if (type1 == MetaModelTypes.KMF_VERSION && type2 == MetaModelTypes.STRING) {
+
+
+
+            if (type1 == MetaModelTypes.WITH && type2 == MetaModelTypes.IDENT) {
                 return singleSpace();
             }
             if (type1 == MetaModelTypes.CLASS && type2 == MetaModelTypes.TYPE_DECLARATION) {
+                return singleSpace();
+            }
+            if (type1 == MetaModelTypes.EXTENDS && type2 == MetaModelTypes.TYPE_DECLARATION) {
                 return singleSpace();
             }
             if (type1 == MetaModelTypes.FUNC && type2 == MetaModelTypes.OPERATION_NAME) {
                 return singleSpace();
             }
             if (type1 == MetaModelTypes.ENUM && type2 == MetaModelTypes.TYPE_DECLARATION) {
-                return singleSpace();
-            }
-            if (type1 == MetaModelTypes.PRECISION && type2 == MetaModelTypes.NUMBER) {
-                return singleSpace();
-            }
-            if (type2 == MetaModelTypes.PRECISION_DECLARATION) {
-                return singleSpace();
-            }
-            if (type2 == MetaModelTypes.PRECISION) {
                 return singleSpace();
             }
             if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.PARENTS_DECLARATION) {
@@ -102,12 +94,6 @@ public class MetaModelBlock extends AbstractBlock {
             if (type1 == MetaModelTypes.MREF && type2 == MetaModelTypes.RELATION_NAME) {
                 return singleSpace();
             }
-            if (type1 == MetaModelTypes.TEMPORAL_LIMIT && type2 == MetaModelTypes.NUMBER) {
-                return singleSpace();
-            }
-            if (type1 == MetaModelTypes.TEMPORAL_RESOLUTION && type2 == MetaModelTypes.NUMBER) {
-                return singleSpace();
-            }
             if (type1 == MetaModelTypes.ATTRIBUTE_NAME && type2 == MetaModelTypes.COLON) {
                 return singleSpace();
             }
@@ -120,40 +106,7 @@ public class MetaModelBlock extends AbstractBlock {
             if (type1 == MetaModelTypes.RELATION_NAME && type2 == MetaModelTypes.COLON) {
                 return singleSpace();
             }
-            /*
-            if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.MULTIPLICITY_DECLARATION) {
-                return noSpace();
-            }*/
-            /*
-            if (type1 == MetaModelTypes.MULT_OPEN && type2 == MetaModelTypes.MULTIPLICITY_DECLARATION_LOWER) {
-                return noSpace();
-            }*/
-
-            /*
-            if (type1 == MetaModelTypes.MULTIPLICITY_DECLARATION_LOWER && type2 == MetaModelTypes.COMMA) {
-                return noSpace();
-            }*/
-            /*
-            if (type1 == MetaModelTypes.COMMA && type2 == MetaModelTypes.MULTIPLICITY_DECLARATION_UPPER) {
-                return noSpace();
-            }
-            */
-            /*
-            if (type1 == MetaModelTypes.MULTIPLICITY_DECLARATION_UPPER && type2 == MetaModelTypes.MULT_CLOSE) {
-                return noSpace();
-            }
-            */
-            /*
-            if (type1 == MetaModelTypes.MULTIPLICITY_DECLARATION && type2 == MetaModelTypes.RELATION_OPPOSITE) {
-                return singleSpace();
-            }*/
             if (type1 == MetaModelTypes.FROM && type2 == MetaModelTypes.STRING) {
-                return singleSpace();
-            }
-            if (type1 == MetaModelTypes.TYPE_DECLARATION && type2 == MetaModelTypes.RELATION_OPPOSITE) {
-                return singleSpace();
-            }
-            if (type1 == MetaModelTypes.OPPOSITE && type2 == MetaModelTypes.IDENT) {
                 return singleSpace();
             }
             if (type1 == MetaModelTypes.RELATION_DECLARATION && type2 == MetaModelTypes.BODY_CLOSE) {
@@ -176,9 +129,6 @@ public class MetaModelBlock extends AbstractBlock {
             }
             if (type1 == MetaModelTypes.ENUM_ELEM_DECLARATION && type2 == MetaModelTypes.ENUM_ELEM_DECLARATION) {
                 return newLine();
-            }
-            if (type1 == MetaModelTypes.INFER_WITH && type2 == MetaModelTypes.STRING) {
-                return singleSpace();
             }
             if (type1 == MetaModelTypes.INPUT && type2 == MetaModelTypes.INPUT_NAME) {
                 return singleSpace();

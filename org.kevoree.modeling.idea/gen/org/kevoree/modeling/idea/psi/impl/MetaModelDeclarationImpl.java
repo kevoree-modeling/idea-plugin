@@ -34,16 +34,4 @@ public class MetaModelDeclarationImpl extends ASTWrapperPsiElement implements Me
     return findChildByClass(MetaModelEnumDeclaration.class);
   }
 
-  @Override
-  @Nullable
-  public MetaModelKmfVersionDeclaration getKmfVersionDeclaration() {
-    return findChildByClass(MetaModelKmfVersionDeclaration.class);
-  }
-
-  @Override
-  @Nullable
-  public MetaModelModelVersionDeclaration getModelVersionDeclaration() {
-    return findChildByClass(MetaModelModelVersionDeclaration.class);
-  }
-
 }

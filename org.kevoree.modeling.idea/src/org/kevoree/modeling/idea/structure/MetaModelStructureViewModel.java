@@ -16,9 +16,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
 public class MetaModelStructureViewModel extends StructureViewModelBase {
 
     private Sorter typeSorter = new Sorter() {
@@ -28,36 +25,24 @@ public class MetaModelStructureViewModel extends StructureViewModelBase {
                 @Override
                 public int compare(Object o1, Object o2) {
 
-                    if(o1.getClass() == o2.getClass()) {
-                        if(o1 instanceof MetaModelStructureViewReferenceElement) {
-                            if(((MetaModelStructureViewReferenceElement)o1).isAttribute() && !((MetaModelStructureViewReferenceElement)o2).isAttribute()) { //atr <-> !attr
+                    if (o1.getClass() == o2.getClass()) {
+                        if (o1 instanceof MetaModelStructureViewReferenceElement) {
+                            if (((MetaModelStructureViewReferenceElement) o1).isAttribute() && !((MetaModelStructureViewReferenceElement) o2).isAttribute()) { //atr <-> !attr
                                 return -1;
-                            } else if(!((MetaModelStructureViewReferenceElement)o1).isAttribute() && ((MetaModelStructureViewReferenceElement)o2).isAttribute()) {// !atr <-> attr
+                            } else if (!((MetaModelStructureViewReferenceElement) o1).isAttribute() && ((MetaModelStructureViewReferenceElement) o2).isAttribute()) {// !atr <-> attr
                                 return 1;
-                            } else if(((MetaModelStructureViewReferenceElement)o1).isAttribute() && ((MetaModelStructureViewReferenceElement)o2).isAttribute()) {//atr <-> attr
-                                if(((MetaModelStructureViewReferenceElement)o1).isId() && !((MetaModelStructureViewReferenceElement)o2).isId()) {//id <-> !id
-                                    return -1;
-                                } else if( !((MetaModelStructureViewReferenceElement)o1).isId() && ((MetaModelStructureViewReferenceElement)o2).isId()) { //!id <-> id
-                                    return 1;
-                                }
-                            } else { //Ref <-> Ref
-                                if(((MetaModelStructureViewReferenceElement)o1).isContained() && !((MetaModelStructureViewReferenceElement)o2).isContained()) {//id <-> !id
-                                    return 1;
-                                } else if( !((MetaModelStructureViewReferenceElement)o1).isContained() && ((MetaModelStructureViewReferenceElement)o2).isContained()) { //!id <-> id
-                                    return -1;
-                                }
                             }
                         }
-                        return Sorter.ALPHA_SORTER.getComparator().compare(o1,o2);
+                        return Sorter.ALPHA_SORTER.getComparator().compare(o1, o2);
                     }
 
-                    if(o1 instanceof MetaModelStructureViewClassElement) {
+                    if (o1 instanceof MetaModelStructureViewClassElement) {
                         return 1;
-                    } else if(o1 instanceof MetaModelStructureViewPackageElement) {
+                    } else if (o1 instanceof MetaModelStructureViewPackageElement) {
                         return -1;
-                    } else if(o1 instanceof MetaModelStructureViewReferenceElement) {
+                    } else if (o1 instanceof MetaModelStructureViewReferenceElement) {
                         return 1;
-                    } else if(o1 instanceof MetaModelStructureViewParentElement) {
+                    } else if (o1 instanceof MetaModelStructureViewParentElement) {
                         return -1;
                     }
                     return 0;
@@ -111,8 +96,8 @@ public class MetaModelStructureViewModel extends StructureViewModelBase {
             doRefresh = needRefresh;
             needRefresh = false;
         }
-        if(doRefresh) {
-            ((MetaModelStructureViewRootElement)MetaModelStructureViewModel.this.getRoot()).refresh();
+        if (doRefresh) {
+            ((MetaModelStructureViewRootElement) MetaModelStructureViewModel.this.getRoot()).refresh();
         }
     }
 

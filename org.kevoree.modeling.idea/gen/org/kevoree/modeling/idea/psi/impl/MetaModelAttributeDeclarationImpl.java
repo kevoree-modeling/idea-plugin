@@ -24,14 +24,14 @@ public class MetaModelAttributeDeclarationImpl extends ASTWrapperPsiElement impl
 
   @Override
   @NotNull
-  public MetaModelAttributeName getAttributeName() {
-    return findNotNullChildByClass(MetaModelAttributeName.class);
+  public List<MetaModelAnnotationDeclr> getAnnotationDeclrList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelAnnotationDeclr.class);
   }
 
   @Override
-  @Nullable
-  public MetaModelPrecisionDeclaration getPrecisionDeclaration() {
-    return findChildByClass(MetaModelPrecisionDeclaration.class);
+  @NotNull
+  public MetaModelAttributeName getAttributeName() {
+    return findNotNullChildByClass(MetaModelAttributeName.class);
   }
 
   @Override

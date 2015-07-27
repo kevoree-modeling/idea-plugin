@@ -7,6 +7,14 @@ import com.intellij.psi.PsiElement;
 
 public class MetaModelVisitor extends PsiElementVisitor {
 
+  public void visitAnnotationDeclr(@NotNull MetaModelAnnotationDeclr o) {
+    visitPsiElement(o);
+  }
+
+  public void visitAnnotationName(@NotNull MetaModelAnnotationName o) {
+    visitPsiElement(o);
+  }
+
   public void visitAttributeDeclaration(@NotNull MetaModelAttributeDeclaration o) {
     visitPsiElement(o);
   }
@@ -43,23 +51,11 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitInferWithDeclaration(@NotNull MetaModelInferWithDeclaration o) {
-    visitPsiElement(o);
-  }
-
   public void visitInputDeclaration(@NotNull MetaModelInputDeclaration o) {
     visitPsiElement(o);
   }
 
   public void visitInputName(@NotNull MetaModelInputName o) {
-    visitPsiElement(o);
-  }
-
-  public void visitKmfVersionDeclaration(@NotNull MetaModelKmfVersionDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitModelVersionDeclaration(@NotNull MetaModelModelVersionDeclaration o) {
     visitPsiElement(o);
   }
 
@@ -95,27 +91,11 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitPrecisionDeclaration(@NotNull MetaModelPrecisionDeclaration o) {
-    visitPsiElement(o);
-  }
-
   public void visitRelationDeclaration(@NotNull MetaModelRelationDeclaration o) {
     visitPsiElement(o);
   }
 
   public void visitRelationName(@NotNull MetaModelRelationName o) {
-    visitPsiElement(o);
-  }
-
-  public void visitRelationOpposite(@NotNull MetaModelRelationOpposite o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTemporalLimitDeclaration(@NotNull MetaModelTemporalLimitDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitTemporalResolutionDeclaration(@NotNull MetaModelTemporalResolutionDeclaration o) {
     visitPsiElement(o);
   }
 

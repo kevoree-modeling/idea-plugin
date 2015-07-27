@@ -24,14 +24,14 @@ public class MetaModelRelationDeclarationImpl extends ASTWrapperPsiElement imple
 
   @Override
   @NotNull
-  public MetaModelRelationName getRelationName() {
-    return findNotNullChildByClass(MetaModelRelationName.class);
+  public List<MetaModelAnnotationDeclr> getAnnotationDeclrList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelAnnotationDeclr.class);
   }
 
   @Override
-  @Nullable
-  public MetaModelRelationOpposite getRelationOpposite() {
-    return findChildByClass(MetaModelRelationOpposite.class);
+  @NotNull
+  public MetaModelRelationName getRelationName() {
+    return findNotNullChildByClass(MetaModelRelationName.class);
   }
 
   @Override
