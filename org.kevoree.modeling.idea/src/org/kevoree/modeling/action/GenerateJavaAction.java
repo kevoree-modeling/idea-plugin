@@ -96,12 +96,13 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                     Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compilation started", NotificationType.INFORMATION));
                                     progressIndicator.setFraction(0.10);
                                     progressIndicator.setText("Downloading KMF Compiler...");
-                                    final String askedVersion = VersionAnalyzer.getKMFVersion(currentFile);
-                                    final File compiler = KMFCompilerResolver.resolveCompiler(askedVersion);
+
+                                    //final String askedVersion = VersionAnalyzer.getKMFVersion(currentFile);
+                                    final File compiler = KMFCompilerResolver.resolveCompiler("latest");
                                     if (compiler == null) {
                                         progressIndicator.setFraction(1.0);
                                         progressIndicator.setText("compiler not found");
-                                        Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compiler not found for version " + askedVersion, NotificationType.INFORMATION));
+                                        Notifications.Bus.notify(new Notification("kevoree modeling framework", "KMF Compilation", "Compiler not found for version latest", NotificationType.INFORMATION));
                                         return;
                                     }
                                     progressIndicator.setFraction(0.20);
@@ -161,7 +162,7 @@ public class GenerateJavaAction extends AnAction implements DumbAware {
                                                                     e.printStackTrace();
                                                                 }
                                                             }
-                                                            File microFramework = KMFCompilerResolver.resolveMicroFramework(askedVersion);
+                                                            File microFramework = KMFCompilerResolver.resolveMicroFramework("latest");
                                                             if (microFramework != null) {
                                                                 VirtualFile kmf_fwk = libDir.findChild(microFramework.getName());
                                                                 if (kmf_fwk == null) {

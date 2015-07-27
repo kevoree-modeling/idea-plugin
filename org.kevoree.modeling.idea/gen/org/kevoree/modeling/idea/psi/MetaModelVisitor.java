@@ -63,18 +63,6 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitMultiplicityDeclaration(@NotNull MetaModelMultiplicityDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitMultiplicityDeclarationLower(@NotNull MetaModelMultiplicityDeclarationLower o) {
-    visitPsiElement(o);
-  }
-
-  public void visitMultiplicityDeclarationUpper(@NotNull MetaModelMultiplicityDeclarationUpper o) {
-    visitPsiElement(o);
-  }
-
   public void visitOperationDeclaration(@NotNull MetaModelOperationDeclaration o) {
     visitPsiElement(o);
   }

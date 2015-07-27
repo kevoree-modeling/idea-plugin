@@ -54,7 +54,7 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
         sample.append("}\n");
         sample.append("class sample.Node {\n");
         sample.append("    att name : String\n");
-        sample.append("    ref softwares : sample.Software[0,*]\n");
+        sample.append("    ref* softwares : sample.Software\n");
         sample.append("}\n");
         sample.append("class sample.Software {\n");
         sample.append("    att name : String\n");

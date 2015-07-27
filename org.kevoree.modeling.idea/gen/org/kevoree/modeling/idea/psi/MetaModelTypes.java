@@ -22,9 +22,6 @@ public interface MetaModelTypes {
   IElementType INPUT_NAME = new MetaModelElementType("INPUT_NAME");
   IElementType KMF_VERSION_DECLARATION = new MetaModelElementType("KMF_VERSION_DECLARATION");
   IElementType MODEL_VERSION_DECLARATION = new MetaModelElementType("MODEL_VERSION_DECLARATION");
-  IElementType MULTIPLICITY_DECLARATION = new MetaModelElementType("MULTIPLICITY_DECLARATION");
-  IElementType MULTIPLICITY_DECLARATION_LOWER = new MetaModelElementType("MULTIPLICITY_DECLARATION_LOWER");
-  IElementType MULTIPLICITY_DECLARATION_UPPER = new MetaModelElementType("MULTIPLICITY_DECLARATION_UPPER");
   IElementType OPERATION_DECLARATION = new MetaModelElementType("OPERATION_DECLARATION");
   IElementType OPERATION_NAME = new MetaModelElementType("OPERATION_NAME");
   IElementType OPERATION_PARAM = new MetaModelElementType("OPERATION_PARAM");
@@ -61,8 +58,7 @@ public interface MetaModelTypes {
   IElementType INFER_WITH = new MetaModelTokenType("inferWith");
   IElementType INPUT = new MetaModelTokenType("input");
   IElementType KMF_VERSION = new MetaModelTokenType("kmfVersion");
-  IElementType MULT_CLOSE = new MetaModelTokenType("]");
-  IElementType MULT_OPEN = new MetaModelTokenType("[");
+  IElementType MREF = new MetaModelTokenType("ref*");
   IElementType MULT_SEP = new MetaModelTokenType(".");
   IElementType NEWLINE = new MetaModelTokenType("newline");
   IElementType NUMBER = new MetaModelTokenType("NUMBER");
@@ -70,7 +66,6 @@ public interface MetaModelTypes {
   IElementType OUTPUT = new MetaModelTokenType("output");
   IElementType PRECISION = new MetaModelTokenType("precision");
   IElementType REF = new MetaModelTokenType("ref");
-  IElementType STAR = new MetaModelTokenType("*");
   IElementType STRING = new MetaModelTokenType("string");
   IElementType SUB = new MetaModelTokenType("/");
   IElementType TEMPORAL_LIMIT = new MetaModelTokenType("temporalLimit");
@@ -121,15 +116,6 @@ public interface MetaModelTypes {
       }
       else if (type == MODEL_VERSION_DECLARATION) {
         return new MetaModelModelVersionDeclarationImpl(node);
-      }
-      else if (type == MULTIPLICITY_DECLARATION) {
-        return new MetaModelMultiplicityDeclarationImpl(node);
-      }
-      else if (type == MULTIPLICITY_DECLARATION_LOWER) {
-        return new MetaModelMultiplicityDeclarationLowerImpl(node);
-      }
-      else if (type == MULTIPLICITY_DECLARATION_UPPER) {
-        return new MetaModelMultiplicityDeclarationUpperImpl(node);
       }
       else if (type == OPERATION_DECLARATION) {
         return new MetaModelOperationDeclarationImpl(node);

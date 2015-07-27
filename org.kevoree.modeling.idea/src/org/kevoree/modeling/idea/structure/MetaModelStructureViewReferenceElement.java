@@ -69,7 +69,11 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Nullable
             @Override
             public String getPresentableText() {
-                return refDecl.getRelationName().getText() + " : " + simpleType;
+                if(refDecl.getText().trim().startsWith("ref*")){
+                    return "*"+refDecl.getRelationName().getText() + " : " + simpleType;
+                } else {
+                    return refDecl.getRelationName().getText() + " : " + simpleType;
+                }
             }
 
             @Nullable

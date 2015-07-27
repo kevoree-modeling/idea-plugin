@@ -11,7 +11,6 @@ public class MetaModelBraceMatcher implements com.intellij.lang.PairedBraceMatch
   private static BracePair[] ourBracePairs =
     {
       new BracePair(MetaModelTypes.BODY_OPEN, MetaModelTypes.BODY_CLOSE, true),
-      new BracePair(MetaModelTypes.MULT_OPEN, MetaModelTypes.MULT_CLOSE, true),
     };
 
   @Override

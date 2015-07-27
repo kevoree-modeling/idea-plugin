@@ -315,7 +315,11 @@ public class StandaloneParser {
                             final boolean[] isLearn = {false};
                             final String[] learnLevel = {""};
 
+                            boolean isMultiple = relation.getText().trim().startsWith("ref*");
+
+
                             //Process multiplicity
+                            /*
                             MetaModelMultiplicityDeclaration multiplicityDeclaration = relation.getMultiplicityDeclaration();
                             String lower = null;
                             String upper = null;
@@ -327,6 +331,9 @@ public class StandaloneParser {
                                     upper = multiplicityDeclaration.getMultiplicityDeclarationUpper().getText();
                                 }
                             }
+                            */
+
+
                             EStructuralFeature structuralFeature = null;
                             EClassifier previousFound = get(relation.getTypeDeclaration().getIdent().getText(), r, factory);
                             if (PrimitiveTypes.isPrimitive(typeName) || previousFound instanceof EEnum) {
@@ -366,6 +373,7 @@ public class StandaloneParser {
                                 }
                             }
 
+                            /*
                             if (lower != null) {
                                 if (lower.equals("*")) {
                                     structuralFeature.setLowerBound(-1);
@@ -379,7 +387,7 @@ public class StandaloneParser {
                                 } else {
                                     structuralFeature.setUpperBound(Integer.parseInt(upper));
                                 }
-                            }
+                            }*/
                         }
                     }
                 }

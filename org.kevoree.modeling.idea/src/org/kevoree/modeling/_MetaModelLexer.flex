@@ -39,6 +39,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "func"                    { return FUNC; }
   "att"                     { return ATT; }
   "ref"                     { return REF; }
+  "ref*"                    { return MREF; }
   "oppositeOf"              { return OPPOSITE; }
   "from"                    { return FROM; }
   "dependency"              { return DEPENDENCY; }
@@ -51,14 +52,11 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   ","                       { return COMMA; }
   "/"                       { return SUB; }
   "="                       { return EQ; }
-  "["                       { return MULT_OPEN; }
   "{"                       { return BODY_OPEN; }
-  "]"                       { return MULT_CLOSE; }
   "}"                       { return BODY_CLOSE; }
   "("                       { return ANNOT_PARAM_OPEN; }
   ")"                       { return ANNOT_PARAM_CLOSE; }
   "."                       { return MULT_SEP; }
-  "*"                       { return STAR; }
   "<<EOF>>"                 { return EOF; }
   "newline"                 { return NEWLINE; }
   "CRLF"                    { return CRLF; }

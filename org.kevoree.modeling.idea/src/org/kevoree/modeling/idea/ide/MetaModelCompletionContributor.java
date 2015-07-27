@@ -17,6 +17,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
     private void fillInsideClassDecl(CompletionResultSet resultSet) {
         resultSet.addElement(LookupElementBuilder.create("att "));
         resultSet.addElement(LookupElementBuilder.create("ref "));
+        resultSet.addElement(LookupElementBuilder.create("ref* "));
 
         resultSet.addElement(LookupElementBuilder.create("dependency "));
         resultSet.addElement(LookupElementBuilder.create("input "));
@@ -71,12 +72,13 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         );
 
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.IDENT).withText("Continuous")),
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.OPPOSITE)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,
                                                @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("precision "));
+                        resultSet.addElement(LookupElementBuilder.create("oppositeRefName "));
+                        resultSet.stopHere();
                     }
                 }
         );
@@ -119,17 +121,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
 
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement(MetaModelTypes.IDENT).withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.MULT_CLOSE)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull final CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("oppositeOf"));
-                    }
-                }
-        );
-
-        extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.ATT)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
@@ -143,6 +134,18 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.REF)),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+                        resultSet.addElement(LookupElementBuilder.create("relationName : "));
+                        resultSet.stopHere();
+                    }
+                }
+        );
+
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.MREF)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,
@@ -243,6 +246,34 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         );
 
         extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.IDENT).withText("Continuous")),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+                        resultSet.addElement(LookupElementBuilder.create("precision "));
+                    }
+                }
+        );
+
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.IDENT)),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+
+                        if (parameters.getPosition().getParent() != null) {
+                            PsiElement elem = parameters.getPosition().getParent();
+                            if (elem.toString().contains("oppositeOf")) {
+                                resultSet.addElement(LookupElementBuilder.create("oppositeOf"));
+                            }
+                        }
+                    }
+                }
+        );
+
+        extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.ATT)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
@@ -255,6 +286,17 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.REF)),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+                        fillInsideClassDecl(resultSet);
+                    }
+                }
+        );
+
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.MREF)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,

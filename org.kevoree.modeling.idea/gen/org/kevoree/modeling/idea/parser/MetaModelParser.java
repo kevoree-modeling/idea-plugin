@@ -65,15 +65,6 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     else if (t == MODEL_VERSION_DECLARATION) {
       r = MODEL_VERSION_DECLARATION(b, 0);
     }
-    else if (t == MULTIPLICITY_DECLARATION) {
-      r = MULTIPLICITY_DECLARATION(b, 0);
-    }
-    else if (t == MULTIPLICITY_DECLARATION_LOWER) {
-      r = MULTIPLICITY_DECLARATION_LOWER(b, 0);
-    }
-    else if (t == MULTIPLICITY_DECLARATION_UPPER) {
-      r = MULTIPLICITY_DECLARATION_UPPER(b, 0);
-    }
     else if (t == OPERATION_DECLARATION) {
       r = OPERATION_DECLARATION(b, 0);
     }
@@ -379,46 +370,6 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // MULT_OPEN MULTIPLICITY_DECLARATION_LOWER COMMA MULTIPLICITY_DECLARATION_UPPER MULT_CLOSE
-  public static boolean MULTIPLICITY_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "MULTIPLICITY_DECLARATION")) return false;
-    if (!nextTokenIs(b, MULT_OPEN)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, MULT_OPEN);
-    r = r && MULTIPLICITY_DECLARATION_LOWER(b, l + 1);
-    r = r && consumeToken(b, COMMA);
-    r = r && MULTIPLICITY_DECLARATION_UPPER(b, l + 1);
-    r = r && consumeToken(b, MULT_CLOSE);
-    exit_section_(b, m, MULTIPLICITY_DECLARATION, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // STAR_OR_NB
-  public static boolean MULTIPLICITY_DECLARATION_LOWER(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "MULTIPLICITY_DECLARATION_LOWER")) return false;
-    if (!nextTokenIs(b, "<multiplicity declaration lower>", NUMBER, STAR)) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<multiplicity declaration lower>");
-    r = STAR_OR_NB(b, l + 1);
-    exit_section_(b, l, m, MULTIPLICITY_DECLARATION_LOWER, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // STAR_OR_NB
-  public static boolean MULTIPLICITY_DECLARATION_UPPER(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "MULTIPLICITY_DECLARATION_UPPER")) return false;
-    if (!nextTokenIs(b, "<multiplicity declaration upper>", NUMBER, STAR)) return false;
-    boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<multiplicity declaration upper>");
-    r = STAR_OR_NB(b, l + 1);
-    exit_section_(b, l, m, MULTIPLICITY_DECLARATION_UPPER, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
   // FUNC OPERATION_NAME (ANNOT_PARAM_OPEN OPERATION_PARAMS ANNOT_PARAM_CLOSE)? (OPERATION_RETURN)?
   public static boolean OPERATION_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPERATION_DECLARATION")) return false;
@@ -620,32 +571,35 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // REF RELATION_NAME COLON TYPE_DECLARATION MULTIPLICITY_DECLARATION? RELATION_OPPOSITE?
+  // (REF|MREF) RELATION_NAME COLON TYPE_DECLARATION RELATION_OPPOSITE?
   public static boolean RELATION_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "RELATION_DECLARATION")) return false;
-    if (!nextTokenIs(b, REF)) return false;
+    if (!nextTokenIs(b, "<relation declaration>", MREF, REF)) return false;
     boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, REF);
+    Marker m = enter_section_(b, l, _NONE_, "<relation declaration>");
+    r = RELATION_DECLARATION_0(b, l + 1);
     r = r && RELATION_NAME(b, l + 1);
     r = r && consumeToken(b, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
     r = r && RELATION_DECLARATION_4(b, l + 1);
-    r = r && RELATION_DECLARATION_5(b, l + 1);
-    exit_section_(b, m, RELATION_DECLARATION, r);
+    exit_section_(b, l, m, RELATION_DECLARATION, r, false, null);
     return r;
   }
 
-  // MULTIPLICITY_DECLARATION?
-  private static boolean RELATION_DECLARATION_4(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "RELATION_DECLARATION_4")) return false;
-    MULTIPLICITY_DECLARATION(b, l + 1);
-    return true;
+  // REF|MREF
+  private static boolean RELATION_DECLARATION_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "RELATION_DECLARATION_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, REF);
+    if (!r) r = consumeToken(b, MREF);
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   // RELATION_OPPOSITE?
-  private static boolean RELATION_DECLARATION_5(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "RELATION_DECLARATION_5")) return false;
+  private static boolean RELATION_DECLARATION_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "RELATION_DECLARATION_4")) return false;
     RELATION_OPPOSITE(b, l + 1);
     return true;
   }
@@ -671,19 +625,6 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeTokens(b, 0, OPPOSITE, IDENT);
     exit_section_(b, m, RELATION_OPPOSITE, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // NUMBER | STAR
-  static boolean STAR_OR_NB(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "STAR_OR_NB")) return false;
-    if (!nextTokenIs(b, "", NUMBER, STAR)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, NUMBER);
-    if (!r) r = consumeToken(b, STAR);
-    exit_section_(b, m, null, r);
     return r;
   }
 

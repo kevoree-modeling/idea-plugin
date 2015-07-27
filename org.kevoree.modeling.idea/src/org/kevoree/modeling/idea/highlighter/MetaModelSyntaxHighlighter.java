@@ -77,6 +77,9 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.REF)) {
             return KEYWORD_KEYS;
         }
+        if (tokenType.equals(MetaModelTypes.MREF)) {
+            return KEYWORD_KEYS;
+        }
 
         if (tokenType.equals(MetaModelTypes.INPUT)) {
             return KEYWORD_KEYS;
@@ -116,12 +119,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
             return SEPARATOR_KEYS;
         }
         if (tokenType.equals(MetaModelTypes.BODY_CLOSE)) {
-            return SEPARATOR_KEYS;
-        }
-        if (tokenType.equals(MetaModelTypes.MULT_OPEN)) {
-            return SEPARATOR_KEYS;
-        }
-        if (tokenType.equals(MetaModelTypes.MULT_CLOSE)) {
             return SEPARATOR_KEYS;
         }
         if (tokenType.equals(MetaModelTypes.MULT_SEP)) {
