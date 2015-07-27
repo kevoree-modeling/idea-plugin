@@ -11,7 +11,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V19: Add support for Kinfer, new syntax for .mm file, enhance typeChecker
+      V19: Add support for Kinfer, new syntax for .mm file, enhance typeChecker<br />
       V18: Add CONTINUOUS as primitive type<br />
       V17: Fix ECORE multiplicity management<br />
       V16: Fix annotations completion<br />
