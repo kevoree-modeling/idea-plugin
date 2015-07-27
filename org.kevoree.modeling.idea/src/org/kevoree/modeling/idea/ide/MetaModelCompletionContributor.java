@@ -44,6 +44,18 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                                         resultSet.addElement(LookupElementBuilder.create(p.toString()));
                                     }
+                                    parameters.getOriginalFile().acceptChildren(new PsiElementVisitor() {
+                                        @Override
+                                        public void visitElement(PsiElement element) {
+                                            if (element instanceof MetaModelDeclaration) {
+                                                MetaModelDeclaration declaration = (MetaModelDeclaration) element;
+                                                if (declaration.getEnumDeclaration() != null && declaration.getEnumDeclaration().getTypeDeclaration() != null) {
+                                                    resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration()));
+                                                }
+                                            }
+                                            super.visitElement(element);
+                                        }
+                                    });
                                     resultSet.stopHere();
                                 } else if (parameters.getPosition().getParent().getParent() instanceof MetaModelRelationDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelDependencyDeclaration) {
                                     //add all know types
@@ -54,10 +66,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                                 MetaModelDeclaration declaration = (MetaModelDeclaration) element;
                                                 if (declaration.getClassDeclaration() != null && declaration.getClassDeclaration().getTypeDeclaration() != null) {
                                                     resultSet.addElement(LookupElementBuilder.create(declaration.getClassDeclaration().getTypeDeclaration()));
-                                                } else {
-                                                    if (declaration.getEnumDeclaration() != null && declaration.getEnumDeclaration().getTypeDeclaration() != null) {
-                                                        resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration()));
-                                                    }
                                                 }
                                             }
                                             super.visitElement(element);

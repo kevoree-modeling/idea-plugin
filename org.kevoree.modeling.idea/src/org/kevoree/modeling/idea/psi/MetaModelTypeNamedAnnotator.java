@@ -26,7 +26,7 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                 annotationHolder.createErrorAnnotation(psiElement, "Type identifier must be a qualified name with at least one package as : pack.ClassName");
             } else {
                 final MetaModelTypeDeclaration casted = (MetaModelTypeDeclaration) psiElement;
-                if(casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelAttributeDeclaration||casted.getParent() instanceof MetaModelOutputDeclaration)){
+                if (casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelAttributeDeclaration || casted.getParent() instanceof MetaModelOutputDeclaration)) {
                     final boolean[] isValidated = {false};
                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                         if (casted.getName().equals(p.name())) {
@@ -34,9 +34,36 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                         }
                     }
                     if (!isValidated[0]) {
+                        //look for enum
+                        PsiElement parent = psiElement.getParent();
+                        if (!(parent instanceof MetaModelClassDeclaration) && !(parent instanceof MetaModelEnumDeclaration)) {
+                            PsiFile file = psiElement.getContainingFile();
+                            file.acceptChildren(new MetaModelVisitor() {
+                                @Override
+                                public void visitPsiElement(@NotNull PsiElement o) {
+                                    super.visitPsiElement(o);
+                                    if (o != null && !isValidated[0]) {
+                                        o.acceptChildren(this);
+                                    }
+                                }
+
+                                @Override
+                                public void visitEnumDeclaration(@NotNull MetaModelEnumDeclaration o) {
+                                    if (o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())) {
+                                        isValidated[0] = true;
+                                    }
+                                }
+
+                            });
+                            if (!isValidated[0]) {
+                                annotationHolder.createErrorAnnotation(psiElement, "References and Dependencies must have a declared type, please declare corresponding class");
+                            }
+                        }
+                    }
+                    if (!isValidated[0]) {
                         annotationHolder.createErrorAnnotation(psiElement, "Attributes and Outputs must have a primitive type such as Long, Double, Continous, Int or Bool");
                     }
-                } else if(casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelRelationDeclaration || casted.getParent() instanceof MetaModelDependencyDeclaration)){
+                } else if (casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelRelationDeclaration || casted.getParent() instanceof MetaModelDependencyDeclaration)) {
                     final boolean[] isValidated = {false};
                     if (!isValidated[0]) {
                         PsiElement parent = psiElement.getParent();
@@ -46,26 +73,19 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                                 @Override
                                 public void visitPsiElement(@NotNull PsiElement o) {
                                     super.visitPsiElement(o);
-                                    if(o != null && !isValidated[0]){
+                                    if (o != null && !isValidated[0]) {
                                         o.acceptChildren(this);
                                     }
                                 }
+
                                 @Override
                                 public void visitClassDeclaration(@NotNull MetaModelClassDeclaration o) {
-                                    if(o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())){
+                                    if (o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())) {
                                         isValidated[0] = true;
                                     }
                                 }
-
-                                @Override
-                                public void visitEnumDeclaration(@NotNull MetaModelEnumDeclaration o) {
-                                    if(o != null && o.getTypeDeclaration() != null && o.getTypeDeclaration().getName() != null && o.getTypeDeclaration().getName().equals(casted.getName())){
-                                        isValidated[0] = true;
-                                    }
-                                }
-
                             });
-                            if (!isValidated[0]){
+                            if (!isValidated[0]) {
                                 annotationHolder.createErrorAnnotation(psiElement, "References and Dependencies must have a declared type, please declare corresponding class");
                             }
                         }
