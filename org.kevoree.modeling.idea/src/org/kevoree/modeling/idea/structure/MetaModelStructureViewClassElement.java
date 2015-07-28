@@ -51,7 +51,6 @@ public class MetaModelStructureViewClassElement implements StructureViewTreeElem
 
     @Override
     public void navigate(boolean b) {
-        //System.out.println("Editor:" + editor.getClass());
         editor.getCaretModel().moveToOffset(classDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }

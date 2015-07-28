@@ -165,6 +165,12 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
     }
 
     private void processSubDec(MetaModelClassDeclaration o, MetaModelStructureViewClassElement classElement, Editor editor) {
+        if (o.getAnnotationDeclrList() != null) {
+            for (MetaModelAnnotationDeclr annotationDeclr : o.getAnnotationDeclrList()) {
+                MetaModelStructureViewAnnotationElement annotationElem = new MetaModelStructureViewAnnotationElement(annotationDeclr, editor);
+                classElement.annotationsDeclr.add(annotationElem);
+            }
+        }
         for (MetaModelClassElemDeclaration relDec : o.getClassElemDeclarationList()) {
             if (relDec.getOperationDeclaration() != null) {
                 MetaModelStructureViewOperationElement referenceElement = new MetaModelStructureViewOperationElement(relDec.getOperationDeclaration(), editor);
@@ -175,7 +181,7 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                 if (relDec.getRelationDeclaration().getAnnotationDeclrList() != null) {
                     for (MetaModelAnnotationDeclr annotationDeclr : relDec.getRelationDeclaration().getAnnotationDeclrList()) {
                         MetaModelStructureViewAnnotationElement annotationElem = new MetaModelStructureViewAnnotationElement(annotationDeclr, editor);
-                        classElement.annotationsDeclr.add(annotationElem);
+                        referenceElement.annotationsDeclr.add(annotationElem);
                     }
                 }
             } else if (relDec.getAttributeDeclaration() != null) {
@@ -184,7 +190,7 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                 if (relDec.getAttributeDeclaration().getAnnotationDeclrList() != null) {
                     for (MetaModelAnnotationDeclr annotationDeclr : relDec.getAttributeDeclaration().getAnnotationDeclrList()) {
                         MetaModelStructureViewAnnotationElement annotationElem = new MetaModelStructureViewAnnotationElement(annotationDeclr, editor);
-                        classElement.annotationsDeclr.add(annotationElem);
+                        attributeElement.annotationsDeclr.add(annotationElem);
                     }
                 }
             } else if (relDec.getDependencyDeclaration() != null) {
@@ -200,6 +206,8 @@ public class MetaModelStructureViewRootElement implements StructureViewTreeEleme
                 System.err.println("Could not find appropriate ClassElem declaration type in processReference for Structure view");
             }
         }
+
+
     }
 
     private void processEnumValues(MetaModelEnumDeclaration o, MetaModelStructureViewEnumElement enumElement, Editor editor) {

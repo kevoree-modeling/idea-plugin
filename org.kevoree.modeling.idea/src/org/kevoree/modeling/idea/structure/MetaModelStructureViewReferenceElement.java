@@ -12,12 +12,15 @@ import org.jetbrains.annotations.Nullable;
 import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MetaModelStructureViewReferenceElement implements StructureViewTreeElement, SortableTreeElement {
 
     private MetaModelRelationDeclaration refDecl;
     private Editor editor;
     private String simpleType;
+    public List<MetaModelStructureViewAnnotationElement> annotationsDeclr = new ArrayList<MetaModelStructureViewAnnotationElement>();
 
     public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
         this.refDecl = refDecl;
@@ -59,9 +62,9 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
             @Override
             public String getPresentableText() {
                 if (refDecl.getText().trim().startsWith("ref*")) {
-                    return "*" + refDecl.getTypeDeclaration().getName() + " : " + simpleType;
+                    return "*" + refDecl.getRelationName().getText() + " : " + simpleType;
                 } else {
-                    return refDecl.getTypeDeclaration().getName() + " : " + simpleType;
+                    return refDecl.getRelationName().getText() + " : " + simpleType;
                 }
             }
 
@@ -81,12 +84,14 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
 
     @Override
     public TreeElement[] getChildren() {
-        return EMPTY_ARRAY;
+        List<TreeElement> all = new ArrayList<TreeElement>();
+        all.addAll(annotationsDeclr);
+        return all.toArray(new TreeElement[all.size()]);
     }
 
     @NotNull
     @Override
     public String getAlphaSortKey() {
-        return refDecl.getTypeDeclaration().getName();
+        return refDecl.getRelationName().getText();
     }
 }

@@ -14,6 +14,8 @@ import org.kevoree.modeling.idea.psi.MetaModelRelationDeclaration;
 import org.kevoree.modeling.util.PrimitiveTypes;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MetaModelStructureViewAttributeElement implements StructureViewTreeElement, SortableTreeElement {
 
@@ -21,25 +23,13 @@ public class MetaModelStructureViewAttributeElement implements StructureViewTree
     private Editor editor;
     private Icon myIcon = PlatformIcons.FIELD_ICON;
     private String simpleType;
-    private boolean id = false;
-    private boolean contained = false;
+
+    public List<MetaModelStructureViewAnnotationElement> annotationsDeclr = new ArrayList<MetaModelStructureViewAnnotationElement>();
 
     public MetaModelStructureViewAttributeElement(MetaModelAttributeDeclaration attDecl, Editor editor) {
         this.attDecl = attDecl;
         this.editor = editor;
         simpleType = attDecl.getTypeDeclaration().getName().substring(attDecl.getTypeDeclaration().getName().lastIndexOf(".") + 1);
-    }
-
-    public boolean isAttribute() {
-        return true;
-    }
-
-    public boolean isId() {
-        return id;
-    }
-
-    public boolean isContained() {
-        return contained;
     }
 
     @Override
@@ -52,7 +42,6 @@ public class MetaModelStructureViewAttributeElement implements StructureViewTree
         editor.getCaretModel().moveToOffset(attDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
-
 
     @Override
     public boolean canNavigate() {
@@ -90,7 +79,9 @@ public class MetaModelStructureViewAttributeElement implements StructureViewTree
 
     @Override
     public TreeElement[] getChildren() {
-        return EMPTY_ARRAY;
+        List<TreeElement> all = new ArrayList<TreeElement>();
+        all.addAll(annotationsDeclr);
+        return all.toArray(new TreeElement[all.size()]);
     }
 
     @NotNull

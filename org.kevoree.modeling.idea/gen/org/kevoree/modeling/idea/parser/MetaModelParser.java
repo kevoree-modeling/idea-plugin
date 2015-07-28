@@ -297,7 +297,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ENUM TYPE_DECLARATION BODY_OPEN ENUM_ELEM_DECLARATION* BODY_CLOSE
+  // ENUM TYPE_DECLARATION BODY_OPEN ENUM_ELEM_DECLARATION (COMMA ENUM_ELEM_DECLARATION)* BODY_CLOSE
   public static boolean ENUM_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ENUM_DECLARATION")) return false;
     boolean r, p;
@@ -306,22 +306,34 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     p = r; // pin = 1
     r = r && report_error_(b, TYPE_DECLARATION(b, l + 1));
     r = p && report_error_(b, consumeToken(b, BODY_OPEN)) && r;
-    r = p && report_error_(b, ENUM_DECLARATION_3(b, l + 1)) && r;
+    r = p && report_error_(b, ENUM_ELEM_DECLARATION(b, l + 1)) && r;
+    r = p && report_error_(b, ENUM_DECLARATION_4(b, l + 1)) && r;
     r = p && consumeToken(b, BODY_CLOSE) && r;
     exit_section_(b, l, m, ENUM_DECLARATION, r, p, rule_start_parser_);
     return r || p;
   }
 
-  // ENUM_ELEM_DECLARATION*
-  private static boolean ENUM_DECLARATION_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ENUM_DECLARATION_3")) return false;
+  // (COMMA ENUM_ELEM_DECLARATION)*
+  private static boolean ENUM_DECLARATION_4(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ENUM_DECLARATION_4")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!ENUM_ELEM_DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "ENUM_DECLARATION_3", c)) break;
+      if (!ENUM_DECLARATION_4_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "ENUM_DECLARATION_4", c)) break;
       c = current_position_(b);
     }
     return true;
+  }
+
+  // COMMA ENUM_ELEM_DECLARATION
+  private static boolean ENUM_DECLARATION_4_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "ENUM_DECLARATION_4_0")) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, COMMA);
+    r = r && ENUM_ELEM_DECLARATION(b, l + 1);
+    exit_section_(b, m, null, r);
+    return r;
   }
 
   /* ********************************************************** */

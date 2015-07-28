@@ -22,10 +22,10 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         resultSet.addElement(LookupElementBuilder.create("dependency "));
         resultSet.addElement(LookupElementBuilder.create("input "));
         resultSet.addElement(LookupElementBuilder.create("output "));
+        resultSet.addElement(LookupElementBuilder.create("with "));
     }
 
     public MetaModelCompletionContributor() {
-
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement(MetaModelTypes.IDENT).withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.COLON)),
                 new CompletionProvider<CompletionParameters>() {
@@ -75,18 +75,50 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
-        /*
         extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.OPPOSITE)),
+                PlatformPatterns.psiElement(MetaModelTypes.IDENT).withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.EXTENDS)),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull final CompletionResultSet resultSet) {
+
+                        if (parameters.getPosition().getParent() != null) {
+                            if (parameters.getPosition().getParent().getParent() != null) {
+                                parameters.getOriginalFile().acceptChildren(new PsiElementVisitor() {
+                                    @Override
+                                    public void visitElement(PsiElement element) {
+                                        if (element instanceof MetaModelDeclaration) {
+                                            MetaModelDeclaration declaration = (MetaModelDeclaration) element;
+                                            if (declaration.getClassDeclaration() != null && declaration.getClassDeclaration().getTypeDeclaration() != null) {
+                                                resultSet.addElement(LookupElementBuilder.create(declaration.getClassDeclaration().getTypeDeclaration()));
+                                            }
+                                        }
+                                        super.visitElement(element);
+                                    }
+                                });
+                                resultSet.stopHere();
+                            }
+                        }
+                    }
+                }
+        );
+
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.WITH)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,
                                                @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("oppositeRefName "));
+                        resultSet.addElement(LookupElementBuilder.create("opposite \"oppositeName\" "));
+                        resultSet.addElement(LookupElementBuilder.create("precision 0.1 "));
+                        resultSet.addElement(LookupElementBuilder.create("inferWith \"InferAlgorithm\" "));
+                        resultSet.addElement(LookupElementBuilder.create("temporalResolution 86400000 "));
+                        resultSet.addElement(LookupElementBuilder.create("temporalLimit 100000 "));
+                        resultSet.addElement(LookupElementBuilder.create("inferWith \"InferAlgorithm\" "));
                         resultSet.stopHere();
                     }
                 }
-        );*/
+        );
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.BODY_CLOSE)),
@@ -123,7 +155,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                     }
                 }
         );
-
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.ATT)),
