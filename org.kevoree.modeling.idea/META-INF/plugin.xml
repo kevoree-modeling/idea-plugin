@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>22</version>
+    <version>23</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,8 +11,9 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V22: Minor change, change a completion contribution
-      V21: New syntax with generic annotator
+      V23: Minor bugfix for template generator<br />
+      V22: Minor change, change a completion contribution<br />
+      V21: New syntax with generic annotator<br />
       V20: Fix completion for enum<br />
       V19: Add support for Kinfer, new syntax for .mm file, enhance typeChecker<br />
       V18: Add CONTINUOUS as primitive type<br />

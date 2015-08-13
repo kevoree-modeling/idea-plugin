@@ -45,10 +45,7 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
     protected PsiElement doCreate(PsiDirectory psiDirectory, String parameterName, String typeName) throws IncorrectOperationException {
         MetaModelTemplatesFactory.Template template = MetaModelTemplatesFactory.Template.MetaModel;
         String fileName = fileNameFromTypeName(typeName, parameterName);
-
         StringBuilder sample = new StringBuilder();
-        sample.append("kmfVersion \"" + KMFCompilerResolver.resolveLastVersion() + "\"\n");
-        sample.append("version \"1.0.0-SNAPSHOT\"\n");
         sample.append("class sample.Cloud {\n");
         sample.append("    ref* nodes : sample.Node\n");
         sample.append("}\n");
