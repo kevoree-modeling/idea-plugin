@@ -41,7 +41,6 @@ public class MetaModelBlock extends AbstractBlock {
         return blocks;
     }
 
-
     @Override
     public Indent getIndent() {
         if (getNode().getElementType() == MetaModelTypes.CLASS_ELEM_DECLARATION) {
@@ -51,7 +50,7 @@ public class MetaModelBlock extends AbstractBlock {
             return Indent.getNormalIndent();
         }
         if (getNode().getElementType() == MetaModelTypes.ANNOTATION_DECLR) {
-            if(getNode().getTreeParent().getElementType() == MetaModelTypes.CLASS_DECLARATION){
+            if (getNode().getTreeParent().getElementType() == MetaModelTypes.CLASS_DECLARATION) {
                 return Indent.getNormalIndent();
             }
         }
@@ -85,6 +84,10 @@ public class MetaModelBlock extends AbstractBlock {
             }
             if (type2 == MetaModelTypes.COMMA) {
                 return noSpace();
+            }
+            if (type1 == MetaModelTypes.COMMENT) {
+                return Spacing.createSpacing(1, 1, 2, false, 1);
+                //return newLine();
             }
 
             /*

@@ -23,6 +23,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         resultSet.addElement(LookupElementBuilder.create("input "));
         resultSet.addElement(LookupElementBuilder.create("output "));
         resultSet.addElement(LookupElementBuilder.create("with "));
+        resultSet.addElement(LookupElementBuilder.create("func "));
     }
 
     public MetaModelCompletionContributor() {
