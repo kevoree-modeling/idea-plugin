@@ -30,16 +30,19 @@ public class MetaModelCompletionContributor extends CompletionContributor {
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement(MetaModelTypes.IDENT).withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.COLON)),
                 new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
+                    public void addCompletions(@NotNull final CompletionParameters parameters,
                                                ProcessingContext context,
                                                @NotNull final CompletionResultSet resultSet) {
 
                         if (parameters.getPosition().getParent() != null) {
                             if (parameters.getPosition().getParent().getParent() != null) {
-                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOutputDeclaration) {
+                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOutputDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
                                     //add all attributes
                                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                                         resultSet.addElement(LookupElementBuilder.create(p.toString()));
+                                        if (parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
+                                            resultSet.addElement(LookupElementBuilder.create(p.toString() + "[]"));
+                                        }
                                     }
                                     parameters.getOriginalFile().acceptChildren(new PsiElementVisitor() {
                                         @Override
@@ -48,6 +51,9 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                                 MetaModelDeclaration declaration = (MetaModelDeclaration) element;
                                                 if (declaration.getEnumDeclaration() != null && declaration.getEnumDeclaration().getTypeDeclaration() != null) {
                                                     resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration()));
+                                                    if (parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
+                                                        resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration().getIdent().getText() + "[]"));
+                                                    }
                                                 }
                                             }
                                             super.visitElement(element);

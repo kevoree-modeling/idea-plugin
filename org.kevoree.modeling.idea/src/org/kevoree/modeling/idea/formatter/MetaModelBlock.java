@@ -85,6 +85,15 @@ public class MetaModelBlock extends AbstractBlock {
             if (type2 == MetaModelTypes.COMMA) {
                 return noSpace();
             }
+            if (type2 == MetaModelTypes.ARRAY) {
+                return noSpace();
+            }
+            if (type1 == MetaModelTypes.ANNOT_PARAM_OPEN) {
+                return noSpace();
+            }
+            if (type2 == MetaModelTypes.ANNOT_PARAM_CLOSE) {
+                return noSpace();
+            }
             if (type1 == MetaModelTypes.COMMENT) {
                 return Spacing.createSpacing(1, 1, 2, false, 1);
                 //return newLine();

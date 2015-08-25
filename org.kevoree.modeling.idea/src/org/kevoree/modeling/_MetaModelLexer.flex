@@ -40,6 +40,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "ref*"             { return MREF; }
   "from"             { return FROM; }
   "dependency"       { return DEPENDENCY; }
+  "[]"               { return ARRAY; }
   "input"            { return INPUT; }
   "output"           { return OUTPUT; }
   "extends"          { return EXTENDS; }

@@ -35,6 +35,7 @@ public interface MetaModelTypes {
 
   IElementType ANNOT_PARAM_CLOSE = new MetaModelTokenType(")");
   IElementType ANNOT_PARAM_OPEN = new MetaModelTokenType("(");
+  IElementType ARRAY = new MetaModelTokenType("[]");
   IElementType ATT = new MetaModelTokenType("att");
   IElementType BODY_CLOSE = new MetaModelTokenType("}");
   IElementType BODY_OPEN = new MetaModelTokenType("{");

@@ -474,7 +474,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // IDENT COLON TYPE_DECLARATION
+  // IDENT COLON TYPE_DECLARATION ARRAY?
   public static boolean OPERATION_PARAM(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPERATION_PARAM")) return false;
     if (!nextTokenIs(b, IDENT)) return false;
@@ -482,8 +482,16 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeTokens(b, 0, IDENT, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && OPERATION_PARAM_3(b, l + 1);
     exit_section_(b, m, OPERATION_PARAM, r);
     return r;
+  }
+
+  // ARRAY?
+  private static boolean OPERATION_PARAM_3(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "OPERATION_PARAM_3")) return false;
+    consumeToken(b, ARRAY);
+    return true;
   }
 
   /* ********************************************************** */
@@ -523,7 +531,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // COLON TYPE_DECLARATION
+  // COLON TYPE_DECLARATION ARRAY?
   public static boolean OPERATION_RETURN(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "OPERATION_RETURN")) return false;
     if (!nextTokenIs(b, COLON)) return false;
@@ -531,8 +539,16 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     Marker m = enter_section_(b);
     r = consumeToken(b, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && OPERATION_RETURN_2(b, l + 1);
     exit_section_(b, m, OPERATION_RETURN, r);
     return r;
+  }
+
+  // ARRAY?
+  private static boolean OPERATION_RETURN_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "OPERATION_RETURN_2")) return false;
+    consumeToken(b, ARRAY);
+    return true;
   }
 
   /* ********************************************************** */

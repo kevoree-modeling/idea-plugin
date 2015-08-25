@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>24</version>
+    <version>25</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,7 +11,8 @@
     ]]></description>
 
     <change-notes><![CDATA[
-      V24: Fix completion for funcion and fix formatting for comments<br />
+      V25: New feature (Array param for function)<br />
+      V24: Fix completion for function and fix formatting for comments<br />
       V23: Minor bugfix for template generator<br />
       V22: Minor change, change a completion contribution<br />
       V21: New syntax with generic annotator<br />
@@ -116,15 +117,14 @@
         </action>
 
         <action id="GenerateJS" class="org.kevoree.modeling.action.GenerateJSAction"
-                text="Compile to JS" description="Compile2JS">
+                text="Generate to Java and JS" description="Compile2JS">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
 
         <action id="GenerateJava" class="org.kevoree.modeling.action.GenerateJavaAction"
-                text="Compile to Java" description="Compile2JAR">
+                text="Generate to Java" description="Compile2JAR">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
-
 
     </actions>
 

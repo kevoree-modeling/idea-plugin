@@ -6,12 +6,12 @@ import com.intellij.psi.PsiElement;
 
 public interface MetaModelTypeDeclaration extends MetaModelNamedElement {
 
-  @NotNull
-  PsiElement getIdent();
+    @NotNull
+    PsiElement getIdent();
 
-  PsiElement setName(String newName);
+    PsiElement setName(String newName);
 
-  @Nullable
-  PsiElement getNameIdentifier();
+    @Nullable
+    PsiElement getNameIdentifier();
 
 }
