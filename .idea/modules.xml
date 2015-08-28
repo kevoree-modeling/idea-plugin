@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/org.kevoree.modeling.dsl/org.kevoree.modeling.dsl.iml" filepath="$PROJECT_DIR$/org.kevoree.modeling.dsl/org.kevoree.modeling.dsl.iml" />
       <module fileurl="file://$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/org.kevoree.modeling.idea.dsl.iml" filepath="$PROJECT_DIR$/org.kevoree.modeling.idea.dsl/org.kevoree.modeling.idea.dsl.iml" />
       <module fileurl="file://$PROJECT_DIR$/org.kevoree.modeling.idea.root.iml" filepath="$PROJECT_DIR$/org.kevoree.modeling.idea.root.iml" />
     </modules>

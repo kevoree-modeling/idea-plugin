@@ -616,29 +616,18 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // (REF|MREF) RELATION_NAME COLON TYPE_DECLARATION ANNOTATION_DECLR*
+  // REF RELATION_NAME COLON TYPE_DECLARATION ANNOTATION_DECLR*
   public static boolean RELATION_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "RELATION_DECLARATION")) return false;
-    if (!nextTokenIs(b, "<relation declaration>", MREF, REF)) return false;
+    if (!nextTokenIs(b, REF)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<relation declaration>");
-    r = RELATION_DECLARATION_0(b, l + 1);
+    Marker m = enter_section_(b);
+    r = consumeToken(b, REF);
     r = r && RELATION_NAME(b, l + 1);
     r = r && consumeToken(b, COLON);
     r = r && TYPE_DECLARATION(b, l + 1);
     r = r && RELATION_DECLARATION_4(b, l + 1);
-    exit_section_(b, l, m, RELATION_DECLARATION, r, false, null);
-    return r;
-  }
-
-  // REF|MREF
-  private static boolean RELATION_DECLARATION_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "RELATION_DECLARATION_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, REF);
-    if (!r) r = consumeToken(b, MREF);
-    exit_section_(b, m, null, r);
+    exit_section_(b, m, RELATION_DECLARATION, r);
     return r;
   }
 

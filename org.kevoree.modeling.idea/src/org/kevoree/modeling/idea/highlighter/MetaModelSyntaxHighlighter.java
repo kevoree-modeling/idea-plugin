@@ -68,9 +68,6 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.REF)) {
             return KEYWORD_KEYS;
         }
-        if (tokenType.equals(MetaModelTypes.MREF)) {
-            return KEYWORD_KEYS;
-        }
         if (tokenType.equals(MetaModelTypes.INPUT)) {
             return KEYWORD_KEYS;
         }

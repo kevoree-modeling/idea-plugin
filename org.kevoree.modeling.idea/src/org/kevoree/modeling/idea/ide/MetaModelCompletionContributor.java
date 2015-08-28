@@ -16,8 +16,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
     private void fillInsideClassDecl(CompletionResultSet resultSet) {
         resultSet.addElement(LookupElementBuilder.create("att "));
-        resultSet.addElement(LookupElementBuilder.create("ref "));
-        resultSet.addElement(LookupElementBuilder.create("ref* "));
+        resultSet.addElement(LookupElementBuilder.create("rel "));
 
         resultSet.addElement(LookupElementBuilder.create("dependency "));
         resultSet.addElement(LookupElementBuilder.create("input "));
@@ -120,6 +119,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         resultSet.addElement(LookupElementBuilder.create("precision 0.1 "));
                         resultSet.addElement(LookupElementBuilder.create("temporalResolution 86400000 "));
                         resultSet.addElement(LookupElementBuilder.create("temporalLimit 100000 "));
+                        resultSet.addElement(LookupElementBuilder.create("maxBound 5 "));
                         resultSet.addElement(LookupElementBuilder.create("inference \"GaussianClassifier\" "));
                         resultSet.stopHere();
                     }
@@ -176,18 +176,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.REF)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("relationName : "));
-                        resultSet.stopHere();
-                    }
-                }
-        );
-
-        extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.MREF)),
                 new CompletionProvider<CompletionParameters>() {
                     public void addCompletions(@NotNull CompletionParameters parameters,
                                                ProcessingContext context,
@@ -342,16 +330,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
-        extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.MREF)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull CompletionResultSet resultSet) {
-                        fillInsideClassDecl(resultSet);
-                    }
-                }
-        );
 
         /*
         extend(CompletionType.BASIC,

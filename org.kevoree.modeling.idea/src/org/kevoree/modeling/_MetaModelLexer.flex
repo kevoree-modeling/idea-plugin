@@ -36,8 +36,7 @@ STRING=('([^'\\]|\\.)*'|\"([^\"\\]|\\.)*\")
   "enum"             { return ENUM; }
   "func"             { return FUNC; }
   "att"              { return ATT; }
-  "ref"              { return REF; }
-  "ref*"             { return MREF; }
+  "rel"              { return REF; }
   "from"             { return FROM; }
   "dependency"       { return DEPENDENCY; }
   "[]"               { return ARRAY; }

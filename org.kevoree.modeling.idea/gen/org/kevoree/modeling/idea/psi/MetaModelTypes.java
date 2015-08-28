@@ -53,12 +53,11 @@ public interface MetaModelTypes {
   IElementType FUNC = new MetaModelTokenType("func");
   IElementType IDENT = new MetaModelTokenType("IDENT");
   IElementType INPUT = new MetaModelTokenType("input");
-  IElementType MREF = new MetaModelTokenType("ref*");
   IElementType MULT_SEP = new MetaModelTokenType(".");
   IElementType NEWLINE = new MetaModelTokenType("newline");
   IElementType NUMBER = new MetaModelTokenType("NUMBER");
   IElementType OUTPUT = new MetaModelTokenType("output");
-  IElementType REF = new MetaModelTokenType("ref");
+  IElementType REF = new MetaModelTokenType("rel");
   IElementType STRING = new MetaModelTokenType("string");
   IElementType SUB = new MetaModelTokenType("/");
   IElementType WITH = new MetaModelTokenType("with");

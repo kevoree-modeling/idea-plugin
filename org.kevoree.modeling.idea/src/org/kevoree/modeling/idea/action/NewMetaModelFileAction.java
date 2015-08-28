@@ -47,11 +47,11 @@ public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiEle
         String fileName = fileNameFromTypeName(typeName, parameterName);
         StringBuilder sample = new StringBuilder();
         sample.append("class sample.Cloud {\n");
-        sample.append("    ref* nodes : sample.Node\n");
+        sample.append("    rel nodes : sample.Node\n");
         sample.append("}\n");
         sample.append("class sample.Node {\n");
         sample.append("    att name : String\n");
-        sample.append("    ref* softwares : sample.Software\n");
+        sample.append("    rel softwares : sample.Software\n");
         sample.append("}\n");
         sample.append("class sample.Software {\n");
         sample.append("    att name : String\n");
