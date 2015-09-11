@@ -81,6 +81,9 @@
         <annotator language="MetaModel"
                    implementationClass="org.kevoree.modeling.idea.psi.MetaModelTypeNamedAnnotator"/>
 
+
+        <toolWindow id="Kevoree Base64 Translator" icon="/icons/kevs_16x16.png" anchor="right" secondary="true" factoryClass="org.kevoree.modeling.idea.toolwindow.Base64Window" />
+
     </extensions>
 
     <application-components>
