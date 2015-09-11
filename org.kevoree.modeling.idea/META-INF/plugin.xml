@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>26</version>
+    <version>28</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,6 +11,8 @@
     ]]></description>
 
     <change-notes><![CDATA[
+      V28: Adding a first version of KMF-Base64 conversion tool<br />
+      V27: Minor change in the default completion<br />
       V26: Homogeneous relation declaration with new annotations with maxBound<br />
       V25: New feature (Array param for function)<br />
       V24: Fix completion for function and fix formatting for comments<br />
