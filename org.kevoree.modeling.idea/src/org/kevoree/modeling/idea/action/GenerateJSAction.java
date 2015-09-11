@@ -1,4 +1,4 @@
-package org.kevoree.modeling.action;
+package org.kevoree.modeling.idea.action;
 
 import com.intellij.openapi.actionSystem.AnActionEvent;
 

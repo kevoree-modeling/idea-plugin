@@ -1,4 +1,4 @@
-package org.kevoree.modeling.action;
+package org.kevoree.modeling.idea.action;
 
 import com.google.common.io.ByteStreams;
 import com.intellij.execution.configurations.CommandLineBuilder;

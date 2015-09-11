@@ -107,22 +107,22 @@
         </group>
 
         <!--
-        <action id="ConvertMMtoEcore" class="org.kevoree.modeling.action.ConvertToEcoreAction"
+        <action id="ConvertMMtoEcore" class="org.kevoree.modeling.idea.action.ConvertToEcoreAction"
                 text="Convert to Ecore" description="ConvertMMtoEcore">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
 -->
-        <action id="ConvertEcore2MM" class="org.kevoree.modeling.action.ConvertToMMAction"
+        <action id="ConvertEcore2MM" class="org.kevoree.modeling.idea.action.ConvertToMMAction"
                 text="Convert to MetaModel DSL" description="ConvertEcore2MM">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
 
-        <action id="GenerateJS" class="org.kevoree.modeling.action.GenerateJSAction"
+        <action id="GenerateJS" class="org.kevoree.modeling.idea.action.GenerateJSAction"
                 text="Generate to Java and JS" description="Compile2JS">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>
 
-        <action id="GenerateJava" class="org.kevoree.modeling.action.GenerateJavaAction"
+        <action id="GenerateJava" class="org.kevoree.modeling.idea.action.GenerateJavaAction"
                 text="Generate to Java" description="Compile2JAR">
             <add-to-group group-id="RunContextGroup" anchor="last"/>
         </action>

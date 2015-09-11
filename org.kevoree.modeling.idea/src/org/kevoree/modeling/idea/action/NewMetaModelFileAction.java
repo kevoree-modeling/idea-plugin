@@ -15,7 +15,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes;
 import org.kevoree.modeling.MetaModelIcons;
-import org.kevoree.modeling.action.KMFCompilerResolver;
 import org.kevoree.modeling.idea.MetaModelTemplatesFactory;
 
 /**
