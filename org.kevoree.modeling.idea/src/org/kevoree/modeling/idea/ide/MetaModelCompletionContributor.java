@@ -119,7 +119,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         resultSet.addElement(LookupElementBuilder.create("precision 0.1 "));
                         resultSet.addElement(LookupElementBuilder.create("temporalResolution 86400000 "));
                         resultSet.addElement(LookupElementBuilder.create("temporalLimit 100000 "));
-                        resultSet.addElement(LookupElementBuilder.create("maxBound 5 "));
+                        resultSet.addElement(LookupElementBuilder.create("maxBound 1 "));
                         resultSet.addElement(LookupElementBuilder.create("inference \"GaussianClassifier\" "));
                         resultSet.stopHere();
                     }
