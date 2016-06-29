@@ -17,15 +17,13 @@ public class MetaModelClassDeclarationImpl extends ASTWrapperPsiElement implemen
     super(node);
   }
 
-  public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitClassDeclaration(this);
-    else super.accept(visitor);
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitClassDeclaration(this);
   }
 
-  @Override
-  @NotNull
-  public List<MetaModelAnnotationDeclr> getAnnotationDeclrList() {
-    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelAnnotationDeclr.class);
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
+    else super.accept(visitor);
   }
 
   @Override
@@ -41,9 +39,9 @@ public class MetaModelClassDeclarationImpl extends ASTWrapperPsiElement implemen
   }
 
   @Override
-  @Nullable
+  @NotNull
   public MetaModelTypeDeclaration getTypeDeclaration() {
-    return findChildByClass(MetaModelTypeDeclaration.class);
+    return findNotNullChildByClass(MetaModelTypeDeclaration.class);
   }
 
 }

@@ -1,7 +1,7 @@
 <idea-plugin version="2">
     <id>org.kevoree.modeling.idea.plugin</id>
     <name>Kevoree Modeling Framework IDEA plugin</name>
-    <version>28</version>
+    <version>29</version>
     <vendor email="fouquet.f@gmail.com" url="http://www.kevoree.org">Kevoree</vendor>
 
     <description><![CDATA[
@@ -11,6 +11,7 @@
     ]]></description>
 
     <change-notes><![CDATA[
+      V29: MAJOR rewrite for the MWG & KMF
       V28: Adding a first version of KMF-Base64 conversion tool<br />
       V27: Minor change in the default completion<br />
       V26: Homogeneous relation declaration with new annotations with maxBound<br />
@@ -84,7 +85,8 @@
                    implementationClass="org.kevoree.modeling.idea.psi.MetaModelTypeNamedAnnotator"/>
 
 
-        <toolWindow id="Kevoree Base64 Translator" icon="/icons/kevs_16x16.png" anchor="right" secondary="true" factoryClass="org.kevoree.modeling.idea.toolwindow.Base64Window" />
+        <toolWindow id="Kevoree Base64 Translator" icon="/icons/kevs_16x16.png" anchor="right" secondary="true"
+                    factoryClass="org.kevoree.modeling.idea.toolwindow.Base64Window"/>
 
     </extensions>
 
@@ -110,17 +112,6 @@
                     icon="/icons/kevs_16x16.png">
             </action>
         </group>
-
-        <!--
-        <action id="ConvertMMtoEcore" class="org.kevoree.modeling.idea.action.ConvertToEcoreAction"
-                text="Convert to Ecore" description="ConvertMMtoEcore">
-            <add-to-group group-id="RunContextGroup" anchor="last"/>
-        </action>
--->
-        <action id="ConvertEcore2MM" class="org.kevoree.modeling.idea.action.ConvertToMMAction"
-                text="Convert to MetaModel DSL" description="ConvertEcore2MM">
-            <add-to-group group-id="RunContextGroup" anchor="last"/>
-        </action>
 
         <action id="GenerateJS" class="org.kevoree.modeling.idea.action.GenerateJSAction"
                 text="Generate to Java and JS" description="Compile2JS">

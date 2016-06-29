@@ -30,7 +30,11 @@ public class MetaModelBlock extends AbstractBlock {
                     blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
                 } else if (child.getElementType() == MetaModelTypes.ENUM_ELEM_DECLARATION) {
                     blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
+                } else if (child.getElementType() == MetaModelTypes.INDEX_ELEM_DECLARATION) {
+                    blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
                 } else if (child.getElementType() == MetaModelTypes.ANNOTATION_DECLR) {
+                    blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
+                } else if (child.getElementType() == MetaModelTypes.SEMANTIC_ELEM_DECLR) {
                     blocks.add(new MetaModelBlock(child, innerBodyAlignment, getWrap()));
                 } else {
                     blocks.add(new MetaModelBlock(child, getAlignment(), getWrap()));
@@ -47,6 +51,12 @@ public class MetaModelBlock extends AbstractBlock {
             return Indent.getNormalIndent();
         }
         if (getNode().getElementType() == MetaModelTypes.ENUM_ELEM_DECLARATION) {
+            return Indent.getNormalIndent();
+        }
+        if (getNode().getElementType() == MetaModelTypes.INDEX_ELEM_DECLARATION) {
+            return Indent.getNormalIndent();
+        }
+        if (getNode().getElementType() == MetaModelTypes.SEMANTIC_ELEM_DECLR) {
             return Indent.getNormalIndent();
         }
         if (getNode().getElementType() == MetaModelTypes.ANNOTATION_DECLR) {
@@ -77,6 +87,9 @@ public class MetaModelBlock extends AbstractBlock {
                 return newLine();
             }
             if (type1 == MetaModelTypes.CLASS_ELEM_DECLARATION && type2 == MetaModelTypes.CLASS_ELEM_DECLARATION) {
+                return newLine();
+            }
+            if (type1 == MetaModelTypes.SEMANTIC_ELEM_DECLR && type2 == MetaModelTypes.SEMANTIC_ELEM_DECLR) {
                 return newLine();
             }
             if (type2 == MetaModelTypes.COLON) {

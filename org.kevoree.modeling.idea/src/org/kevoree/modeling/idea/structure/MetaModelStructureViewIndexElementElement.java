@@ -1,49 +1,40 @@
 package org.kevoree.modeling.idea.structure;
 
+import com.intellij.icons.AllIcons;
 import com.intellij.ide.structureView.StructureViewTreeElement;
 import com.intellij.ide.util.treeView.smartTree.SortableTreeElement;
 import com.intellij.ide.util.treeView.smartTree.TreeElement;
 import com.intellij.navigation.ItemPresentation;
 import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.ScrollType;
-import com.intellij.util.PlatformIcons;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelClassDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelEnumElemDeclaration;
+import org.kevoree.modeling.idea.psi.MetaModelIndexElemDeclaration;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 
-public class MetaModelStructureViewClassElement implements StructureViewTreeElement, SortableTreeElement {
+public class MetaModelStructureViewIndexElementElement implements StructureViewTreeElement, SortableTreeElement {
 
-    private MetaModelClassDeclaration classDecl;
+    private MetaModelIndexElemDeclaration indexDecl;
     private String presText;
     private Editor editor;
 
-    public List<MetaModelStructureViewAttributeElement> attributes = new ArrayList<MetaModelStructureViewAttributeElement>();
-    public List<MetaModelStructureViewReferenceElement> references = new ArrayList<MetaModelStructureViewReferenceElement>();
-    public List<MetaModelStructureViewParentElement> parents = new ArrayList<MetaModelStructureViewParentElement>();
-
-    public MetaModelStructureViewClassElement(MetaModelClassDeclaration classDecl, Editor editor) {
-        this.classDecl = classDecl;
+    public MetaModelStructureViewIndexElementElement(MetaModelIndexElemDeclaration iDecl, Editor editor) {
+        this.indexDecl = iDecl;
         this.editor = editor;
-        int indexOfPoint = classDecl.getTypeDeclaration().getName().lastIndexOf(".");
-        if (indexOfPoint > 0) {
-            presText = classDecl.getTypeDeclaration().getName().substring(indexOfPoint + 1);
-        } else {
-            presText = classDecl.getTypeDeclaration().getName();
-        }
+        presText = iDecl.getText();
     }
 
     @Override
     public Object getValue() {
-        return classDecl;
+        return indexDecl;
     }
 
     @Override
     public void navigate(boolean b) {
-        editor.getCaretModel().moveToOffset(classDecl.getTextOffset());
+        //System.out.println("Editor:" + editor.getClass());
+        editor.getCaretModel().moveToOffset(indexDecl.getTextOffset());
         editor.getScrollingModel().scrollToCaret(ScrollType.CENTER_UP);
     }
 
@@ -76,20 +67,14 @@ public class MetaModelStructureViewClassElement implements StructureViewTreeElem
             @Nullable
             @Override
             public Icon getIcon(boolean b) {
-                return PlatformIcons.CLASS_ICON;
+                return AllIcons.Nodes.Static;
             }
         };
     }
 
     @Override
     public TreeElement[] getChildren() {
-        List<TreeElement> all = new ArrayList<TreeElement>();
-        all.addAll(parents);
-        
-        all.addAll(attributes);
-        all.addAll(references);
-
-        return all.toArray(new TreeElement[all.size()]);
+        return EMPTY_ARRAY;
     }
 
     @NotNull

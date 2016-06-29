@@ -17,8 +17,12 @@ public class MetaModelRelationNameImpl extends ASTWrapperPsiElement implements M
     super(node);
   }
 
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitRelationName(this);
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitRelationName(this);
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
     else super.accept(visitor);
   }
 

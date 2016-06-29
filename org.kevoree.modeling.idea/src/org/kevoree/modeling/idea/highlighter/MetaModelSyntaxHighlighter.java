@@ -53,6 +53,9 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
     public TextAttributesKey[] getTokenHighlights(IElementType tokenType) {
         /* Entities OPERATIONS */
 
+        if (tokenType.equals(MetaModelTypes.INDEX)) {
+            return KEYWORD_KEYS;
+        }
         if (tokenType.equals(MetaModelTypes.CLASS)) {
             return KEYWORD_KEYS;
         }
@@ -68,13 +71,7 @@ public class MetaModelSyntaxHighlighter extends SyntaxHighlighterBase {
         if (tokenType.equals(MetaModelTypes.REF)) {
             return KEYWORD_KEYS;
         }
-        if (tokenType.equals(MetaModelTypes.INPUT)) {
-            return KEYWORD_KEYS;
-        }
-        if (tokenType.equals(MetaModelTypes.OUTPUT)) {
-            return KEYWORD_KEYS;
-        }
-        if (tokenType.equals(MetaModelTypes.DEPENDENCY)) {
+        if (tokenType.equals(MetaModelTypes.USING)) {
             return KEYWORD_KEYS;
         }
         if (tokenType.equals(MetaModelTypes.WITH)) {

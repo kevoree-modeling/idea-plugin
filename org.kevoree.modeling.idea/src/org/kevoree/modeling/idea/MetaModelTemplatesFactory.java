@@ -11,9 +11,6 @@ import org.kevoree.modeling.MetaModelLanguageType;
 import java.io.File;
 import java.util.Properties;
 
-/**
- * Created by duke on 16/01/2014.
- */
 public class MetaModelTemplatesFactory implements FileTemplateGroupDescriptorFactory {
 
     public enum Template {
@@ -41,7 +38,7 @@ public class MetaModelTemplatesFactory implements FileTemplateGroupDescriptorFac
         return group;
     }
 
-    public static PsiElement createFromTemplate(PsiDirectory directory,String fileName, Template template, String text2) {
+    public static PsiElement createFromTemplate(PsiDirectory directory, String fileName, Template template, String text2) {
 
         final PsiFileFactory factory = PsiFileFactory.getInstance(directory.getProject());
 

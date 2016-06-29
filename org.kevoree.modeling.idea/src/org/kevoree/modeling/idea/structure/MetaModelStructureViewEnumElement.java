@@ -17,9 +17,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
 public class MetaModelStructureViewEnumElement implements StructureViewTreeElement, SortableTreeElement {
 
     private MetaModelEnumDeclaration enumDecl;
@@ -31,8 +28,8 @@ public class MetaModelStructureViewEnumElement implements StructureViewTreeEleme
         this.enumDecl = enumDecl;
         this.editor = editor;
         int indexOfPoint = enumDecl.getTypeDeclaration().getName().lastIndexOf(".");
-        if(indexOfPoint > 0) {
-            presText = enumDecl.getTypeDeclaration().getName().substring(indexOfPoint+1);
+        if (indexOfPoint > 0) {
+            presText = enumDecl.getTypeDeclaration().getName().substring(indexOfPoint + 1);
         } else {
             presText = enumDecl.getTypeDeclaration().getName();
         }

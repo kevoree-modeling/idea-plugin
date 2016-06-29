@@ -35,13 +35,10 @@ public class MetaModelCompletionContributor extends CompletionContributor {
 
                         if (parameters.getPosition().getParent() != null) {
                             if (parameters.getPosition().getParent().getParent() != null) {
-                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOutputDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
+                                if (parameters.getPosition().getParent().getParent() instanceof MetaModelAttributeDeclaration) {
                                     //add all attributes
                                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                                         resultSet.addElement(LookupElementBuilder.create(p.toString()));
-                                        if (parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
-                                            resultSet.addElement(LookupElementBuilder.create(p.toString() + "[]"));
-                                        }
                                     }
                                     parameters.getOriginalFile().acceptChildren(new PsiElementVisitor() {
                                         @Override
@@ -50,16 +47,13 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                                                 MetaModelDeclaration declaration = (MetaModelDeclaration) element;
                                                 if (declaration.getEnumDeclaration() != null && declaration.getEnumDeclaration().getTypeDeclaration() != null) {
                                                     resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration()));
-                                                    if (parameters.getPosition().getParent().getParent() instanceof MetaModelOperationParam) {
-                                                        resultSet.addElement(LookupElementBuilder.create(declaration.getEnumDeclaration().getTypeDeclaration().getIdent().getText() + "[]"));
-                                                    }
                                                 }
                                             }
                                             super.visitElement(element);
                                         }
                                     });
                                     resultSet.stopHere();
-                                } else if (parameters.getPosition().getParent().getParent() instanceof MetaModelRelationDeclaration || parameters.getPosition().getParent().getParent() instanceof MetaModelDependencyDeclaration) {
+                                } else if (parameters.getPosition().getParent().getParent() instanceof MetaModelRelationDeclaration) {
                                     //add all know types
                                     parameters.getOriginalFile().acceptChildren(new PsiElementVisitor() {
                                         @Override
@@ -204,31 +198,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );*/
 
-
-        extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.DEPENDENCY)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("dependencyName : "));
-                        resultSet.stopHere();
-                    }
-                }
-        );
-
-        extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.INPUT)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("inputName \"dependencyName.attName\" "));
-                        resultSet.stopHere();
-                    }
-                }
-        );
-
         /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.PRECISION)),
@@ -242,17 +211,6 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );*/
 
-        extend(CompletionType.BASIC,
-                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).afterLeaf(PlatformPatterns.psiElement(MetaModelTypes.OUTPUT)),
-                new CompletionProvider<CompletionParameters>() {
-                    public void addCompletions(@NotNull CompletionParameters parameters,
-                                               ProcessingContext context,
-                                               @NotNull CompletionResultSet resultSet) {
-                        resultSet.addElement(LookupElementBuilder.create("outputName : "));
-                        resultSet.stopHere();
-                    }
-                }
-        );
 
         /*
         extend(CompletionType.BASIC,
@@ -330,6 +288,17 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );
 
+        extend(CompletionType.BASIC,
+                PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.INDEX)),
+                new CompletionProvider<CompletionParameters>() {
+                    public void addCompletions(@NotNull CompletionParameters parameters,
+                                               ProcessingContext context,
+                                               @NotNull CompletionResultSet resultSet) {
+                        fillInsideClassDecl(resultSet);
+                    }
+                }
+        );
+
 
         /*
         extend(CompletionType.BASIC,
@@ -343,6 +312,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                 }
         );*/
 
+        /*
         extend(CompletionType.BASIC,
                 PlatformPatterns.psiElement().withLanguage(MetaModelLanguage.INSTANCE).beforeLeaf(PlatformPatterns.psiElement(MetaModelTypes.DEPENDENCY)),
                 new CompletionProvider<CompletionParameters>() {
@@ -374,7 +344,7 @@ public class MetaModelCompletionContributor extends CompletionContributor {
                         fillInsideClassDecl(resultSet);
                     }
                 }
-        );
+        );*/
 
         /*
         extend(CompletionType.BASIC,

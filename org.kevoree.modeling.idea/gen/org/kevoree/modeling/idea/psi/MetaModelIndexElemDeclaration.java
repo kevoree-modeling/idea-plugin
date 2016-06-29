@@ -5,12 +5,9 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelEnumDeclaration extends PsiElement {
+public interface MetaModelIndexElemDeclaration extends PsiElement {
 
   @NotNull
-  List<MetaModelEnumElemDeclaration> getEnumElemDeclarationList();
-
-  @NotNull
-  MetaModelTypeDeclaration getTypeDeclaration();
+  PsiElement getIdent();
 
 }

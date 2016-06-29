@@ -17,8 +17,12 @@ public class MetaModelEnumDeclarationImpl extends ASTWrapperPsiElement implement
     super(node);
   }
 
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitEnumDeclaration(this);
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitEnumDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
     else super.accept(visitor);
   }
 
@@ -29,9 +33,9 @@ public class MetaModelEnumDeclarationImpl extends ASTWrapperPsiElement implement
   }
 
   @Override
-  @Nullable
+  @NotNull
   public MetaModelTypeDeclaration getTypeDeclaration() {
-    return findChildByClass(MetaModelTypeDeclaration.class);
+    return findNotNullChildByClass(MetaModelTypeDeclaration.class);
   }
 
 }

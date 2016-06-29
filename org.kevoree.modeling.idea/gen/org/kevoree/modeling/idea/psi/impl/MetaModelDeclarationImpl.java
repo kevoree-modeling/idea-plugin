@@ -17,8 +17,12 @@ public class MetaModelDeclarationImpl extends ASTWrapperPsiElement implements Me
     super(node);
   }
 
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitDeclaration(this);
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
     else super.accept(visitor);
   }
 
@@ -32,6 +36,12 @@ public class MetaModelDeclarationImpl extends ASTWrapperPsiElement implements Me
   @Nullable
   public MetaModelEnumDeclaration getEnumDeclaration() {
     return findChildByClass(MetaModelEnumDeclaration.class);
+  }
+
+  @Override
+  @Nullable
+  public MetaModelIndexDeclaration getIndexDeclaration() {
+    return findChildByClass(MetaModelIndexDeclaration.class);
   }
 
 }

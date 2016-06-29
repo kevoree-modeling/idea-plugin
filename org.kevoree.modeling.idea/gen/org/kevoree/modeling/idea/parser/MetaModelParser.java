@@ -23,13 +23,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     boolean r;
     b = adapt_builder_(t, b, this, null);
     Marker m = enter_section_(b, 0, _COLLAPSE_, null);
-    if (t == ANNOTATION_DECLR) {
-      r = ANNOTATION_DECLR(b, 0);
-    }
-    else if (t == ANNOTATION_NAME) {
-      r = ANNOTATION_NAME(b, 0);
-    }
-    else if (t == ATTRIBUTE_DECLARATION) {
+    if (t == ATTRIBUTE_DECLARATION) {
       r = ATTRIBUTE_DECLARATION(b, 0);
     }
     else if (t == ATTRIBUTE_NAME) {
@@ -44,44 +38,17 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     else if (t == DECLARATION) {
       r = DECLARATION(b, 0);
     }
-    else if (t == DEPENDENCY_DECLARATION) {
-      r = DEPENDENCY_DECLARATION(b, 0);
-    }
-    else if (t == DEPENDENCY_NAME) {
-      r = DEPENDENCY_NAME(b, 0);
-    }
     else if (t == ENUM_DECLARATION) {
       r = ENUM_DECLARATION(b, 0);
     }
     else if (t == ENUM_ELEM_DECLARATION) {
       r = ENUM_ELEM_DECLARATION(b, 0);
     }
-    else if (t == INPUT_DECLARATION) {
-      r = INPUT_DECLARATION(b, 0);
+    else if (t == INDEX_DECLARATION) {
+      r = INDEX_DECLARATION(b, 0);
     }
-    else if (t == INPUT_NAME) {
-      r = INPUT_NAME(b, 0);
-    }
-    else if (t == OPERATION_DECLARATION) {
-      r = OPERATION_DECLARATION(b, 0);
-    }
-    else if (t == OPERATION_NAME) {
-      r = OPERATION_NAME(b, 0);
-    }
-    else if (t == OPERATION_PARAM) {
-      r = OPERATION_PARAM(b, 0);
-    }
-    else if (t == OPERATION_PARAMS) {
-      r = OPERATION_PARAMS(b, 0);
-    }
-    else if (t == OPERATION_RETURN) {
-      r = OPERATION_RETURN(b, 0);
-    }
-    else if (t == OUTPUT_DECLARATION) {
-      r = OUTPUT_DECLARATION(b, 0);
-    }
-    else if (t == OUTPUT_NAME) {
-      r = OUTPUT_NAME(b, 0);
+    else if (t == INDEX_ELEM_DECLARATION) {
+      r = INDEX_ELEM_DECLARATION(b, 0);
     }
     else if (t == PARENTS_DECLARATION) {
       r = PARENTS_DECLARATION(b, 0);
@@ -91,6 +58,21 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     }
     else if (t == RELATION_NAME) {
       r = RELATION_NAME(b, 0);
+    }
+    else if (t == SEMANTIC_DECLR) {
+      r = SEMANTIC_DECLR(b, 0);
+    }
+    else if (t == SEMANTIC_ELEM_DECLR) {
+      r = SEMANTIC_ELEM_DECLR(b, 0);
+    }
+    else if (t == SEMANTIC_FROM) {
+      r = SEMANTIC_FROM(b, 0);
+    }
+    else if (t == SEMANTIC_USING) {
+      r = SEMANTIC_USING(b, 0);
+    }
+    else if (t == SEMANTIC_WITH) {
+      r = SEMANTIC_WITH(b, 0);
     }
     else if (t == TYPE_DECLARATION) {
       r = TYPE_DECLARATION(b, 0);
@@ -106,51 +88,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // WITH ANNOTATION_NAME (NUMBER|string)?
-  public static boolean ANNOTATION_DECLR(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_DECLR")) return false;
-    if (!nextTokenIs(b, WITH)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, WITH);
-    r = r && ANNOTATION_NAME(b, l + 1);
-    r = r && ANNOTATION_DECLR_2(b, l + 1);
-    exit_section_(b, m, ANNOTATION_DECLR, r);
-    return r;
-  }
-
-  // (NUMBER|string)?
-  private static boolean ANNOTATION_DECLR_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_DECLR_2")) return false;
-    ANNOTATION_DECLR_2_0(b, l + 1);
-    return true;
-  }
-
-  // NUMBER|string
-  private static boolean ANNOTATION_DECLR_2_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_DECLR_2_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, NUMBER);
-    if (!r) r = consumeToken(b, STRING);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // IDENT
-  public static boolean ANNOTATION_NAME(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "ANNOTATION_NAME")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, IDENT);
-    exit_section_(b, m, ANNOTATION_NAME, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // ATT ATTRIBUTE_NAME COLON TYPE_DECLARATION ANNOTATION_DECLR*
+  // ATT ATTRIBUTE_NAME COLON TYPE_DECLARATION SEMANTIC_DECLR?
   public static boolean ATTRIBUTE_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ATTRIBUTE_DECLARATION")) return false;
     if (!nextTokenIs(b, ATT)) return false;
@@ -165,15 +103,10 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // ANNOTATION_DECLR*
+  // SEMANTIC_DECLR?
   private static boolean ATTRIBUTE_DECLARATION_4(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ATTRIBUTE_DECLARATION_4")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!ANNOTATION_DECLR(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "ATTRIBUTE_DECLARATION_4", c)) break;
-      c = current_position_(b);
-    }
+    SEMANTIC_DECLR(b, l + 1);
     return true;
   }
 
@@ -193,18 +126,18 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   // CLASS TYPE_DECLARATION PARENTS_DECLARATION? BODY_OPEN ANNOTATION_DECLR* CLASS_ELEM_DECLARATION* BODY_CLOSE
   public static boolean CLASS_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "CLASS_DECLARATION")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, "<class declaration>");
+    if (!nextTokenIs(b, CLASS)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, CLASS);
-    p = r; // pin = 1
-    r = r && report_error_(b, TYPE_DECLARATION(b, l + 1));
-    r = p && report_error_(b, CLASS_DECLARATION_2(b, l + 1)) && r;
-    r = p && report_error_(b, consumeToken(b, BODY_OPEN)) && r;
-    r = p && report_error_(b, CLASS_DECLARATION_4(b, l + 1)) && r;
-    r = p && report_error_(b, CLASS_DECLARATION_5(b, l + 1)) && r;
-    r = p && consumeToken(b, BODY_CLOSE) && r;
-    exit_section_(b, l, m, CLASS_DECLARATION, r, p, rule_start_parser_);
-    return r || p;
+    r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && CLASS_DECLARATION_2(b, l + 1);
+    r = r && consumeToken(b, BODY_OPEN);
+    r = r && CLASS_DECLARATION_4(b, l + 1);
+    r = r && CLASS_DECLARATION_5(b, l + 1);
+    r = r && consumeToken(b, BODY_CLOSE);
+    exit_section_(b, m, CLASS_DECLARATION, r);
+    return r;
   }
 
   // PARENTS_DECLARATION?
@@ -219,7 +152,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     if (!recursion_guard_(b, l, "CLASS_DECLARATION_4")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!ANNOTATION_DECLR(b, l + 1)) break;
+      if (!consumeToken(b, ANNOTATION_DECLR)) break;
       if (!empty_element_parsed_guard_(b, "CLASS_DECLARATION_4", c)) break;
       c = current_position_(b);
     }
@@ -239,60 +172,31 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // ATTRIBUTE_DECLARATION | RELATION_DECLARATION | OPERATION_DECLARATION | DEPENDENCY_DECLARATION | INPUT_DECLARATION | OUTPUT_DECLARATION
+  // ATTRIBUTE_DECLARATION | RELATION_DECLARATION | DEPENDENCY_DECLARATION
   public static boolean CLASS_ELEM_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "CLASS_ELEM_DECLARATION")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<class elem declaration>");
+    Marker m = enter_section_(b, l, _NONE_, CLASS_ELEM_DECLARATION, "<class elem declaration>");
     r = ATTRIBUTE_DECLARATION(b, l + 1);
     if (!r) r = RELATION_DECLARATION(b, l + 1);
-    if (!r) r = OPERATION_DECLARATION(b, l + 1);
-    if (!r) r = DEPENDENCY_DECLARATION(b, l + 1);
-    if (!r) r = INPUT_DECLARATION(b, l + 1);
-    if (!r) r = OUTPUT_DECLARATION(b, l + 1);
-    exit_section_(b, l, m, CLASS_ELEM_DECLARATION, r, false, null);
+    if (!r) r = consumeToken(b, DEPENDENCY_DECLARATION);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
   /* ********************************************************** */
-  // CLASS_DECLARATION | ENUM_DECLARATION | eof | newline | CRLF
+  // CLASS_DECLARATION | ENUM_DECLARATION | INDEX_DECLARATION | eof | newline | CRLF
   public static boolean DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "DECLARATION")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, "<declaration>");
+    Marker m = enter_section_(b, l, _NONE_, DECLARATION, "<declaration>");
     r = CLASS_DECLARATION(b, l + 1);
     if (!r) r = ENUM_DECLARATION(b, l + 1);
+    if (!r) r = INDEX_DECLARATION(b, l + 1);
     if (!r) r = consumeToken(b, EOF);
     if (!r) r = consumeToken(b, NEWLINE);
     if (!r) r = consumeToken(b, CRLF);
-    exit_section_(b, l, m, DECLARATION, r, false, null);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // DEPENDENCY DEPENDENCY_NAME COLON TYPE_DECLARATION
-  public static boolean DEPENDENCY_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "DEPENDENCY_DECLARATION")) return false;
-    if (!nextTokenIs(b, DEPENDENCY)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, DEPENDENCY);
-    r = r && DEPENDENCY_NAME(b, l + 1);
-    r = r && consumeToken(b, COLON);
-    r = r && TYPE_DECLARATION(b, l + 1);
-    exit_section_(b, m, DEPENDENCY_DECLARATION, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // IDENT
-  public static boolean DEPENDENCY_NAME(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "DEPENDENCY_NAME")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, IDENT);
-    exit_section_(b, m, DEPENDENCY_NAME, r);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
@@ -300,17 +204,17 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   // ENUM TYPE_DECLARATION BODY_OPEN ENUM_ELEM_DECLARATION (COMMA ENUM_ELEM_DECLARATION)* BODY_CLOSE
   public static boolean ENUM_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "ENUM_DECLARATION")) return false;
-    boolean r, p;
-    Marker m = enter_section_(b, l, _NONE_, "<enum declaration>");
+    if (!nextTokenIs(b, ENUM)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
     r = consumeToken(b, ENUM);
-    p = r; // pin = 1
-    r = r && report_error_(b, TYPE_DECLARATION(b, l + 1));
-    r = p && report_error_(b, consumeToken(b, BODY_OPEN)) && r;
-    r = p && report_error_(b, ENUM_ELEM_DECLARATION(b, l + 1)) && r;
-    r = p && report_error_(b, ENUM_DECLARATION_4(b, l + 1)) && r;
-    r = p && consumeToken(b, BODY_CLOSE) && r;
-    exit_section_(b, l, m, ENUM_DECLARATION, r, p, rule_start_parser_);
-    return r || p;
+    r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && consumeToken(b, BODY_OPEN);
+    r = r && ENUM_ELEM_DECLARATION(b, l + 1);
+    r = r && ENUM_DECLARATION_4(b, l + 1);
+    r = r && consumeToken(b, BODY_CLOSE);
+    exit_section_(b, m, ENUM_DECLARATION, r);
+    return r;
   }
 
   // (COMMA ENUM_ELEM_DECLARATION)*
@@ -349,233 +253,70 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // INPUT INPUT_NAME string
-  public static boolean INPUT_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INPUT_DECLARATION")) return false;
-    if (!nextTokenIs(b, INPUT)) return false;
+  // INDEX TYPE_DECLARATION COLON TYPE_DECLARATION BODY_OPEN INDEX_ELEM_DECLARATION (COMMA INDEX_ELEM_DECLARATION)* BODY_CLOSE
+  public static boolean INDEX_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INDEX_DECLARATION")) return false;
+    if (!nextTokenIs(b, INDEX)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeToken(b, INPUT);
-    r = r && INPUT_NAME(b, l + 1);
-    r = r && consumeToken(b, STRING);
-    exit_section_(b, m, INPUT_DECLARATION, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // IDENT
-  public static boolean INPUT_NAME(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "INPUT_NAME")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, IDENT);
-    exit_section_(b, m, INPUT_NAME, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // ANNOTATION_DECLR* DECLARATION*
-  static boolean METAMODEL(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "METAMODEL")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = METAMODEL_0(b, l + 1);
-    r = r && METAMODEL_1(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // ANNOTATION_DECLR*
-  private static boolean METAMODEL_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "METAMODEL_0")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!ANNOTATION_DECLR(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "METAMODEL_0", c)) break;
-      c = current_position_(b);
-    }
-    return true;
-  }
-
-  // DECLARATION*
-  private static boolean METAMODEL_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "METAMODEL_1")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!DECLARATION(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "METAMODEL_1", c)) break;
-      c = current_position_(b);
-    }
-    return true;
-  }
-
-  /* ********************************************************** */
-  // FUNC OPERATION_NAME (ANNOT_PARAM_OPEN OPERATION_PARAMS ANNOT_PARAM_CLOSE)? (OPERATION_RETURN)?
-  public static boolean OPERATION_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_DECLARATION")) return false;
-    if (!nextTokenIs(b, FUNC)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, FUNC);
-    r = r && OPERATION_NAME(b, l + 1);
-    r = r && OPERATION_DECLARATION_2(b, l + 1);
-    r = r && OPERATION_DECLARATION_3(b, l + 1);
-    exit_section_(b, m, OPERATION_DECLARATION, r);
-    return r;
-  }
-
-  // (ANNOT_PARAM_OPEN OPERATION_PARAMS ANNOT_PARAM_CLOSE)?
-  private static boolean OPERATION_DECLARATION_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_DECLARATION_2")) return false;
-    OPERATION_DECLARATION_2_0(b, l + 1);
-    return true;
-  }
-
-  // ANNOT_PARAM_OPEN OPERATION_PARAMS ANNOT_PARAM_CLOSE
-  private static boolean OPERATION_DECLARATION_2_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_DECLARATION_2_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, ANNOT_PARAM_OPEN);
-    r = r && OPERATION_PARAMS(b, l + 1);
-    r = r && consumeToken(b, ANNOT_PARAM_CLOSE);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  // (OPERATION_RETURN)?
-  private static boolean OPERATION_DECLARATION_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_DECLARATION_3")) return false;
-    OPERATION_DECLARATION_3_0(b, l + 1);
-    return true;
-  }
-
-  // (OPERATION_RETURN)
-  private static boolean OPERATION_DECLARATION_3_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_DECLARATION_3_0")) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = OPERATION_RETURN(b, l + 1);
-    exit_section_(b, m, null, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // IDENT
-  public static boolean OPERATION_NAME(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_NAME")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, IDENT);
-    exit_section_(b, m, OPERATION_NAME, r);
-    return r;
-  }
-
-  /* ********************************************************** */
-  // IDENT COLON TYPE_DECLARATION ARRAY?
-  public static boolean OPERATION_PARAM(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_PARAM")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, IDENT, COLON);
+    r = consumeToken(b, INDEX);
     r = r && TYPE_DECLARATION(b, l + 1);
-    r = r && OPERATION_PARAM_3(b, l + 1);
-    exit_section_(b, m, OPERATION_PARAM, r);
+    r = r && consumeToken(b, COLON);
+    r = r && TYPE_DECLARATION(b, l + 1);
+    r = r && consumeToken(b, BODY_OPEN);
+    r = r && INDEX_ELEM_DECLARATION(b, l + 1);
+    r = r && INDEX_DECLARATION_6(b, l + 1);
+    r = r && consumeToken(b, BODY_CLOSE);
+    exit_section_(b, m, INDEX_DECLARATION, r);
     return r;
   }
 
-  // ARRAY?
-  private static boolean OPERATION_PARAM_3(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_PARAM_3")) return false;
-    consumeToken(b, ARRAY);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // OPERATION_PARAM (COMMA OPERATION_PARAM)*
-  public static boolean OPERATION_PARAMS(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_PARAMS")) return false;
-    if (!nextTokenIs(b, IDENT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = OPERATION_PARAM(b, l + 1);
-    r = r && OPERATION_PARAMS_1(b, l + 1);
-    exit_section_(b, m, OPERATION_PARAMS, r);
-    return r;
-  }
-
-  // (COMMA OPERATION_PARAM)*
-  private static boolean OPERATION_PARAMS_1(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_PARAMS_1")) return false;
+  // (COMMA INDEX_ELEM_DECLARATION)*
+  private static boolean INDEX_DECLARATION_6(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INDEX_DECLARATION_6")) return false;
     int c = current_position_(b);
     while (true) {
-      if (!OPERATION_PARAMS_1_0(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "OPERATION_PARAMS_1", c)) break;
+      if (!INDEX_DECLARATION_6_0(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "INDEX_DECLARATION_6", c)) break;
       c = current_position_(b);
     }
     return true;
   }
 
-  // COMMA OPERATION_PARAM
-  private static boolean OPERATION_PARAMS_1_0(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_PARAMS_1_0")) return false;
+  // COMMA INDEX_ELEM_DECLARATION
+  private static boolean INDEX_DECLARATION_6_0(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INDEX_DECLARATION_6_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, COMMA);
-    r = r && OPERATION_PARAM(b, l + 1);
+    r = r && INDEX_ELEM_DECLARATION(b, l + 1);
     exit_section_(b, m, null, r);
     return r;
   }
 
   /* ********************************************************** */
-  // COLON TYPE_DECLARATION ARRAY?
-  public static boolean OPERATION_RETURN(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_RETURN")) return false;
-    if (!nextTokenIs(b, COLON)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, COLON);
-    r = r && TYPE_DECLARATION(b, l + 1);
-    r = r && OPERATION_RETURN_2(b, l + 1);
-    exit_section_(b, m, OPERATION_RETURN, r);
-    return r;
-  }
-
-  // ARRAY?
-  private static boolean OPERATION_RETURN_2(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OPERATION_RETURN_2")) return false;
-    consumeToken(b, ARRAY);
-    return true;
-  }
-
-  /* ********************************************************** */
-  // OUTPUT OUTPUT_NAME COLON TYPE_DECLARATION
-  public static boolean OUTPUT_DECLARATION(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OUTPUT_DECLARATION")) return false;
-    if (!nextTokenIs(b, OUTPUT)) return false;
-    boolean r;
-    Marker m = enter_section_(b);
-    r = consumeToken(b, OUTPUT);
-    r = r && OUTPUT_NAME(b, l + 1);
-    r = r && consumeToken(b, COLON);
-    r = r && TYPE_DECLARATION(b, l + 1);
-    exit_section_(b, m, OUTPUT_DECLARATION, r);
-    return r;
-  }
-
-  /* ********************************************************** */
   // IDENT
-  public static boolean OUTPUT_NAME(PsiBuilder b, int l) {
-    if (!recursion_guard_(b, l, "OUTPUT_NAME")) return false;
+  public static boolean INDEX_ELEM_DECLARATION(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "INDEX_ELEM_DECLARATION")) return false;
     if (!nextTokenIs(b, IDENT)) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, IDENT);
-    exit_section_(b, m, OUTPUT_NAME, r);
+    exit_section_(b, m, INDEX_ELEM_DECLARATION, r);
     return r;
+  }
+
+  /* ********************************************************** */
+  // DECLARATION*
+  static boolean METAMODEL(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "METAMODEL")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!DECLARATION(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "METAMODEL", c)) break;
+      c = current_position_(b);
+    }
+    return true;
   }
 
   /* ********************************************************** */
@@ -616,7 +357,7 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // REF RELATION_NAME COLON TYPE_DECLARATION ANNOTATION_DECLR*
+  // REF RELATION_NAME COLON TYPE_DECLARATION SEMANTIC_DECLR?
   public static boolean RELATION_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "RELATION_DECLARATION")) return false;
     if (!nextTokenIs(b, REF)) return false;
@@ -631,15 +372,10 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
     return r;
   }
 
-  // ANNOTATION_DECLR*
+  // SEMANTIC_DECLR?
   private static boolean RELATION_DECLARATION_4(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "RELATION_DECLARATION_4")) return false;
-    int c = current_position_(b);
-    while (true) {
-      if (!ANNOTATION_DECLR(b, l + 1)) break;
-      if (!empty_element_parsed_guard_(b, "RELATION_DECLARATION_4", c)) break;
-      c = current_position_(b);
-    }
+    SEMANTIC_DECLR(b, l + 1);
     return true;
   }
 
@@ -656,6 +392,81 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
+  // BODY_OPEN SEMANTIC_ELEM_DECLR* BODY_CLOSE
+  public static boolean SEMANTIC_DECLR(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_DECLR")) return false;
+    if (!nextTokenIs(b, BODY_OPEN)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, BODY_OPEN);
+    r = r && SEMANTIC_DECLR_1(b, l + 1);
+    r = r && consumeToken(b, BODY_CLOSE);
+    exit_section_(b, m, SEMANTIC_DECLR, r);
+    return r;
+  }
+
+  // SEMANTIC_ELEM_DECLR*
+  private static boolean SEMANTIC_DECLR_1(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_DECLR_1")) return false;
+    int c = current_position_(b);
+    while (true) {
+      if (!SEMANTIC_ELEM_DECLR(b, l + 1)) break;
+      if (!empty_element_parsed_guard_(b, "SEMANTIC_DECLR_1", c)) break;
+      c = current_position_(b);
+    }
+    return true;
+  }
+
+  /* ********************************************************** */
+  // SEMANTIC_USING|SEMANTIC_WITH|SEMANTIC_FROM
+  public static boolean SEMANTIC_ELEM_DECLR(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_ELEM_DECLR")) return false;
+    boolean r;
+    Marker m = enter_section_(b, l, _NONE_, SEMANTIC_ELEM_DECLR, "<semantic elem declr>");
+    r = SEMANTIC_USING(b, l + 1);
+    if (!r) r = SEMANTIC_WITH(b, l + 1);
+    if (!r) r = SEMANTIC_FROM(b, l + 1);
+    exit_section_(b, l, m, r, false, null);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // FROM string
+  public static boolean SEMANTIC_FROM(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_FROM")) return false;
+    if (!nextTokenIs(b, FROM)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, FROM, STRING);
+    exit_section_(b, m, SEMANTIC_FROM, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // USING string
+  public static boolean SEMANTIC_USING(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_USING")) return false;
+    if (!nextTokenIs(b, USING)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, USING, STRING);
+    exit_section_(b, m, SEMANTIC_USING, r);
+    return r;
+  }
+
+  /* ********************************************************** */
+  // WITH IDENT string
+  public static boolean SEMANTIC_WITH(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "SEMANTIC_WITH")) return false;
+    if (!nextTokenIs(b, WITH)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeTokens(b, 0, WITH, IDENT, STRING);
+    exit_section_(b, m, SEMANTIC_WITH, r);
+    return r;
+  }
+
+  /* ********************************************************** */
   // IDENT
   public static boolean TYPE_DECLARATION(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "TYPE_DECLARATION")) return false;
@@ -668,30 +479,26 @@ public class MetaModelParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // !(CLASS|ENUM)
+  // !(CLASS|ENUM|INDEX)
   static boolean rule_start(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start")) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NOT_, null);
+    Marker m = enter_section_(b, l, _NOT_);
     r = !rule_start_0(b, l + 1);
-    exit_section_(b, l, m, null, r, false, null);
+    exit_section_(b, l, m, r, false, null);
     return r;
   }
 
-  // CLASS|ENUM
+  // CLASS|ENUM|INDEX
   private static boolean rule_start_0(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule_start_0")) return false;
     boolean r;
     Marker m = enter_section_(b);
     r = consumeToken(b, CLASS);
     if (!r) r = consumeToken(b, ENUM);
+    if (!r) r = consumeToken(b, INDEX);
     exit_section_(b, m, null, r);
     return r;
   }
 
-  final static Parser rule_start_parser_ = new Parser() {
-    public boolean parse(PsiBuilder b, int l) {
-      return rule_start(b, l + 1);
-    }
-  };
 }

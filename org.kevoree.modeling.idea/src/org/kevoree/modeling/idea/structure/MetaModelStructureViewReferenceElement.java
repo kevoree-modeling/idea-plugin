@@ -20,7 +20,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     private MetaModelRelationDeclaration refDecl;
     private Editor editor;
     private String simpleType;
-    public List<MetaModelStructureViewAnnotationElement> annotationsDeclr = new ArrayList<MetaModelStructureViewAnnotationElement>();
 
     public MetaModelStructureViewReferenceElement(MetaModelRelationDeclaration refDecl, Editor editor) {
         this.refDecl = refDecl;
@@ -85,7 +84,6 @@ public class MetaModelStructureViewReferenceElement implements StructureViewTree
     @Override
     public TreeElement[] getChildren() {
         List<TreeElement> all = new ArrayList<TreeElement>();
-        all.addAll(annotationsDeclr);
         return all.toArray(new TreeElement[all.size()]);
     }
 

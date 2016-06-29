@@ -16,8 +16,12 @@ public class MetaModelTypeDeclarationImpl extends MetaModelNamedElementImpl impl
     super(node);
   }
 
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitTypeDeclaration(this);
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitTypeDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
     else super.accept(visitor);
   }
 

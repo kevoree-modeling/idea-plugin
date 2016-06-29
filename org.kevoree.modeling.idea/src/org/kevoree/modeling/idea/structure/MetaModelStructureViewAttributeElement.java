@@ -24,8 +24,6 @@ public class MetaModelStructureViewAttributeElement implements StructureViewTree
     private Icon myIcon = PlatformIcons.FIELD_ICON;
     private String simpleType;
 
-    public List<MetaModelStructureViewAnnotationElement> annotationsDeclr = new ArrayList<MetaModelStructureViewAnnotationElement>();
-
     public MetaModelStructureViewAttributeElement(MetaModelAttributeDeclaration attDecl, Editor editor) {
         this.attDecl = attDecl;
         this.editor = editor;
@@ -80,7 +78,6 @@ public class MetaModelStructureViewAttributeElement implements StructureViewTree
     @Override
     public TreeElement[] getChildren() {
         List<TreeElement> all = new ArrayList<TreeElement>();
-        all.addAll(annotationsDeclr);
         return all.toArray(new TreeElement[all.size()]);
     }
 

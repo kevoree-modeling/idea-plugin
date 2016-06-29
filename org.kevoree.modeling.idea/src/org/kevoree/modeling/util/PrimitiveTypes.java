@@ -2,7 +2,7 @@ package org.kevoree.modeling.util;
 
 public enum PrimitiveTypes {
 
-    String, Long, Int, Bool, Double, Continuous;
+    String, Long, Integer, Bool, Double, Continuous;
 
     public static boolean isPrimitive(String originalName) {
         for (PrimitiveTypes p : PrimitiveTypes.values()) {
@@ -11,60 +11,6 @@ public enum PrimitiveTypes {
             }
         }
         return false;
-    }
-
-    public static String toEcoreType(String originalName) {
-        if (originalName.equals("String")) {
-            return "java.lang.String";
-        }
-        if (originalName.equals("Bool")) {
-            return "java.lang.Boolean";
-        }
-        if (originalName.equals("Int")) {
-            return "java.lang.Integer";
-        }
-        if (originalName.equals("Long")) {
-            return "java.lang.Long";
-        }
-        if (originalName.equals("Double")) {
-            return "java.lang.Double";
-        }
-        if (originalName.equals("Continuous")) {
-            return "java.lang.Double";
-        }
-        return originalName;
-    }
-
-    public static String convert(String originalNameFull) {
-        String originalName = originalNameFull;
-        if (originalName.startsWith("ecore.")) {
-            originalName = originalName.substring(6);
-        }
-        if (originalName.startsWith("java.lang.")) {
-            originalName = originalName.substring(10);
-        }
-        if (originalName.equals("String") || originalName.equals("EString") || originalName.equals("EStringObject")) {
-            return "String";
-        }
-        if (originalName.equals("Boolean") || originalName.equals("EBoolean") || originalName.equals("EBooleanObject")) {
-            return "Bool";
-        }
-        if (originalName.equals("Integer") || originalName.equals("EInt") || originalName.equals("EIntegerObject")) {
-            return "Int";
-        }
-        if (originalName.equals("Long") || originalName.equals("ELong") || originalName.equals("ELongObject")) {
-            return "Long";
-        }
-        if (originalName.equals("Short") || originalName.equals("EShort") || originalName.equals("EShortObject")) {
-            return "Int";
-        }
-        if (originalName.equals("Double") || originalName.equals("EDouble") || originalName.equals("EDoubleObject")) {
-            return "Double";
-        }
-        if (originalName.equals("Float") || originalName.equals("EFloat") || originalName.equals("EFloatObject")) {
-            return "Double";
-        }
-        return originalName;
     }
 
 }

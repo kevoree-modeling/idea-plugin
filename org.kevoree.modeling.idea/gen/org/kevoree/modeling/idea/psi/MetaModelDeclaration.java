@@ -13,4 +13,7 @@ public interface MetaModelDeclaration extends PsiElement {
   @Nullable
   MetaModelEnumDeclaration getEnumDeclaration();
 
+  @Nullable
+  MetaModelIndexDeclaration getIndexDeclaration();
+
 }

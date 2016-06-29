@@ -5,12 +5,15 @@ import java.util.List;
 import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElement;
 
-public interface MetaModelClassElemDeclaration extends PsiElement {
+public interface MetaModelSemanticElemDeclr extends PsiElement {
 
   @Nullable
-  MetaModelAttributeDeclaration getAttributeDeclaration();
+  MetaModelSemanticFrom getSemanticFrom();
 
   @Nullable
-  MetaModelRelationDeclaration getRelationDeclaration();
+  MetaModelSemanticUsing getSemanticUsing();
+
+  @Nullable
+  MetaModelSemanticWith getSemanticWith();
 
 }

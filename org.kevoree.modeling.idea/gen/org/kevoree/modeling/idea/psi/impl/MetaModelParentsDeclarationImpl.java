@@ -17,8 +17,12 @@ public class MetaModelParentsDeclarationImpl extends ASTWrapperPsiElement implem
     super(node);
   }
 
+  public void accept(@NotNull MetaModelVisitor visitor) {
+    visitor.visitParentsDeclaration(this);
+  }
+
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof MetaModelVisitor) ((MetaModelVisitor)visitor).visitParentsDeclaration(this);
+    if (visitor instanceof MetaModelVisitor) accept((MetaModelVisitor)visitor);
     else super.accept(visitor);
   }
 

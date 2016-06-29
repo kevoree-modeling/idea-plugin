@@ -17,9 +17,6 @@ import org.jetbrains.jps.model.java.JavaModuleSourceRootTypes;
 import org.kevoree.modeling.MetaModelIcons;
 import org.kevoree.modeling.idea.MetaModelTemplatesFactory;
 
-/**
- * Created by duke on 16/01/2014.
- */
 public class NewMetaModelFileAction extends CreateTemplateInPackageAction<PsiElement> implements DumbAware {
 
     public NewMetaModelFileAction() {

@@ -8,10 +8,10 @@ import com.intellij.psi.PsiElement;
 public interface MetaModelRelationDeclaration extends PsiElement {
 
   @NotNull
-  List<MetaModelAnnotationDeclr> getAnnotationDeclrList();
-
-  @NotNull
   MetaModelRelationName getRelationName();
+
+  @Nullable
+  MetaModelSemanticDeclr getSemanticDeclr();
 
   @NotNull
   MetaModelTypeDeclaration getTypeDeclaration();

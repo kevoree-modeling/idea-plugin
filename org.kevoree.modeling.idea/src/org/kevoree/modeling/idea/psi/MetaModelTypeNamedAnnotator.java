@@ -17,22 +17,28 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
     public void annotate(@NotNull final PsiElement psiElement, @NotNull final AnnotationHolder annotationHolder) {
 
         if (psiElement instanceof MetaModelTypeDeclaration) {
-            if (((MetaModelTypeDeclaration) psiElement).getName().indexOf(".") < 1) {
-                for (PrimitiveTypes p : PrimitiveTypes.values()) {
-                    if (((MetaModelTypeDeclaration) psiElement).getName().equals(p.name())) {
-                        return;
-                    }
-                }
-                annotationHolder.createErrorAnnotation(psiElement, "Type identifier must be a qualified name with at least one package as : pack.ClassName");
-            } else {
+            //if (((MetaModelTypeDeclaration) psiElement).getName().indexOf(".") < 1) {
+                //for (PrimitiveTypes p : PrimitiveTypes.values()) {
+                //    if (((MetaModelTypeDeclaration) psiElement).getName().equals(p.name())) {
+                 //       return;
+                //    }
+                //}
+                //annotationHolder.createErrorAnnotation(psiElement, "Type identifier must be a qualified name with at least one package as : pack.ClassName");
+            //} else {
                 final MetaModelTypeDeclaration casted = (MetaModelTypeDeclaration) psiElement;
-                if (casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelAttributeDeclaration || casted.getParent() instanceof MetaModelOutputDeclaration)) {
+                if (casted != null && casted.getParent() != null && casted.getParent() instanceof MetaModelAttributeDeclaration) {
                     final boolean[] isValidated = {false};
+
+                    if(PrimitiveTypes.isPrimitive(casted.getName())){
+                        isValidated[0] = true;
+                    }
+
+                    /*
                     for (PrimitiveTypes p : PrimitiveTypes.values()) {
                         if (casted.getName().equals(p.name())) {
-                            isValidated[0] = true;
+
                         }
-                    }
+                    }*/
                     if (!isValidated[0]) {
                         //look for enum
                         PsiElement parent = psiElement.getParent();
@@ -61,9 +67,9 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                         }
                     }
                     if (!isValidated[0]) {
-                        annotationHolder.createErrorAnnotation(psiElement, "Attributes and Outputs must have a primitive type such as Long, Double, Continous, Int or Bool");
+                        annotationHolder.createErrorAnnotation(psiElement, "Attributes and Outputs must have a primitive type such as Long, Double, Continous, Integer or Bool");
                     }
-                } else if (casted != null && casted.getParent() != null && (casted.getParent() instanceof MetaModelRelationDeclaration || casted.getParent() instanceof MetaModelDependencyDeclaration)) {
+                } else if (casted != null && casted.getParent() != null && casted.getParent() instanceof MetaModelRelationDeclaration ) {
                     final boolean[] isValidated = {false};
                     if (!isValidated[0]) {
                         PsiElement parent = psiElement.getParent();
@@ -91,7 +97,7 @@ public class MetaModelTypeNamedAnnotator implements Annotator {
                         }
                     }
                 }
-            }
+            //}
         }
     }
 }

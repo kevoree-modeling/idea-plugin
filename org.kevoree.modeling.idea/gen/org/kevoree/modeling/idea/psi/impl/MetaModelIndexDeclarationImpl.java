@@ -11,14 +11,14 @@ import static org.kevoree.modeling.idea.psi.MetaModelTypes.*;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
 import org.kevoree.modeling.idea.psi.*;
 
-public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement implements MetaModelClassElemDeclaration {
+public class MetaModelIndexDeclarationImpl extends ASTWrapperPsiElement implements MetaModelIndexDeclaration {
 
-  public MetaModelClassElemDeclarationImpl(ASTNode node) {
+  public MetaModelIndexDeclarationImpl(ASTNode node) {
     super(node);
   }
 
   public void accept(@NotNull MetaModelVisitor visitor) {
-    visitor.visitClassElemDeclaration(this);
+    visitor.visitIndexDeclaration(this);
   }
 
   public void accept(@NotNull PsiElementVisitor visitor) {
@@ -27,15 +27,15 @@ public class MetaModelClassElemDeclarationImpl extends ASTWrapperPsiElement impl
   }
 
   @Override
-  @Nullable
-  public MetaModelAttributeDeclaration getAttributeDeclaration() {
-    return findChildByClass(MetaModelAttributeDeclaration.class);
+  @NotNull
+  public List<MetaModelIndexElemDeclaration> getIndexElemDeclarationList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelIndexElemDeclaration.class);
   }
 
   @Override
-  @Nullable
-  public MetaModelRelationDeclaration getRelationDeclaration() {
-    return findChildByClass(MetaModelRelationDeclaration.class);
+  @NotNull
+  public List<MetaModelTypeDeclaration> getTypeDeclarationList() {
+    return PsiTreeUtil.getChildrenOfTypeAsList(this, MetaModelTypeDeclaration.class);
   }
 
 }

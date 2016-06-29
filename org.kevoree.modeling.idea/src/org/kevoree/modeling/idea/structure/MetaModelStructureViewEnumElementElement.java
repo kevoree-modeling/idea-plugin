@@ -9,16 +9,10 @@ import com.intellij.openapi.editor.Editor;
 import com.intellij.openapi.editor.ScrollType;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import org.kevoree.modeling.idea.psi.MetaModelEnumDeclaration;
 import org.kevoree.modeling.idea.psi.MetaModelEnumElemDeclaration;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
 
-/**
- * Created by gregory.nain on 16/07/2014.
- */
 public class MetaModelStructureViewEnumElementElement implements StructureViewTreeElement, SortableTreeElement {
 
     private MetaModelEnumElemDeclaration enumDecl;
@@ -79,7 +73,7 @@ public class MetaModelStructureViewEnumElementElement implements StructureViewTr
 
     @Override
     public TreeElement[] getChildren() {
-       return EMPTY_ARRAY;
+        return EMPTY_ARRAY;
     }
 
     @NotNull

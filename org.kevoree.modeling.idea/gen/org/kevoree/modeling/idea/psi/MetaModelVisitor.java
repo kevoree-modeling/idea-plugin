@@ -7,14 +7,6 @@ import com.intellij.psi.PsiElement;
 
 public class MetaModelVisitor extends PsiElementVisitor {
 
-  public void visitAnnotationDeclr(@NotNull MetaModelAnnotationDeclr o) {
-    visitPsiElement(o);
-  }
-
-  public void visitAnnotationName(@NotNull MetaModelAnnotationName o) {
-    visitPsiElement(o);
-  }
-
   public void visitAttributeDeclaration(@NotNull MetaModelAttributeDeclaration o) {
     visitPsiElement(o);
   }
@@ -35,14 +27,6 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitDependencyDeclaration(@NotNull MetaModelDependencyDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitDependencyName(@NotNull MetaModelDependencyName o) {
-    visitPsiElement(o);
-  }
-
   public void visitEnumDeclaration(@NotNull MetaModelEnumDeclaration o) {
     visitPsiElement(o);
   }
@@ -51,39 +35,11 @@ public class MetaModelVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-  public void visitInputDeclaration(@NotNull MetaModelInputDeclaration o) {
+  public void visitIndexDeclaration(@NotNull MetaModelIndexDeclaration o) {
     visitPsiElement(o);
   }
 
-  public void visitInputName(@NotNull MetaModelInputName o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOperationDeclaration(@NotNull MetaModelOperationDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOperationName(@NotNull MetaModelOperationName o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOperationParam(@NotNull MetaModelOperationParam o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOperationParams(@NotNull MetaModelOperationParams o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOperationReturn(@NotNull MetaModelOperationReturn o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOutputDeclaration(@NotNull MetaModelOutputDeclaration o) {
-    visitPsiElement(o);
-  }
-
-  public void visitOutputName(@NotNull MetaModelOutputName o) {
+  public void visitIndexElemDeclaration(@NotNull MetaModelIndexElemDeclaration o) {
     visitPsiElement(o);
   }
 
@@ -96,6 +52,26 @@ public class MetaModelVisitor extends PsiElementVisitor {
   }
 
   public void visitRelationName(@NotNull MetaModelRelationName o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSemanticDeclr(@NotNull MetaModelSemanticDeclr o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSemanticElemDeclr(@NotNull MetaModelSemanticElemDeclr o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSemanticFrom(@NotNull MetaModelSemanticFrom o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSemanticUsing(@NotNull MetaModelSemanticUsing o) {
+    visitPsiElement(o);
+  }
+
+  public void visitSemanticWith(@NotNull MetaModelSemanticWith o) {
     visitPsiElement(o);
   }
 
